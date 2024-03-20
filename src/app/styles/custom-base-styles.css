@@ -5,6 +5,7 @@
     /* font-family */
     --font-family-main: inter, sans-serif;
     /* small text */
+
     --font-size-small: 12px;
     --font-line-small: 16px;
     --font-small-400: 400 var(--font-size-small) / var(--font-line-small) var(--font-family-main);

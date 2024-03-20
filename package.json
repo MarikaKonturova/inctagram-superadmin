@@ -15,6 +15,9 @@
     "react": "^18",
     "react-dom": "^18"
   },
+  "resolutions": {
+    "string-width": "4.2.3"
+  },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.7",
     "@feature-sliced/eslint-config": "^0.1.0-beta.6",
