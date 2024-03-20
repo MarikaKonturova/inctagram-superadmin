@@ -1,0 +1,43 @@
+@layer utilities {
+  /* own custom utility classes  */
+
+  .text-small-400 {
+    font: var(--font-small-400);
+  }
+  .font-small-600 {
+    font: var(--font-small-600);
+  }
+  .text-medium-400 {
+    font: var(--font-medium-400);
+  }
+  .text-medium-500 {
+    font: var(--font-medium-500);
+  }
+  .text-medium-600 {
+    font: var(--font-medium-600);
+  }
+  .text-regular-400 {
+    font: var(--font-regular-400);
+  }
+  .text-regular-700 {
+    font: var(--font-regular-700);
+  }
+  .text-small-link {
+    font: var(--font-small-link);
+  }
+  .text-regular-link {
+    font: var(--font-regular-link);
+  }
+  .text-h1 {
+    font: var(--font-h1);
+  }
+  .text-h2 {
+    font: var(--font-h2);
+  }
+  .text-h3 {
+    font: var(--font-h3);
+  }
+  .text-large {
+    font: var(--font-large);
+  }
+}

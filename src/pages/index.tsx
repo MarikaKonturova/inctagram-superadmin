@@ -1,5 +1,4 @@
 import Head from 'next/head'
-
 export default function Home() {
   return (
     <>
@@ -10,7 +9,9 @@ export default function Home() {
 
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
-      <main>Hello world</main>
+      <main data-theme={'dark'}>
+        <h1 className={'text-secondary-color'}>Hello world</h1>
+      </main>
     </>
   )
 }

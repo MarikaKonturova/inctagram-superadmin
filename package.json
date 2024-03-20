@@ -3,16 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev ",
     "build": "next build",
     "start": "next start",
     "format": "prettier --write src",
-    "lint": "prettier --check . && stylelint --allow-empty-input \"**/*.{css,scss}\" && next lint --fix",
-    "build:local": "prettier --write . && stylelint --allow-empty-input \"**/*.{css,scss}\" && next build",
     "lint-staged": "next lint --fix"
   },
   "dependencies": {
-    "clsx": "^2.1.0",
     "date-fns": "^3.4.0",
     "next": "14.1.3",
     "react": "^18",
@@ -26,6 +23,7 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
+    "autoprefixer": "^10.4.18",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.1.3",
     "eslint-config-prettier": "^9.1.0",
@@ -41,11 +39,15 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-testing-library": "^6.2.0",
     "lint-staged": "^15.2.2",
+    "postcss": "^8.4.37",
+    "postcss-import": "^16.0.1",
+    "postcss-nesting": "^12.1.0",
     "prettier": "^3.2.5",
-    "sass": "^1.71.1",
     "stylelint": "^16.2.1",
     "stylelint-config-clean-order": "^5.4.1",
-    "stylelint-config-standard-scss": "^13.0.0",
+    "stylelint-config-recommended": "^14.0.0",
+    "stylelint-config-tailwindcss": "^0.0.7",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }
