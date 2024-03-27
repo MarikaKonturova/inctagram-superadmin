@@ -3,7 +3,7 @@ import { CodegenConfig } from '@graphql-codegen/cli'
 const config: CodegenConfig = {
   documents: ['./src/shared/api/**/*.ts'],
   generates: {
-    'src/shared/': {
+    'src/': {
       config: {
         withHooks: true,
       },
@@ -14,10 +14,10 @@ const config: CodegenConfig = {
         extension: '.generated.tsx',
       },
     },
-    'src/shared/types.ts': { plugins: ['typescript'] },
+    'src/shared/types/types.ts': { plugins: ['typescript'] },
   },
   ignoreNoDocuments: true, // for better experience with the watcher
-  schema: 'http://localhost:4000/graphql', //need change on our schema
+  schema: 'https://twin.cygan.lol/graphql',
 }
 
 export default config

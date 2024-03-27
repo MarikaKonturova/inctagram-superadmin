@@ -1,1 +1,1 @@
-#schema: http://localhost:4000/graphql  need our schema
+schema: https://twin.cygan.lol/graphql
