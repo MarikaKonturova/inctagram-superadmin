@@ -1,1 +1,1 @@
-export { default as client } from './apollo-client'
+export { client } from './apollo-client'
