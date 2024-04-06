@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { type ReactNode } from 'react'
 
-import useLocale from '../../../../../inctagram-v2/src/shared/hooks/useLocale'
+/*import useLocale from '../../../../../inctagram-v2/src/shared/hooks/useLocale'*/
 import cls from './AppLink.module.css'
 
 interface AppLinkProps {
@@ -21,7 +21,7 @@ export const AppLink = (props: AppLinkProps) => {
   const { Icon, active = false, children, className, text, ...rest } = props
 
   const router = useRouter()
-  const { locale } = useLocale()
+  /*  const { locale } = useLocale()*/
 
   const href = rest.href || router.asPath
 
@@ -30,7 +30,7 @@ export const AppLink = (props: AppLinkProps) => {
   }
 
   return (
-    <Link href={href} legacyBehavior locale={locale}>
+    <Link href={href} legacyBehavior /*locale={locale}*/>
       <a className={clsx(cls.AppLink, mods, className)} {...rest}>
         {children}
       </a>
