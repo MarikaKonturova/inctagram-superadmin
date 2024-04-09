@@ -9,5 +9,9 @@
     "baseColor": "neutral",
     "cssVariables": false,
     "prefix": ""
+  },
+  "aliases": {
+    "components": "shared/",
+    "utils": "shared/utils"
   }
 }
