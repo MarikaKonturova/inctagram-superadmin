@@ -1,5 +1,5 @@
 export { Button } from './button/Button'
-export { FormWrapper } from './formWrapper/FormWrapper'
+export { FormInput, FormWrapper } from './formComponent'
 export { Info } from './info/Info'
 export { Input } from './input/Input'
 export { Label } from './label/Label'
