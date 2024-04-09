@@ -1,19 +1,29 @@
 import { useQuery } from '@apollo/client'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { loginSchema } from 'features/auth/lib/loginFormSchema'
+import { GET_DATA } from 'features/auth/model/getData'
 import Cookies from 'js-cookie'
-import { Button, FormWrapper, Input } from 'shared/ui'
+import { useForm } from 'react-hook-form'
+import { Button, FormInput, FormWrapper } from 'shared/ui'
+import { z } from 'zod'
 
-import { GET_DATA } from '../model/getData'
+export type LoginFormValues = z.infer<typeof loginSchema>
 
 export const LoginForm = () => {
   const { data, refetch } = useQuery(GET_DATA, {
     fetchPolicy: 'no-cache',
   })
 
-  const handleFormSubmit = async ({ email, password }: any) => {
-    const encoder = new TextEncoder()
+  const { control, handleSubmit } = useForm<LoginFormValues>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+    resolver: zodResolver(loginSchema),
+  })
 
-    email = 'admin@admin.me'
-    password = 'admin'
+  const handleFormSubmit = async ({ email, password }: LoginFormValues) => {
+    const encoder = new TextEncoder()
 
     const data = encoder.encode(`${email}:${password}`)
 
@@ -35,11 +45,22 @@ export const LoginForm = () => {
   }
 
   return (
-    <FormWrapper>
+    <FormWrapper onSubmit={handleSubmit(handleFormSubmit)}>
       <h2>Sign In</h2>
-      <Input label={'Email'} placeholder={'Enter your email'} />
-      <Input label={'Password'} placeholder={'Enter your password'} type={'password'} />
-      <Button block onClick={handleFormSubmit}>
+      <FormInput
+        control={control}
+        label={'Email'}
+        name={'email'}
+        placeholder={'Enter your email'}
+      />
+      <FormInput
+        control={control}
+        label={'Password'}
+        name={'password'}
+        placeholder={'Enter your password'}
+        type={'password'}
+      />
+      <Button block type={'submit'}>
         Sign In
       </Button>
     </FormWrapper>
