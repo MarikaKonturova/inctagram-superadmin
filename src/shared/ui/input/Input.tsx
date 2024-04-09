@@ -67,6 +67,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     }
 
     const classNames = {
+      errorMessage: cn('text-red-500 text-sm'),
       field: cn(
         `
        flex h-10 w-full  border-none bg-dark-500 border border-solid border-dark-300 text-light-100 shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600
@@ -75,6 +76,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           \tdark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
             group-hover/input:shadow-none transition duration-400`,
         isSearch && 'pl-10',
+        !!errorMessage && 'text-danger-300 border-danger-300',
         className
       ),
       inputWrapper: 'relative p-[2px] rounded-lg transition duration-300 group/input',
@@ -83,7 +85,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         'absolute inset-y-0 right-0 flex items-center px-3 text-sm',
         restProps.disabled && 'opacity-50'
       ),
-      rootContainer: cn('w-full min-w-[330px]', rootContainerProps?.className),
+      rootContainer: cn('w-full w-[330px]', rootContainerProps?.className),
       searchIcon: cn(
         'absolute left-3 top-1/2 transform -translate-y-1/2',
         restProps.disabled && 'opacity-50'
@@ -92,7 +94,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className={classNames.rootContainer}>
-        {label && <Label>{label}</Label>}
+        {label && <Label className={classNames.label}>{label}</Label>}
         <motion.div
           className={classNames.inputWrapper}
           onMouseEnter={() => setVisible(true)}
@@ -131,7 +133,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             </button>
           )}
         </motion.div>
-        {errorMessage && <span>{errorMessage}</span>}
+        {!!errorMessage && <p className={classNames.errorMessage}>{errorMessage}</p>}
       </div>
     )
   }
