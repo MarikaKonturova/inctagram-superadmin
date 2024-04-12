@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { loginSchema, useGetDataQuery } from 'features/auth'
 import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { Button, FormInput, FormWrapper } from 'shared/ui'
 import { z } from 'zod'
@@ -9,6 +10,7 @@ export type LoginFormValues = z.infer<typeof loginSchema>
 
 export const LoginForm = () => {
   const { data, refetch } = useGetDataQuery({ fetchPolicy: 'no-cache' })
+  const router = useRouter()
 
   const { control, handleSubmit } = useForm<LoginFormValues>({
     defaultValues: {
@@ -34,6 +36,7 @@ export const LoginForm = () => {
     refetch()
       .then(() => {
         console.log('refetched')
+        !!data && router.push('/')
       })
       .catch(() => {
         console.log('there is error')
