@@ -1,7 +1,5 @@
-import { useQuery } from '@apollo/client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { loginSchema } from 'features/auth/lib/loginFormSchema'
-import { GET_DATA } from 'features/auth/model/getData'
+import { loginSchema, useGetDataQuery } from 'features/auth'
 import Cookies from 'js-cookie'
 import { useForm } from 'react-hook-form'
 import { Button, FormInput, FormWrapper } from 'shared/ui'
@@ -10,9 +8,7 @@ import { z } from 'zod'
 export type LoginFormValues = z.infer<typeof loginSchema>
 
 export const LoginForm = () => {
-  const { data, refetch } = useQuery(GET_DATA, {
-    fetchPolicy: 'no-cache',
-  })
+  const { data, refetch } = useGetDataQuery({ fetchPolicy: 'no-cache' })
 
   const { control, handleSubmit } = useForm<LoginFormValues>({
     defaultValues: {
