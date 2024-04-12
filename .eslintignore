@@ -1,2 +1,3 @@
 *.json
 *.config.*
+src/shared/types/types.ts

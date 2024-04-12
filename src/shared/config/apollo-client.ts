@@ -3,7 +3,7 @@ import { setContext } from '@apollo/client/link/context'
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions'
 import { getMainDefinition } from '@apollo/client/utilities'
 import { createClient } from 'graphql-ws'
-import * as process from 'process'
+import Cookies from 'js-cookie'
 
 const httpLink = createHttpLink({
   uri: 'https://twin.cygan.lol/graphql',
@@ -14,7 +14,7 @@ const wsLink = new GraphQLWsLink(
     connectionParams: () => {
       return {
         headers: {
-          authorization: `Basic ${process.env.NEXT_PUBLIC_SECRET_TOKEN}`,
+          authorization: `Basic ${Cookies.get('authToken')}`,
         },
       }
     },
@@ -26,7 +26,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: `Basic ${process.env.NEXT_PUBLIC_SECRET_TOKEN}`,
+      authorization: `Basic ${Cookies.get('authToken')}`,
     },
   }
 })
