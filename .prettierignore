@@ -6,3 +6,4 @@ coverage
 .stylelintignore
 .eslintignore
 .gitkeep
+**/*.svg
