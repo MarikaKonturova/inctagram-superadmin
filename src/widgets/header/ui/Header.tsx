@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { AppLink } from 'shared/ui'
 import { Container } from 'shared/ui/container/Container'
 
+import Logo from '../../../shared/assets/icons/general/inctagram-logo.svg'
 import cls from './Header.module.css'
 
 interface HeaderProps {
@@ -15,7 +16,7 @@ export const Header = (props: HeaderProps) => {
     <header className={clsx(cls.Header, [className])}>
       <Container className={cls.container}>
         <AppLink className={cls.headerText} href={'/'}>
-          Inctagram admin
+          <Logo />
         </AppLink>
         <div className={cls.rightBlock}>
           LangSelect!!!!!!
