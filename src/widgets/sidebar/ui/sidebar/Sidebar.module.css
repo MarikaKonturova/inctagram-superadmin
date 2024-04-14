@@ -1,0 +1,19 @@
+.item {
+  @apply flex items-center text-[color:var(--light-100-color)] focus:rounded-sm active:text-[color:var(--primary-100-color)] hover:no-underline;
+}
+.item:focus {
+  outline: 2px solid var(--primary-700-color);
+}
+.item:active {
+  outline: none;
+}
+.item:hover .icon {
+  @apply fill-primary-100;
+}
+
+.active {
+  @apply text-[color:var(--primary-100-color)];
+}
+.active .icon {
+  @apply fill-[var(--primary-500-color)];
+}
