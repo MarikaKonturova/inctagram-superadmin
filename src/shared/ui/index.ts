@@ -1,4 +1,7 @@
 export { Button } from './Button'
+export { Dialog } from './Dialog'
 export { Info } from './Info'
 export { Input } from './Input'
 export { Label } from './Label'
+export { Select } from './Select'
+export { Table } from './Table'
