@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { AppLink } from 'shared/ui'
 import { Container } from 'shared/ui/container/Container'
-import { ComboboxForm } from 'shared/ui/langSelect/LangSelect'
+import { ComboboxDemo } from 'shared/ui/langSelect/LangSelect'
 
 import Logo from '../../../shared/assets/icons/general/inctagram-logo.svg'
 import cls from './Header.module.css'
@@ -20,8 +20,7 @@ export const Header = (props: HeaderProps) => {
           <Logo />
         </AppLink>
         <div className={cls.rightBlock}>
-          LangSelect!!!!!!
-          <ComboboxForm />
+          <ComboboxDemo />
         </div>
       </Container>
     </header>

@@ -1,6 +1,6 @@
-export { Button } from './Button'
 export { Info } from './Info'
 export { Input } from './Input'
 export { Label } from './Label'
 export { AppLink } from './appLink/AppLink'
 export { FormInput, FormWrapper } from './formComponent'
+export { Button } from 'shared/ui/Buttons'
