@@ -1,55 +1,63 @@
-import { Slot } from '@radix-ui/react-slot'
-import { type VariantProps, cva } from 'class-variance-authority'
-import * as React from 'react'
+import React, { type ButtonHTMLAttributes, type ReactNode, memo } from 'react'
 import { cn } from 'shared/utils'
 
-const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-neutral-300',
-  {
-    defaultVariants: {
-      size: 'default',
-      variant: 'default',
-    },
-    variants: {
-      size: {
-        default: 'h-9 px-4 py-2',
-        icon: 'h-9 w-9',
-        lg: 'h-10 rounded-md px-8',
-        sm: 'h-8 rounded-md px-3 text-xs',
-      },
-      variant: {
-        default:
-          'bg-neutral-900 text-neutral-50 shadow hover:bg-neutral-900/90 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90',
-        destructive:
-          'bg-red-500 text-neutral-50 shadow-sm hover:bg-red-500/90 dark:bg-red-900 dark:text-neutral-50 dark:hover:bg-red-900/90',
-        ghost:
-          'hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50',
-        link: 'text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50',
-        outline:
-          'border border-neutral-200 bg-white shadow-sm hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50',
-        secondary:
-          'bg-neutral-100 text-neutral-900 shadow-sm hover:bg-neutral-100/80 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-800/80',
-      },
-    },
-  }
-)
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  block?: boolean
+  children?: ReactNode
+  className?: string
+  disabled?: boolean
+  moreOptions?: boolean
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  variant?: 'clear' | 'destructive' | 'ghost' | 'outline' | 'primary' | 'secondary' | 'textButton'
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ asChild = false, className, size, variant, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'button'
+export const Button = memo((props: ButtonProps) => {
+  const {
+    block,
+    children,
+    className,
+    disabled,
+    moreOptions,
+    onClick,
+    variant = 'primary',
+    ...otherProps
+  } = props
 
-    return (
-      <Comp className={cn(buttonVariants({ className, size, variant }))} ref={ref} {...props} />
-    )
+  const baseStyles = `cursor-pointer px-6 py-1.5 font-h3 text-white rounded transition duration-500 ease-in-out ${
+    disabled ? 'cursor-not-allowed' : ''
+  }`
+
+  const variantStyles = {
+    clear: `font-regular-400 bg-transparent border-none outline-none`,
+    destructive:
+      'bg-red-500 text-neutral-50 shadow-sm hover:bg-red-500/90 dark:bg-red-900 dark:text-neutral-50 dark:hover:bg-red-900/90',
+    ghost:
+      'hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50',
+    outline: `text-primary-500 bg-transparent border border-primary-500 hover:bg-primary-100 hover:border-primary-100 focus:outline-none focus:ring-2 focus:ring-primary-700 ${
+      disabled ? 'text-primary-900 border-primary-900' : ''
+    }`,
+    primary: `text-white bg-primary-500 hover:bg-primary-100 focus:bg-primary-700 ${
+      disabled ? 'text-light-900 bg-primary-900' : ''
+    }`,
+    secondary: `text-dark bg-light hover:bg-light-900 ${
+      disabled ? 'text-dark-100 bg-light-900' : ''
+    }`,
+    textButton: `text-primary-500 bg-transparent border-none hover:text-primary-100 focus:outline-none focus:ring-2 focus:ring-primary-700 ${
+      disabled ? 'cursor-not-allowed text-primary-900' : ''
+    }`,
   }
-)
 
-Button.displayName = 'Button'
+  const finalClassName = cn(block ? 'w-full' : '', baseStyles, variantStyles[variant], className)
 
-export { Button, buttonVariants }
+  return (
+    <button
+      className={finalClassName}
+      disabled={disabled}
+      onClick={onClick}
+      type={'button'}
+      {...otherProps}
+    >
+      {children}
+    </button>
+  )
+})
