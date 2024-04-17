@@ -8,6 +8,7 @@ module.exports = {
   darkMode: ["class"],
   content: [
     'components/**/*.{ts,tsx}',
+    'ui/**/*.{ts,tsx}',
     'src/**/*.{ts,tsx}',
   ],
   prefix: "",
