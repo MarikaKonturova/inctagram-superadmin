@@ -50,7 +50,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
         'rounded-md border max-h-[700px] overflow-scroll lg:w-[1200px] md:w-[800px] sm:w-[500px]'
       }
     >
-      <Table>
+      <Table >
         <TableHeader>
           {table.getHeaderGroups().map(headerGroup => (
             <TableRow key={headerGroup.id}>
