@@ -1,0 +1,1 @@
+export { PostPhotos } from './postPhotos'

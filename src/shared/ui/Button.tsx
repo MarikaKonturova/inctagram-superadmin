@@ -13,7 +13,13 @@ export const Button = memo((props: ButtonProps) => {
   const { block, children, className, disabled, onClick, theme = 'primary', ...otherProps } = props
 
   return (
-    <button className={''} disabled={disabled} onClick={onClick} type={'button'} {...otherProps}>
+    <button
+      className={className}
+      disabled={disabled}
+      onClick={onClick}
+      type={'button'}
+      {...otherProps}
+    >
       {children}
     </button>
   )
