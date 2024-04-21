@@ -13,18 +13,20 @@ export const Home = () => {
     setPageIndex(0)
   }, [pageSize])
 
-  const { data, previousData } = useGetAllUsersQuery({
+  const { data, loading, previousData } = useGetAllUsersQuery({
     variables: {
       pageNumber: pageIndex + 1,
       pageSize: +pageSize,
     },
   })
 
+  const usersData = loading && previousData ? previousData : data
+
   return (
     <div
       className={'h-[1000px] flex items-center justify-center bg-black text-white flex-col gap-8'}
     >
-      {data?.users.items && <UsersList columns={columns} items={data?.users.items} />}
+      <UsersList columns={columns} items={usersData?.users.items || []} />
       <TablePagination
         pageIndex={pageIndex}
         pageSize={pageSize}
