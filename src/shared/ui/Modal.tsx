@@ -1,7 +1,9 @@
+import { ReactNode } from 'react'
+
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './Dialog'
 
 interface ModalProps {
-  children?: React.ReactNode
+  children?: ReactNode
   description: string
   isOpen: boolean
   onClose: () => void

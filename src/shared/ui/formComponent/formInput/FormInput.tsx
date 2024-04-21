@@ -1,5 +1,5 @@
 import { Control, FieldPath, FieldValues, useController } from 'react-hook-form'
-import { Input, InputProps } from 'shared/ui/input/Input'
+import { Input, InputProps } from 'shared/ui/Input'
 
 export type FormTextFieldProps<TFieldValues extends FieldValues> = {
   control: Control<TFieldValues>
