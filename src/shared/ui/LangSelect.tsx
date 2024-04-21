@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Rus from '../assets/icons/flags/russia-flag-icon.svg'
 import Eng from '../assets/icons/flags/united-states-flag-icon.svg'
@@ -17,22 +17,28 @@ type Languages = {
 }
 
 const languages: Languages[] = [
-  { icon: Eng, label: 'English', value: 'English' },
-  { icon: Rus, label: 'Russian', value: 'Russian' },
+  { icon: Eng, label: 'English', value: 'en' },
+  { icon: Rus, label: 'Russian', value: 'ru' },
 ]
 
 export function LangSelect() {
   const [open, setOpen] = useState(false)
-  const [selectedStatus, setSelectedStatus] = useState<Languages | null>(languages[0])
+  const [selectedLang, setSelectedLang] = useState<Languages | null>(languages[0])
+
+  useEffect(() => {
+    const html = document.documentElement
+
+    html.setAttribute('lang', selectedLang?.value as string)
+  }, [selectedLang])
 
   return (
     <Popover onOpenChange={setOpen} open={open}>
       <PopoverTrigger asChild>
         <Button className={'w-[200px] justify-start'} variant={'clear'}>
-          {selectedStatus && (
+          {selectedLang && (
             <>
-              <selectedStatus.icon className={'mr-2 h-4 w-4 shrink-0'} />
-              {selectedStatus.label}
+              <selectedLang.icon className={'mr-2 h-4 w-4 shrink-0'} />
+              {selectedLang.label}
             </>
           )}
         </Button>
@@ -45,7 +51,7 @@ export function LangSelect() {
                 <CommandItem
                   key={language.value}
                   onSelect={() => {
-                    setSelectedStatus(language === selectedStatus ? selectedStatus : language)
+                    setSelectedLang(language === selectedLang ? selectedLang : language)
                     setOpen(false)
                   }}
                   value={language.value}
