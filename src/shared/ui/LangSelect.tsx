@@ -6,9 +6,9 @@ import { useState } from 'react'
 import Rus from '../assets/icons/flags/russia-flag-icon.svg'
 import Eng from '../assets/icons/flags/united-states-flag-icon.svg'
 import { cn } from '../utils'
-import { Button } from './button'
-import { Command, CommandGroup, CommandItem, CommandList } from './command'
-import { Popover, PopoverContent, PopoverTrigger } from './popover'
+import { Button } from './Buttons'
+import { Popover, PopoverContent, PopoverTrigger } from './Popover'
+import { Command, CommandGroup, CommandItem, CommandList } from './Сommand'
 
 type Languages = {
   icon: any
@@ -28,7 +28,7 @@ export function LangSelect() {
   return (
     <Popover onOpenChange={setOpen} open={open}>
       <PopoverTrigger asChild>
-        <Button className={'w-[100px] justify-start'} size={'sm'} variant={'default'}>
+        <Button className={'w-[200px] justify-start'} variant={'clear'}>
           {selectedStatus && (
             <>
               <selectedStatus.icon className={'mr-2 h-4 w-4 shrink-0'} />
@@ -37,7 +37,7 @@ export function LangSelect() {
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className={'w-[100px] p-0 text-regular-400'}>
+      <PopoverContent className={'w-[200px] p-0 text-regular-400'}>
         <Command>
           <CommandList>
             <CommandGroup>
