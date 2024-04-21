@@ -2,7 +2,7 @@ import { type NextPage } from 'next'
 import { type PropsWithChildren } from 'react'
 import { Header } from 'widgets/header'
 
-import { Container } from '../../shared/ui/Container'
+import { Container } from '../../shared/ui'
 
 interface LayoutProps extends PropsWithChildren {
   withAuth?: boolean
