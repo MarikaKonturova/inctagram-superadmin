@@ -1,3 +1,6 @@
 *.json
 *.config.*
 src/shared/types/types.ts
+Dockerfile
+.yml
+.yaml
