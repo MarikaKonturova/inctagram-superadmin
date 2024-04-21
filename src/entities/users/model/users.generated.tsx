@@ -84,8 +84,8 @@ export const GetAllUsersDocument = gql`
  * });
  */
 export function useGetAllUsersQuery(
-  baseOptions: Apollo.QueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables> &
-    ({ skip: boolean } | { skip?: boolean; variables: GetAllUsersQueryVariables })
+  baseOptions: ({ skip: boolean } | { skip?: boolean; variables: GetAllUsersQueryVariables }) &
+    Apollo.QueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
 
