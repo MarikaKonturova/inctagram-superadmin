@@ -1,12 +1,12 @@
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
+import { AppLink } from 'shared/ui'
 
 import CreditCard from '../../../shared/assets/icons/light/credit-card.svg'
 import Image from '../../../shared/assets/icons/light/image24.svg'
 import Person from '../../../shared/assets/icons/light/person.svg'
 import TrendingUp from '../../../shared/assets/icons/light/trending-up.svg'
-import { AppLink } from '../../../shared/ui'
 
 interface SidebarProps {
   active?: string

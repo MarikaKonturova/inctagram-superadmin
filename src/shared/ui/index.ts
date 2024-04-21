@@ -1,5 +1,5 @@
 export { AppLink } from './AppLink'
-export { Button } from './Buttons'
+export { Button } from './Button'
 export { Container } from './Container'
 export {
   Dialog,

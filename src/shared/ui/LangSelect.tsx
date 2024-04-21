@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import Rus from '../assets/icons/flags/russia-flag-icon.svg'
 import Eng from '../assets/icons/flags/united-states-flag-icon.svg'
 import { cn } from '../utils'
-import { Button } from './Buttons'
+import { Button } from './Button'
 import { Popover, PopoverContent, PopoverTrigger } from './Popover'
 import { Command, CommandGroup, CommandItem, CommandList } from './Сommand'
 
@@ -34,7 +34,7 @@ export function LangSelect() {
   return (
     <Popover onOpenChange={setOpen} open={open}>
       <PopoverTrigger asChild>
-        <Button className={'w-[200px] justify-start'} variant={'clear'}>
+        <Button className={'w-[200px] justify-start'} variant={'langSelect'}>
           {selectedLang && (
             <>
               <selectedLang.icon className={'mr-2 h-4 w-4 shrink-0'} />

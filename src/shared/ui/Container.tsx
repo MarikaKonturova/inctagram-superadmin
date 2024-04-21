@@ -12,6 +12,6 @@ export const Container: FC<PropsWithChildren<ContainerProps>> = ({
   maxWidth = 'large',
 }) => {
   return (
-    <div className={clsx('w-full h-full mx-auto px-60', [maxWidth], className)}>{children}</div>
+    <div className={clsx('w-full h-full mx-auto px-14', [maxWidth], className)}>{children}</div>
   )
 }

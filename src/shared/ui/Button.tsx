@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ReactNode, forwardRef, memo } from 'react'
+import React, { ButtonHTMLAttributes, ReactNode, forwardRef } from 'react'
 import { cn } from 'shared/utils'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -7,7 +7,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   disabled?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
-  variant?: 'clear' | 'default' | 'outline' | 'primary' | 'secondary' | 'textButton'
+  variant?: 'clear' | 'langSelect' | 'outline' | 'primary' | 'secondary' | 'textButton'
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
@@ -27,8 +27,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
 
   const variantStyles = {
     clear: `font-regular-400 bg-transparent border-none outline-none`,
-    default:
-      'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-neutral-300',
+    langSelect:
+      'inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors border border-neutral-500 text-regular-400',
     outline: `text-primary-500 bg-transparent border border-primary-500 hover:bg-primary-100 hover:border-primary-100 focus:outline-none focus:ring-2 focus:ring-primary-700 ${
       disabled ? 'text-primary-900 border-primary-900' : ''
     }`,
