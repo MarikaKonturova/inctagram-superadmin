@@ -1,9 +1,6 @@
 import clsx from 'clsx'
 import Logo from 'shared/assets/icons/general/inctagram-logo.svg'
-import { AppLink } from 'shared/ui'
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'
-import { Container } from 'shared/ui/container/Container'
-import { ComboboxDemo } from 'shared/ui/langSelect/LangSelect'
+import { AppLink, Container, LangSelect, ThemeSwitcher } from 'shared/ui'
 
 import cls from './Header.module.css'
 
@@ -22,7 +19,7 @@ export const Header = (props: HeaderProps) => {
         </AppLink>
         <div className={cls.rightBlock}>
           <ThemeSwitcher />
-          <ComboboxDemo />
+          <LangSelect />
         </div>
       </Container>
     </header>

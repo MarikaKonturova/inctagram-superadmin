@@ -2,12 +2,13 @@
 
 import * as React from 'react'
 import { useState } from 'react'
-import Rus from 'shared/assets/icons/flags/russia-flag-icon.svg'
-import Eng from 'shared/assets/icons/flags/united-states-flag-icon.svg'
-import { Button } from 'shared/ui/button'
-import { Command, CommandGroup, CommandItem, CommandList } from 'shared/ui/command'
-import { Popover, PopoverContent, PopoverTrigger } from 'shared/ui/popover'
-import { cn } from 'shared/utils'
+
+import Rus from '../assets/icons/flags/russia-flag-icon.svg'
+import Eng from '../assets/icons/flags/united-states-flag-icon.svg'
+import { cn } from '../utils'
+import { Button } from './button'
+import { Command, CommandGroup, CommandItem, CommandList } from './command'
+import { Popover, PopoverContent, PopoverTrigger } from './popover'
 
 type Languages = {
   icon: any
@@ -20,7 +21,7 @@ const languages: Languages[] = [
   { icon: Rus, label: 'Russian', value: 'Russian' },
 ]
 
-export function ComboboxDemo() {
+export function LangSelect() {
   const [open, setOpen] = useState(false)
   const [selectedStatus, setSelectedStatus] = useState<Languages | null>(languages[0])
 
