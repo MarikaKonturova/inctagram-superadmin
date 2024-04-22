@@ -1,0 +1,1 @@
+export { PostUserInfo } from './postUserInfo'
