@@ -1,5 +1,6 @@
 'use client'
 
+import { ChevronsUpDown } from 'lucide-react'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 
@@ -34,13 +35,17 @@ export function LangSelect() {
   return (
     <Popover onOpenChange={setOpen} open={open}>
       <PopoverTrigger asChild>
-        <Button className={'w-[200px] justify-start'} variant={'langSelect'}>
-          {selectedLang && (
-            <>
-              <selectedLang.icon className={'mr-2 h-4 w-4 shrink-0'} />
-              {selectedLang.label}
-            </>
-          )}
+        <Button className={'w-[200px] justify-between'} variant={'langSelect'}>
+          <div className={'flex items-center justify-center'}>
+            {selectedLang && (
+              <>
+                <selectedLang.icon className={'mr-2 h-4 w-4 shrink-0'} />
+                {selectedLang.label}
+              </>
+            )}
+          </div>
+
+          <ChevronsUpDown className={'ml-2 h-4 w-4 shrink-0 opacity-50'} />
         </Button>
       </PopoverTrigger>
       <PopoverContent className={'w-[200px] p-0 text-regular-400'}>
