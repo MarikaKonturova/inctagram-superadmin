@@ -1,34 +1,32 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import * as Types from '../../../shared/lib/apollo/schema.types'
+
 import { gql } from '@apollo/client'
 import * as Apollo from '@apollo/client'
-
-import * as Types from 'shared/lib/apollo/schema.types'
 const defaultOptions = {} as const
-
 export type GetAllUsersQueryVariables = Types.Exact<{
-  pageNumber: Types.Scalars['Int']['input']
   pageSize: Types.Scalars['Int']['input']
+  pageNumber: Types.Scalars['Int']['input']
+  status?: Types.InputMaybe<Types.UserStatusInputType>
   search?: Types.InputMaybe<Types.Scalars['String']['input']>
   sortBy?: Types.InputMaybe<Types.SortByForUsers>
   sortDirection?: Types.InputMaybe<Types.SortDirectionType>
-  status?: Types.InputMaybe<Types.UserStatusInputType>
 }>
 
 export type GetAllUsersQuery = {
   __typename?: 'Query'
   users: {
     __typename?: 'UsersListWithPaginationViewModel'
+    totalCount: number
+    pagesCount: number
     items: Array<{
       __typename?: 'UserForSuperAdminViewModel'
-      createdAt: any
-      fullName: string
-      lastSeen?: any | null
-      status: Types.UserStatusType
       userId: number
       userName: string
+      fullName: string
+      lastSeen?: any | null
+      createdAt: any
+      status: Types.UserStatusType
     }>
-    pagesCount: number
-    totalCount: number
   }
 }
 
@@ -85,18 +83,16 @@ export const GetAllUsersDocument = gql`
  * });
  */
 export function useGetAllUsersQuery(
-  baseOptions: ({ skip: boolean } | { skip?: boolean; variables: GetAllUsersQueryVariables }) &
-    Apollo.QueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables>
+  baseOptions: Apollo.QueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables> &
+    ({ variables: GetAllUsersQueryVariables; skip?: boolean } | { skip: boolean })
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-
   return Apollo.useQuery<GetAllUsersQuery, GetAllUsersQueryVariables>(GetAllUsersDocument, options)
 }
 export function useGetAllUsersLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-
   return Apollo.useLazyQuery<GetAllUsersQuery, GetAllUsersQueryVariables>(
     GetAllUsersDocument,
     options
@@ -106,7 +102,6 @@ export function useGetAllUsersSuspenseQuery(
   baseOptions?: Apollo.SuspenseQueryHookOptions<GetAllUsersQuery, GetAllUsersQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-
   return Apollo.useSuspenseQuery<GetAllUsersQuery, GetAllUsersQueryVariables>(
     GetAllUsersDocument,
     options

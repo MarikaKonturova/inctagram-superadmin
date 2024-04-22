@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { DropdownMenuItem, DeleteModal } from 'shared/ui'
 
-import { DELETE_USER } from 'features/deleteUser/api/delete'
+import { DELETE_USER } from 'features/deleteUser/api/deleteUser'
 
 export const DeleteUser = ({ userId }: { userId: string }) => {
   const [open, setOpen] = useState(false)
