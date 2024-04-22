@@ -6,11 +6,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   disabled?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
-  theme?: 'clear' | 'outline' | 'primary' | 'secondary' | 'textButton'
+  variant?: 'clear' | 'outline' | 'primary' | 'secondary' | 'textButton'
 }
 
 export const Button = memo((props: ButtonProps) => {
-  const { block, children, className, disabled, onClick, theme = 'primary', ...otherProps } = props
+  const { block, children, className, disabled, onClick, variant, ...otherProps } = props
 
   return (
     <button
