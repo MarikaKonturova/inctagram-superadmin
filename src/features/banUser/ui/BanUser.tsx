@@ -1,7 +1,6 @@
 import { Ban } from 'lucide-react'
-import React from 'react'
 
-import { DropdownMenuItem } from '../../../shared/ui/Dropdown-menu'
+import { DropdownMenuItem } from 'shared/ui'
 
 export const BanUser = () => {
   return (

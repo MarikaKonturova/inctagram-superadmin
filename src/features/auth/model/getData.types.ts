@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client'
 import * as Apollo from '@apollo/client'
+
 import * as Types from 'shared/lib/apollo/schema.types'
 const defaultOptions = {} as const
 

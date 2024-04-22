@@ -1,22 +1,24 @@
 import { MoreHorizontal, UserMinus } from 'lucide-react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-import { BanUser } from '../../../features/banUser'
-import { User } from '../../../shared/types/user'
-import { DeleteModal } from '../../../shared/ui/DeleteModal'
+import { User } from 'shared/types'
 import {
+  DeleteModal,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../../../shared/ui/Dropdown-menu'
+} from 'shared/ui'
+
+import { BanUser } from 'features/banUser'
 
 interface CellActionProps {
   data: User
 }
 
 // Fix Delete Modal
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const MoreOptions = ({ data }: CellActionProps) => {
   const [open, setOpen] = useState(false)
 
