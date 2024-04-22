@@ -28,7 +28,11 @@ export const AppLink = (props: AppLinkProps) => {
   return (
     <Link href={href} legacyBehavior>
       <a
-        className={clsx('inline-flex text-light-100 no-underline hover:underline', mods, className)}
+        className={clsx(
+          'inline-flex text-light-100 no-underline hover:no-underline',
+          mods,
+          className
+        )}
         {...rest}
       >
         {children}

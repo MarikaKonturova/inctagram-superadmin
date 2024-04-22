@@ -49,7 +49,7 @@ const getMenuItems = ({ fill }: ParamsType): MenuItemsType[] => [
       />
     ),
     label: 'Payments list',
-    route: '/test',
+    route: '/',
   },
   {
     icon: (
@@ -93,19 +93,25 @@ export const Sidebar = (props: SidebarProps) => {
               })}
               key={item.route || item.label}
             >
-              <AppLink
-                active={currentPath === item.route}
-                className={clsx(
-                  'flex items-center text-light-100 focus:rounded-sm active:text-primary-100 hover:no-underline focus:outline-primary-700 active:outline-none hover:text-primary-100',
-                  {
-                    ['active:text-primary-100 icon fill-primary-500']: currentPath === item.route,
-                  }
-                )}
-                href={item.route}
+              <button
+                className={
+                  'inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-2 w-36 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'
+                }
               >
-                {iconElement}
-                <span className={'ml-4 text-regular-400'}>{item.label}</span>
-              </AppLink>
+                <AppLink
+                  active={currentPath === item.route}
+                  className={clsx(
+                    'flex items-center text-light-100 focus:rounded-sm active:text-primary-100 hover:no-underline focus:outline-primary-700 active:outline-none hover:text-primary-100',
+                    {
+                      ['active:text-primary-100 icon fill-primary-500']: currentPath === item.route,
+                    }
+                  )}
+                  href={item.route}
+                >
+                  {iconElement}
+                  <span className={'ml-4 text-regular-400'}>{item.label}</span>
+                </AppLink>
+              </button>
             </div>
           )
         })}

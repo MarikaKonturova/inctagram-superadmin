@@ -20,6 +20,7 @@ export const ThemeSwitcher = memo(({ className, size = 25 }: ThemeSwitcherProps)
 
   useEffect(() => {
     document.documentElement.setAttribute('class', theme)
+    localStorage.setItem('theme', theme)
   }, [theme])
 
   return (
