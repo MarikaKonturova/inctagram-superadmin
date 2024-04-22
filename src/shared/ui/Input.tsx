@@ -1,7 +1,15 @@
 // Input component extends from shadcnui - https://ui.shadcn.com/docs/components/input
 'use client'
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
-import { ChangeEvent, ComponentProps, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
+import {
+  ChangeEvent,
+  ComponentProps,
+  ComponentPropsWithoutRef,
+  MouseEventHandler,
+  forwardRef,
+  useState,
+} from 'react'
+
 import { Eye, EyeOff, Search } from 'shared/assets/icons'
 import { Label } from 'shared/ui'
 import { cn } from 'shared/utils'
@@ -39,8 +47,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const mouseX = useMotionValue(0)
     const mouseY = useMotionValue(0)
 
-    function handleMouseMove({ clientX, clientY, currentTarget }: any) {
-      const { left, top } = currentTarget.getBoundingClientRect()
+    const handleMouseMove: MouseEventHandler<HTMLDivElement> = ({
+      clientX,
+      clientY,
+      currentTarget,
+    }) => {
+      const { left, top } = currentTarget && currentTarget.getBoundingClientRect()
 
       mouseX.set(clientX - left)
       mouseY.set(clientY - top)

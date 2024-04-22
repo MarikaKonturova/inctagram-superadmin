@@ -1,4 +1,5 @@
 import React, { type ButtonHTMLAttributes, type ReactNode, memo } from 'react'
+
 import { cn } from 'shared/utils'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -6,7 +7,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode
   className?: string
   disabled?: boolean
-  moreOptions?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
   variant?: 'clear' | 'destructive' | 'ghost' | 'outline' | 'primary' | 'secondary' | 'textButton'
 }
@@ -17,7 +17,6 @@ export const Button = memo((props: ButtonProps) => {
     children,
     className,
     disabled,
-    moreOptions,
     onClick,
     variant = 'primary',
     ...otherProps

@@ -13,14 +13,7 @@ import {
 } from '@tanstack/react-table'
 import { useState } from 'react'
 
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '../../../shared/ui/Table'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'shared/ui'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]

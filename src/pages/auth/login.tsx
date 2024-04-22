@@ -1,6 +1,6 @@
-import { LoginForm } from 'features/auth'
 import Head from 'next/head'
-import React from 'react'
+
+import { LoginForm } from 'features/auth'
 
 export default function Login() {
   return (

@@ -1,13 +1,14 @@
 import { useMutation } from '@apollo/client'
 import { UserMinus } from 'lucide-react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-import { DeleteModal } from '../../../shared/ui/DeleteModal'
-import { DropdownMenuItem } from '../../../shared/ui/Dropdown-menu'
-import { DELETE_USER } from '../api/delete'
+import { DropdownMenuItem, DeleteModal } from 'shared/ui'
 
-export const DeleteUser = ({ userId }: any) => {
+import { DELETE_USER } from 'features/deleteUser/api/delete'
+
+export const DeleteUser = ({ userId }: { userId: string }) => {
   const [open, setOpen] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [deleteUser] = useMutation(DELETE_USER)
 
   return (

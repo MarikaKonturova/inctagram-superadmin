@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { gql } from '@apollo/client'
 import * as Apollo from '@apollo/client'
 
-import * as Types from '../../../shared/types/types'
+import * as Types from 'shared/lib/apollo/schema.types'
 const defaultOptions = {} as const
 
 export type GetAllUsersQueryVariables = Types.Exact<{

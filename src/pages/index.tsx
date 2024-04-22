@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { Home } from '../templates'
+import { Home } from 'templates'
 
 export default function Page() {
   return (
