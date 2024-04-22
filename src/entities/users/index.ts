@@ -1,3 +1,3 @@
-export { useGetAllUsersQuery } from './model/getUsers.types'
+export { useGetAllUsersQuery } from './api/getAllUsers.types'
 
 export { UsersList } from './ui/UsersList'
