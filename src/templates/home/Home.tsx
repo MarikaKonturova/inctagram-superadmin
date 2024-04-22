@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 
-import { useGetAllUsersQuery } from '../../entities/users/model/users.generated'
-import { UsersList } from '../../entities/users/ui/UsersList'
-import { TablePagination } from '../../shared/ui/Pagination'
-import { columns } from './ui/columns'
+import { TablePagination } from 'shared/ui'
+
+import { UsersList, useGetAllUsersQuery } from 'entities/users'
+
+import { columns } from './ui/UsersColumnsTable'
 
 export const Home = () => {
   const [pageIndex, setPageIndex] = useState(0)
+
   const [pageSize, setPageSize] = useState('10')
 
   useEffect(() => {
