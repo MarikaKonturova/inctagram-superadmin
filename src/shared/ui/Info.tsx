@@ -10,7 +10,9 @@ interface InfoPageProps {
 }
 
 export function Info(props: InfoPageProps) {
-  const { buttonText, image, onClick, text, title } = props
-
-  return <div></div>
+  return (
+    <div>
+      <p>{props.buttonText}</p>
+    </div>
+  )
 }

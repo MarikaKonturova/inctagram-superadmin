@@ -1,5 +1,6 @@
-import { convertDateFormat } from '../../../shared/utils/convertedFormat'
-import { DataTable } from '../../../templates/home/ui/data-table'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { DataTable } from 'shared/ui'
+import { convertDateFormat } from 'shared/utils/convertedFormat'
 
 // Fix Any
 
