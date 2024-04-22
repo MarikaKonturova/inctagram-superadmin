@@ -111,8 +111,7 @@ const Carousel = React.forwardRef<
         role={'region'}
         {...props}
       >
-        {' '}
-        {children}{' '}
+        {children}
       </div>
     </CarouselContext.Provider>
   )

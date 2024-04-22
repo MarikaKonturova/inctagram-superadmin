@@ -44,8 +44,7 @@ export const Button = memo((props: ButtonProps) => {
       type={'button'}
       {...otherProps}
     >
-      {' '}
-      {children}{' '}
+      {children}
     </button>
   )
 })
