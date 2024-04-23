@@ -8,11 +8,6 @@ import Image from '../../../shared/assets/icons/light/image24.svg'
 import Person from '../../../shared/assets/icons/light/person.svg'
 import TrendingUp from '../../../shared/assets/icons/light/trending-up.svg'
 
-interface SidebarProps {
-  active?: string
-  className?: string
-}
-
 type MenuItemsType = {
   icon: ReactNode
   label: string
@@ -45,9 +40,7 @@ const menuItems: MenuItemsType[] = [
   },
 ]
 
-export const Sidebar = (props: SidebarProps) => {
-  const { className } = props
-
+export const Sidebar = () => {
   const { asPath } = useRouter()
 
   const currentPath = asPath
