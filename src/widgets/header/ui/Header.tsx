@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { useTheme } from 'shared/hooks/useTheme'
 import { AppLink, Container, LangSelect, ThemeSwitcher } from 'shared/ui'
 import { SparklesCore } from 'shared/ui/Sparkles'
 
@@ -8,6 +9,10 @@ interface HeaderProps {
 
 export const Header = (props: HeaderProps) => {
   const { className } = props
+
+  const { theme } = useTheme()
+
+  console.log('header', theme)
 
   return (
     <header

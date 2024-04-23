@@ -1,12 +1,6 @@
 import { useContext } from 'react'
-import { ThemeContext } from 'shared/hooks/ThemeProvider'
-
-const LOCAL_STORAGE_THEME_KEY = 'theme'
-
-enum Theme {
-  DARK = 'dark',
-  LIGHT = 'light',
-}
+import { LOCAL_STORAGE_THEME_KEY, Theme } from 'shared/constants/theme'
+import { ThemeContext } from 'shared/context/ThemeProvider'
 
 interface UseThemeResult {
   theme: Theme
@@ -19,8 +13,7 @@ export function useTheme(): UseThemeResult {
   const toggleTheme = (): void => {
     const newTheme = theme == Theme.DARK ? Theme.LIGHT : Theme.DARK
 
-    /* setTheme?.(newTheme)*/
-    document.documentElement.setAttribute('class', newTheme)
+    setTheme?.(newTheme)
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
   }
 
