@@ -13,48 +13,32 @@ interface SidebarProps {
   className?: string
 }
 
-type ParamsType = {
-  fill: string
-}
-
 type MenuItemsType = {
-  icon: ReactNode | Record<'active' | 'inactive', ReactNode>
+  icon: ReactNode
   label: string
   route?: string
 }
 
-const getMenuItems = ({ fill }: ParamsType): MenuItemsType[] => [
+const menuItems: MenuItemsType[] = [
   {
-    icon: (
-      <Person className={'fill-light-100 transition-colors duration-200 ease-out'} fill={fill} />
-    ),
+    icon: <Person className={'fill-light-100 transition-colors duration-200 ease-out'} />,
     label: 'Users list',
     route: '/',
   },
   {
-    icon: (
-      <TrendingUp
-        className={'fill-light-100 transition-colors duration-200 ease-out'}
-        fill={fill}
-      />
-    ),
+    icon: <TrendingUp className={'fill-light-100 transition-colors duration-200 ease-out'} />,
     label: 'Statistics',
     route: '/',
   },
   {
-    icon: (
-      <CreditCard
-        className={'fill-light-100 transition-colors duration-200 ease-out'}
-        fill={fill}
-      />
-    ),
+    icon: <CreditCard className={'fill-light-100 transition-colors duration-200 ease-out'} />,
     label: 'Payments list',
     route: '/',
   },
   {
     icon: (
       // eslint-disable-next-line jsx-a11y/alt-text
-      <Image className={'fill-light-100 transition-colors duration-200 ease-out'} fill={fill} />
+      <Image className={'fill-light-100 transition-colors duration-200 ease-out'} />
     ),
     label: 'Posts list',
     route: '/',
@@ -67,25 +51,11 @@ export const Sidebar = (props: SidebarProps) => {
   const { asPath } = useRouter()
 
   const currentPath = asPath
-  const fill = '#ffffff'
-
-  const menuItems = getMenuItems({ fill })
 
   return (
     <div className={'w-sidebar pt-16  h-screen border-r border-solid border-r-dark-300'}>
       <div className={'flex flex-col gap-6 items-start'}>
         {menuItems.map(item => {
-          // @ts-ignore
-          const { active, inactive } = item.icon || {}
-
-          let iconElement
-
-          if (active && inactive) {
-            iconElement = currentPath === item.route ? active : inactive
-          } else {
-            iconElement = item.icon
-          }
-
           return (
             <div
               className={clsx('', {
@@ -108,7 +78,7 @@ export const Sidebar = (props: SidebarProps) => {
                   )}
                   href={item.route}
                 >
-                  {iconElement}
+                  {item.icon}
                   <span className={'ml-4 text-regular-400'}>{item.label}</span>
                 </AppLink>
               </button>
