@@ -50,7 +50,7 @@ export const Sidebar = () => {
   const currentPath = asPath
 
   return (
-    <div className={'w-sidebar pt-16  h-screen border-r border-solid border-r-dark-300'}>
+    <div className={'w-sidebar pt-16 h-screen border-r-2 border-solid border-r-dark-300'}>
       <div className={'flex flex-col gap-6 items-start'}>
         {menuItems.map(item => {
           return (

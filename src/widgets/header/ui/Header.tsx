@@ -16,7 +16,7 @@ export const Header = (props: HeaderProps) => {
   return (
     <header
       className={clsx(
-        'box-border h-header py-10 px-0 bg-dark-700 border-b-2 border-dark-500 transition duration-500 ease-in-out',
+        'box-border h-header py-10 px-0 bg-dark-700 border-b-2 border-dark-300 transition duration-500 ease-in-out',
         [className]
       )}
     >
