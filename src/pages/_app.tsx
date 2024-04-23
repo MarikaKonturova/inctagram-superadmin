@@ -5,6 +5,7 @@ import 'app/styles/index.css'
 import { NextPage } from 'next'
 import { ReactElement } from 'react'
 import { client } from 'shared/config'
+import { Theme } from 'shared/constants/theme'
 import ThemeProvider from 'shared/context/ThemeProvider'
 
 export type NextPageWithLayout<P = Record<string, unknown>> = NextPage<P> & {
@@ -20,7 +21,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <ApolloProvider client={client}>
-      <ThemeProvider>
+      <ThemeProvider initialTheme={Theme.DARK}>
         {getLayout(
           <>
             <Component {...pageProps} />

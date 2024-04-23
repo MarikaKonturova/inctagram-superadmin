@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { Theme } from 'shared/constants/theme'
 import { useTheme } from 'shared/hooks/useTheme'
 import { AppLink, Container, LangSelect, ThemeSwitcher } from 'shared/ui'
 import { SparklesCore } from 'shared/ui/Sparkles'
@@ -12,8 +13,6 @@ export const Header = (props: HeaderProps) => {
 
   const { theme } = useTheme()
 
-  console.log('header', theme)
-
   return (
     <header
       className={clsx(
@@ -25,7 +24,7 @@ export const Header = (props: HeaderProps) => {
         <AppLink className={'font-large text-light-100 no-underline '} href={'/'}>
           <div
             className={
-              'h-full w-full  flex flex-col items-center justify-center overflow-hidden rounded-md'
+              'h-full w-full flex flex-col items-center justify-center overflow-hidden rounded-md'
             }
           >
             <h1 className={'text-3xl leading-3 font-bold text-center relative z-40 '}>
@@ -65,7 +64,7 @@ export const Header = (props: HeaderProps) => {
                 className={'w-full h-full'}
                 maxSize={0.7}
                 minSize={0.2}
-                particleColor={'#FFFFFF'}
+                particleColor={theme == Theme.DARK ? '#FFFFFF' : '#000000'}
                 particleDensity={2000}
               />
 

@@ -1,6 +1,8 @@
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
+import { Theme } from 'shared/constants/theme'
+import { useTheme } from 'shared/hooks/useTheme'
 import { AppLink } from 'shared/ui'
 
 import CreditCard from '../../../shared/assets/icons/light/credit-card.svg'
@@ -43,6 +45,8 @@ const menuItems: MenuItemsType[] = [
 export const Sidebar = () => {
   const { asPath } = useRouter()
 
+  const { theme } = useTheme()
+
   const currentPath = asPath
 
   return (
@@ -57,9 +61,17 @@ export const Sidebar = () => {
               key={item.route || item.label}
             >
               <button
-                className={
-                  'inline-flex h-12 animate-shimmer items-center justify-items-start rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-2 w-40 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'
-                }
+                className={clsx(
+                  'inline-flex h-12 animate-shimmer items-center justify-items-start rounded-md border border-slate-800  bg-[length:200%_100%] px-2 w-40 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50',
+                  {
+                    ['bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)]']:
+                      theme === Theme.DARK,
+                  },
+                  {
+                    ['bg-[linear-gradient(100deg,#fffefc,45%,#007cb0,55%,#fffefc)]']:
+                      theme === Theme.LIGHT,
+                  }
+                )}
               >
                 <AppLink
                   active={currentPath === item.route}
