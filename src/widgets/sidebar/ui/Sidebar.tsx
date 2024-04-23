@@ -72,7 +72,7 @@ export const Sidebar = (props: SidebarProps) => {
   const menuItems = getMenuItems({ fill })
 
   return (
-    <div className={'w-sidebar pt-16 pl-12 h-screen border-r border-solid border-r-dark-300'}>
+    <div className={'w-sidebar pt-16  h-screen border-r border-solid border-r-dark-300'}>
       <div className={'flex flex-col gap-6 items-start'}>
         {menuItems.map(item => {
           // @ts-ignore
@@ -95,15 +95,15 @@ export const Sidebar = (props: SidebarProps) => {
             >
               <button
                 className={
-                  'inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-2 w-36 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'
+                  'inline-flex h-12 animate-shimmer items-center justify-items-start rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-2 w-40 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'
                 }
               >
                 <AppLink
                   active={currentPath === item.route}
                   className={clsx(
-                    'flex items-center text-light-100 focus:rounded-sm active:text-primary-100 hover:no-underline focus:outline-primary-700 active:outline-none hover:text-primary-100',
+                    'flex items-center text-light-100 focus:rounded-sm active:text-primary-100 hover:no-underline focus:outline-primary-700 active:outline-none hover:text-primary-100 [&>svg]:hover:fill-primary-100 ',
                     {
-                      ['active:text-primary-100 icon fill-primary-500']: currentPath === item.route,
+                      ['text-primary-300 [&>svg]:fill-primary-300']: currentPath === item.route,
                     }
                   )}
                   href={item.route}
