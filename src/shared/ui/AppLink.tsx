@@ -3,19 +3,20 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { type ReactNode } from 'react'
 
+type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>
+
 interface AppLinkProps {
-  Icon?: any
+  Icon?: IconComponent
   active?: boolean
   children?: ReactNode
   className?: string
   href?: string
   locale?: string | string[]
-  skipLocaleHandling?: any
   text?: string
 }
 
 export const AppLink = (props: AppLinkProps) => {
-  const { Icon, active = false, children, className, text, ...rest } = props
+  const { active = false, children, className, ...rest } = props
 
   const router = useRouter()
 

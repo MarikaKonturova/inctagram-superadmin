@@ -1,6 +1,8 @@
 import Head from 'next/head'
-import { Input } from 'shared/ui'
-export default function Home() {
+
+import { Home } from 'templates'
+
+export default function Page() {
   return (
     <>
       <Head>
@@ -11,6 +13,7 @@ export default function Home() {
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
       <main data-theme={'dark'}>
+        <Home />
         <h1 className={'text-secondary-color h-10 w-sidebar'}>Hello world</h1>
       </main>
     </>

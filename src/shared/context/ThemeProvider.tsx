@@ -1,4 +1,5 @@
 import React, { type FC, createContext, useEffect, useMemo, useState } from 'react'
+
 import { LOCAL_STORAGE_THEME_KEY, Theme } from 'shared/constants/theme'
 
 let defaultTheme: Theme

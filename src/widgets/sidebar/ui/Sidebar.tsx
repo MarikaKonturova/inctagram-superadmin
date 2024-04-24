@@ -1,14 +1,14 @@
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
+
+import CreditCard from 'shared/assets/icons/light/credit-card.svg'
+import Image from 'shared/assets/icons/light/image24.svg'
+import Person from 'shared/assets/icons/light/person.svg'
+import TrendingUp from 'shared/assets/icons/light/trending-up.svg'
 import { Theme } from 'shared/constants/theme'
 import { useTheme } from 'shared/hooks/useTheme'
 import { AppLink } from 'shared/ui'
-
-import CreditCard from '../../../shared/assets/icons/light/credit-card.svg'
-import Image from '../../../shared/assets/icons/light/image24.svg'
-import Person from '../../../shared/assets/icons/light/person.svg'
-import TrendingUp from '../../../shared/assets/icons/light/trending-up.svg'
 
 type MenuItemsType = {
   icon: ReactNode

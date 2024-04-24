@@ -1,11 +1,11 @@
 'use client'
-import type { Container, SingleOrMultiple } from '@tsparticles/engine'
 
-// eslint-disable-next-line import/no-named-as-default
+import type { Container, SingleOrMultiple } from '@tsparticles/engine'
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
 import { motion, useAnimation } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
+
 import { cn } from 'shared/utils/cn'
 
 type ParticlesProps = {
@@ -25,8 +25,9 @@ export const SparklesCore = (props: ParticlesProps) => {
   const [init, setInit] = useState(false)
 
   useEffect(() => {
-    initParticlesEngine(async (engine: any) => {
+    initParticlesEngine(async engine => {
       await loadSlim(engine)
+      console.log(engine)
     }).then(() => {
       setInit(true)
     })
@@ -73,7 +74,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                   enable: false,
                   mode: 'repulse',
                 },
-                resize: true as any,
+                resize: true as never,
               },
               modes: {
                 push: {
@@ -296,8 +297,8 @@ export const SparklesCore = (props: ParticlesProps) => {
               },
               orbit: {
                 animation: {
-                  count: 0,
                   // eslint-disable-next-line max-lines
+                  count: 0,
                   decay: 0,
                   delay: 0,
                   enable: false,

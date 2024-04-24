@@ -4,15 +4,18 @@ import { ChevronsUpDown } from 'lucide-react'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 
-import Rus from '../assets/icons/flags/russia-flag-icon.svg'
-import Eng from '../assets/icons/flags/united-states-flag-icon.svg'
-import { cn } from '../utils'
+import Rus from 'shared/assets/icons/flags/russia-flag-icon.svg'
+import Eng from 'shared/assets/icons/flags/united-states-flag-icon.svg'
+import { cn } from 'shared/utils'
+
 import { Button } from './Button'
 import { Popover, PopoverContent, PopoverTrigger } from './Popover'
 import { Command, CommandGroup, CommandItem, CommandList } from './Сommand'
 
+type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>
+
 type Languages = {
-  icon: any
+  icon: IconComponent
   label: string
   value: string
 }

@@ -1,8 +1,9 @@
 import { type NextPage } from 'next'
 import { type PropsWithChildren, type ReactElement, Suspense } from 'react'
-import { Sidebar } from 'widgets/sidebar'
 
-import { Layout } from '../layout/Layout'
+import { Layout } from 'layouts/layout/Layout'
+
+import { Sidebar } from 'widgets/sidebar'
 
 export const LayoutWithSidebar: NextPage<PropsWithChildren> = ({ children }) => (
   <Layout>

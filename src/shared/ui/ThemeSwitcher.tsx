@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import React, { memo, useEffect, useState } from 'react'
+
 import DarkIcon from 'shared/assets/icons/general/theme-dark.svg'
 import LightIcon from 'shared/assets/icons/general/theme-light.svg'
 import { Theme } from 'shared/constants/theme'

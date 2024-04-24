@@ -1,12 +1,14 @@
-import type { AppProps } from 'next/app'
-
 import { ApolloProvider } from '@apollo/client'
-import 'app/styles/index.css'
 import { NextPage } from 'next'
 import { ReactElement } from 'react'
+
 import { client } from 'shared/config'
 import { Theme } from 'shared/constants/theme'
 import ThemeProvider from 'shared/context/ThemeProvider'
+
+import type { AppProps } from 'next/app'
+
+import 'app/styles/index.css'
 
 export type NextPageWithLayout<P = Record<string, unknown>> = NextPage<P> & {
   getLayout?: (page: ReactElement) => ReactElement

@@ -1,4 +1,5 @@
 node_modules
+Dockerfile
 .next
 .husky
 coverage
@@ -7,3 +8,5 @@ coverage
 .eslintignore
 .gitkeep
 **/*.svg
+.yml
+.yaml
