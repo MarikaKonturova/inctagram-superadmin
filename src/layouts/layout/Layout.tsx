@@ -5,8 +5,6 @@ interface LayoutProps extends PropsWithChildren {
   withAuth?: boolean
 }
 
-export const Layout: NextPage<LayoutProps> = props => {
-  const { children, withAuth = false } = props
-
+export const Layout: NextPage<LayoutProps> = () => {
   return <div></div>
 }

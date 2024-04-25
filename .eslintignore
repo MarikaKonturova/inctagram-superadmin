@@ -1,6 +1,6 @@
 *.json
 *.config.*
-src/shared/types/types.ts
+*.types.ts
 Dockerfile
 .yml
 .yaml

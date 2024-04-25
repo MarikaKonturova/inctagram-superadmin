@@ -2,8 +2,9 @@ import { CaretSortIcon } from '@radix-ui/react-icons'
 import { ColumnDef } from '@tanstack/table-core'
 import { BanIcon } from 'lucide-react'
 
-import { User } from '../../../shared/types/user'
-import MoreOptions from './MoreOptions'
+import { User } from 'shared/types'
+
+import MoreOptions from './UsersMoreOptions'
 
 export const columns: ColumnDef<User>[] = [
   {

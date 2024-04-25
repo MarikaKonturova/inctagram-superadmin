@@ -1,11 +1,13 @@
 import Link from 'next/link'
+
 import ArrowLeft from 'shared/assets/icons/outline/arrow-back-outline.svg'
+import { getFormattedDate } from 'shared/lib/getFormattedDate'
 import { Avatar } from 'shared/ui/Avatar'
 
-import { UserForSuperAdminViewModel } from '../../../shared/types/types'
+import { GetUserQuery } from 'entities/user/api/user.types'
 
-export const MainUserInfo = ({ userData }: { userData: UserForSuperAdminViewModel }) => {
-  const { createdAt, profileLink, userId, userName } = userData
+export const MainUserInfo = ({ userData }: { userData: GetUserQuery }) => {
+  const { createdAt, profileLink, userId, userName, fullName } = userData.user
 
   return (
     <>
@@ -16,10 +18,10 @@ export const MainUserInfo = ({ userData }: { userData: UserForSuperAdminViewMode
         </Link>
         <div className={'pt-6 w-[360px]'}>
           <div className={'flex w-full h-14'}>
-            <Avatar />
+            <Avatar src={profileLink} />
             <div className={'pl-6 flex flex-col '}>
-              <span className={'text-h1 leading-9'}>{userData.userName}</span>
-              <Link href={'#'}>
+              <span className={'text-h1 leading-9'}>{fullName}</span>
+              <Link target={'_blank'} href={`https://inctagram-v2.vercel.app/profile/${userName}`}>
                 <span
                   className={
                     'transition-colors outline-none text-medium-400 underline hover:text-primary-100'
@@ -33,11 +35,11 @@ export const MainUserInfo = ({ userData }: { userData: UserForSuperAdminViewMode
           <div className={'flex justify-between pt-6'}>
             <div className={'flex flex-col w-[172px]'}>
               <span className={'text-light-900'}>UserID</span>
-              <span>{'userId'}</span>
+              <span>{userId}</span>
             </div>
             <div className={'flex pl-3 w-3/6 flex-col'}>
               <span className={'text-light-900'}>Profile Creation Date</span>
-              <span>{'24 04 2006'}</span>
+              <span>{getFormattedDate(createdAt)}</span>
             </div>
           </div>
         </div>
