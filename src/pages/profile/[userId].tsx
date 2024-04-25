@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 
-import { UserProfilePage } from '../../templates/profile/ui/userProfilePage/UserProfilePage'
+import { UserProfilePage } from 'templates/profile/ui/userProfilePage/UserProfilePage'
 
 export default function Profile() {
   return (

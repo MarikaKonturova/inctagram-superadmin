@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from 'shared/ui/Tabs'
+import { TabsTrigger, TabsContent, TabsList, Tabs } from 'shared/ui'
 
 const TABS_NAMES = {
   FOLLOWERS: 'Followers',

@@ -1,10 +1,11 @@
 import Image from 'next/image'
+
 import IconImg from 'shared/assets/icons/light/image.svg'
 import { cn } from 'shared/utils'
 
 type Props = {
   className?: string
-  src?: string
+  src?: string | null
 }
 
 export const Avatar = ({ className, src }: Props) => {
