@@ -41,4 +41,23 @@
   .text-large {
     font: var(--font-large);
   }
+  .text-primary-100 {
+    color: var(--primary-100-color);
+  }
+  .text-primary-500 {
+    color: var(--primary-500-color);
+  }
+  .text-light-900 {
+    color: var(--light-900-color);
+  }
+  .text-dark-100-color-700 {
+    color: var(--dark-100-color);
+    font: var(--font-regular-700);
+  }
+  .border-bottom-dark-100 {
+    border-bottom: var(--dark-100-color) solid 2px;
+  }
+  .border-bottom-primary-500 {
+    border-bottom: var(--primary-500-color) solid 2px;
+  }
 }
