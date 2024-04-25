@@ -15,9 +15,7 @@ export const Layout: NextPage<LayoutProps> = props => {
   return (
     <div>
       <Header />
-      <main className={'h-[calc(100vh-60px)][transition:background-color_0.5s]'}>
-        <Container>{children}</Container>
-      </main>
+      <main className={'h-[calc(100vh-60px)][transition:background-color_0.5s]'}>{children}</main>
     </div>
   )
 }

@@ -34,27 +34,27 @@ export const Header = (props: HeaderProps) => {
               <span className={'font-normal text-medium'}>Admin</span>
             </h1>
 
-            <div className={'w-36 h-5 relative'}>
+            <div className={'w-52 h-5 relative'}>
               {/* Gradients */}
               <div className={'absolute inset-x-0 top-0 left-1 -right-1/3'}>
                 <div
                   className={
-                    'absolute bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-1/4 blur-sm'
+                    'absolute bg-gradient-to-r from-transparent dark:via-indigo-500 via-sky-50 to-transparent h-[2px] w-1/4 blur-sm'
                   }
                 />
                 <div
                   className={
-                    'absolute bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-1/4'
+                    'absolute bg-gradient-to-r from-transparent dark:via-indigo-500 via-sky-50 to-transparent h-px w-1/4'
                   }
                 />
                 <div
                   className={
-                    'absolute bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-3/4 blur-sm'
+                    'absolute bg-gradient-to-r from-transparent dark:via-sky-500 via-indigo-300 to-transparent h-[5px] w-3/4 blur-sm'
                   }
                 />
                 <div
                   className={
-                    'absolute bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-3/4'
+                    'absolute bg-gradient-to-r from-transparent dark:via-sky-500 via-indigo-500 to-transparent h-px w-3/4'
                   }
                 />
               </div>
@@ -65,7 +65,7 @@ export const Header = (props: HeaderProps) => {
                 className={'w-full h-full'}
                 maxSize={0.7}
                 minSize={0.2}
-                particleColor={theme == Theme.DARK ? '#FFFFFF' : '#000000'}
+                particleColor={theme == Theme.DARK ? '#FFFFFF' : '#A5B4FC'}
                 particleDensity={2000}
               />
 

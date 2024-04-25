@@ -55,20 +55,20 @@ export const Sidebar = () => {
         {menuItems.map(item => {
           return (
             <div
-              className={clsx('', {
+              className={clsx('w-full', {
                 ['flex flex-col gap-6 items-start mt-15']: item.label === 'statistics',
               })}
               key={item.route || item.label}
             >
               <button
                 className={clsx(
-                  'inline-flex h-12 animate-shimmer items-center justify-items-start rounded-md border border-slate-800  bg-[length:200%_100%] px-2 w-40 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50',
+                  'inline-flex h-12 animate-shimmer items-center justify-items-start rounded-md border border-transparent  bg-[length:200%_100%] px-2 w-full font-medium text-slate-400  transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50',
                   {
-                    ['bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)]']:
+                    ['hover:bg-[linear-gradient(110deg,#0D0D0D,45%,#1e2631,55%,#0D0D0D)] transition-all duration-[2000ms]']:
                       theme === Theme.DARK,
                   },
                   {
-                    ['bg-[linear-gradient(100deg,#fffefc,45%,#007cb0,55%,#fffefc)]']:
+                    ['hover:bg-[linear-gradient(100deg,#fff,45%,#e5e6fa,55%,#fff)] hover:transition-all hover:duration-[2000ms]']:
                       theme === Theme.LIGHT,
                   }
                 )}
@@ -76,7 +76,7 @@ export const Sidebar = () => {
                 <AppLink
                   active={currentPath === item.route}
                   className={clsx(
-                    'flex items-center text-light-100 focus:rounded-sm active:text-primary-100 hover:no-underline focus:outline-primary-700 active:outline-none hover:text-primary-100 [&>svg]:hover:fill-primary-100 ',
+                    ' flex items-center text-light-100 focus:rounded-sm active:text-primary-100 hover:no-underline focus:outline-primary-700 active:outline-none hover:text-primary-100 [&>svg]:hover:fill-primary-100 w-full h-full',
                     {
                       ['text-primary-300 [&>svg]:fill-primary-300']: currentPath === item.route,
                     }
@@ -84,7 +84,7 @@ export const Sidebar = () => {
                   href={item.route}
                 >
                   {item.icon}
-                  <span className={'ml-4 text-regular-400'}>{item.label}</span>
+                  <span className={' ml-4 text-regular-400'}>{item.label}</span>
                 </AppLink>
               </button>
             </div>

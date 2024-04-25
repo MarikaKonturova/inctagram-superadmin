@@ -12,9 +12,8 @@ export default function Page() {
 
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
-      <main data-theme={'dark'}>
+      <main className={'w-full'}>
         <Home />
-        <h1 className={'text-secondary-color h-10 w-sidebar'}>Hello world</h1>
       </main>
     </>
   )
