@@ -37,7 +37,7 @@ export const PostPhotos = ({ photos }: PostType) => {
             <div>
               <img
                 alt={`photo ${index + 1}`}
-                className={'w-60 h-60 object-cover mb-3'}
+                className={'w-60 h-60 object-cover'}
                 src={photos[index]}
               />
             </div>

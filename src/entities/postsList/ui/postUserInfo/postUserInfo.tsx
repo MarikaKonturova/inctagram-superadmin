@@ -10,7 +10,7 @@ type PostUserInfoType = {
 
 export const PostUserInfo = ({ avatar, banned, userName }: PostUserInfoType) => {
   return (
-    <div className={'flex flex-row justify-between items-center'}>
+    <div className={'flex flex-row justify-between items-center mb-3'}>
       <div className={'flex flex-row items-center'}>
         <img alt={'sd'} className={'h-9 w-9 object-cover rounded-full mr-2'} src={avatar} />
         <p className={'font-inter text-base font-semibold leading-6 tracking-normal'}>{userName}</p>
