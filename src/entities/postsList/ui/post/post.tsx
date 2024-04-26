@@ -5,7 +5,7 @@ import { PostPhotos } from '../postPhotos'
 import { PostUserInfo } from '../postUserInfo'
 
 type PostType = {
-  user: any
+  user?: any
 }
 
 export const Post = (user: PostType) => {
