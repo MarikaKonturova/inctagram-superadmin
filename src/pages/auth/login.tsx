@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import React from 'react'
-import { Input, Label } from 'shared/ui'
+
+import { LoginForm } from 'features/auth'
 
 export default function Login() {
   return (
@@ -13,10 +13,7 @@ export default function Login() {
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
       <main className={'w-[100vw] h-[100vh] flex items-center justify-center'}>
-        <div>
-          <Label>hello</Label>
-          <Input className={'w-[50vw]'} />
-        </div>
+        <LoginForm />
       </main>
     </>
   )

@@ -9,15 +9,12 @@
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
     "plugin:prettier/recommended",
-    "plugin:testing-library/react",
-    "plugin:jest-dom/recommended",
-    "plugin:perfectionist/recommended-natural",
-    "@feature-sliced",
+    "plugin:@typescript-eslint/recommended",
     "next",
+    "@feature-sliced/eslint-config/rules/public-api",
+    "@feature-sliced/eslint-config/rules/layers-slices",
+    "@feature-sliced/eslint-config/rules/import-order/experimental",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -28,19 +25,17 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "import", "perfectionist"],
+  "plugins": ["no-relative-import-paths", "@typescript-eslint"],
   "rules": {
+    "no-relative-import-paths/no-relative-import-paths": [
+      "error",
+      { "allowSameFolder": true, "rootDir": "src", "prefix": "" }
+    ],
     "import/no-internal-modules": "off",
-    "boundaries/element-types": 1,
     "arrow-parens": "off",
     "consistent-return": "off",
     "curly": ["error", "all"],
-    "import/extensions": [
-      "error",
-      { "css": "always", "json": "always", "scss": "always", "svg": "always" }
-    ],
-    "import/no-duplicates": "off",
-    "import/order": "off",
+
     "import/prefer-default-export": "off",
     "max-lines": ["error", 300],
     "no-console": ["warn", { "allow": ["warn", "error"] }],
@@ -72,10 +67,11 @@
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"]
     },
+
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"],
-        "paths": ["src"]
+        "project": "tsconfig.json"
       },
       "typescript": {
         "alwaysTryTypes": true

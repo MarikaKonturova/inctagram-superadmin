@@ -1,2 +1,6 @@
 *.json
 *.config.*
+*.types.ts
+Dockerfile
+.yml
+.yaml

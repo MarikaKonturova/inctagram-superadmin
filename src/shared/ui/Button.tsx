@@ -1,6 +1,8 @@
 import React, { type ButtonHTMLAttributes, type ReactNode, memo } from 'react'
 import { cn } from 'shared/utils'
 
+import { cn } from 'shared/utils'
+
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   block?: boolean
   children?: ReactNode
@@ -22,7 +24,11 @@ export const Button = memo((props: ButtonProps) => {
     variant = 'primary',
     ...otherProps
   } = props
-  const baseStyles = `cursor-pointer px-6 py-1.5 font-h3 text-white rounded transition duration-500 ease-in-out ${disabled ? 'cursor-not-allowed' : ''}`
+
+  const baseStyles = `cursor-pointer px-6 py-1.5 font-h3 text-white rounded transition duration-500 ease-in-out ${
+    disabled ? 'cursor-not-allowed' : ''
+  }`
+
   const variantStyles = {
     clear: `font-regular-400 bg-transparent border-none outline-none`,
     destructive:
@@ -34,6 +40,7 @@ export const Button = memo((props: ButtonProps) => {
     secondary: `text-dark bg-light hover:bg-light-900 ${disabled ? 'text-dark-100 bg-light-900' : ''}`,
     textButton: `text-primary-500 bg-transparent border-none hover:text-primary-100 focus:outline-none focus:ring-2 focus:ring-primary-700 ${disabled ? 'cursor-not-allowed text-primary-900' : ''}`,
   }
+
   const finalClassName = cn(block ? 'w-full' : '', baseStyles, variantStyles[variant], className)
 
   return (
