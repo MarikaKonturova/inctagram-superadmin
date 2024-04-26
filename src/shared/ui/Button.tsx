@@ -1,5 +1,4 @@
 import React, { type ButtonHTMLAttributes, type ReactNode, memo } from 'react'
-import { cn } from 'shared/utils'
 
 import { cn } from 'shared/utils'
 
@@ -19,7 +18,6 @@ export const Button = memo((props: ButtonProps) => {
     children,
     className,
     disabled,
-    moreOptions,
     onClick,
     variant = 'primary',
     ...otherProps

@@ -1,14 +1,9 @@
 import React from 'react'
 
-import { PostDescription } from '../postDescription'
-import { PostPhotos } from '../postPhotos'
-import { PostUserInfo } from '../postUserInfo'
+import { PostDescription } from 'entities/postsList/ui/postDescription'
+import { PostPhotos } from 'entities/postsList/ui/postPhotos'
 
-type PostType = {
-  user?: any
-}
-
-export const Post = (user: PostType) => {
+export const Post = () => {
   const text =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
