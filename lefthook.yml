@@ -7,3 +7,5 @@ pre-commit:
   commands:
     lint:
       run: npx lint-staged
+    build:
+      run: yarn build
