@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { useGetUserQuery } from 'entities/user/api/user.types'
+import { useGetUserQuery } from 'entities/user/api/getUser.types'
 import { MainUserInfo } from 'entities/user/ui/MainUserInfo'
 
 import { UserTabs } from './UserTabs'

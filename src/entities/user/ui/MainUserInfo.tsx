@@ -4,7 +4,7 @@ import ArrowLeft from 'shared/assets/icons/outline/arrow-back-outline.svg'
 import { getFormattedDate } from 'shared/lib/getFormattedDate'
 import { Avatar } from 'shared/ui/Avatar'
 
-import { GetUserQuery } from 'entities/user/api/user.types'
+import { GetUserQuery } from 'entities/user/api/getUser.types'
 
 export const MainUserInfo = ({ userData }: { userData: GetUserQuery }) => {
   const { createdAt, profileLink, userId, userName, fullName } = userData.user

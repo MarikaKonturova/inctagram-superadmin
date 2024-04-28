@@ -1,3 +1,3 @@
-export { useGetUserQuery } from './api/user.types'
+export { useGetUserQuery } from './api/getUser.types'
 
 export { MainUserInfo } from './ui/MainUserInfo'
