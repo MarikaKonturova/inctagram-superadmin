@@ -13,7 +13,7 @@ export const MainUserInfo = ({ userData }: { userData: GetUserQuery }) => {
     <>
       <div className={'pt-6 leading-6 font-normal text-sm'}>
         <Link className={'flex'} href={'/'}>
-          <ArrowLeft fill={'white'} />
+          <ArrowLeft className={'fill-current text-primary dark:text-primary'} />
           <span className={'cursor-pointer outline-none pl-2 font-medium'}>Back to Users List</span>
         </Link>
         <div className={'pt-6 w-[360px]'}>
