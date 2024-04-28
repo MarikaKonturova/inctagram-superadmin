@@ -1,1 +1,1 @@
-export { PostPhotos } from './postPhotos'
+export { PostPhotos } from './PostPhotos'

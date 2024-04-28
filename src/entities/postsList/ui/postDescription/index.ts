@@ -1,1 +1,1 @@
-export { PostDescription } from './postDescription'
+export { PostDescription } from './PostDescription'
