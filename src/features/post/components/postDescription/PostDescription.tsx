@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { PostUserInfo } from 'entities/postsList/ui/postUserInfo'
+import { PostUserInfo } from 'features/post/components/postUserInfo'
 
 type PostDescriptionType = {
   avatar: string

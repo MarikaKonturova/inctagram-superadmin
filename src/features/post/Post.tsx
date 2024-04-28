@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { PostDescription } from 'entities/postsList/ui/postDescription'
-import { PostPhotos } from 'entities/postsList/ui/postPhotos'
+import { PostDescription } from 'features/post/components/postDescription'
+import { PostPhotos } from 'features/post/components/postPhotos'
 
 export const Post = () => {
   const text =
