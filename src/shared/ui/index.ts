@@ -64,4 +64,5 @@ export {
   TableHeader,
   TableRow,
 } from './Table'
+export * from './Tabs'
 export { FormInput, FormWrapper } from './formComponent'
