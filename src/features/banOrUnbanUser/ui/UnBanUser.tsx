@@ -1,26 +1,30 @@
 import { useMutation } from '@apollo/client'
-import { UserMinus } from 'lucide-react'
+import { Ban } from 'lucide-react'
 import { useState } from 'react'
 
-import { User } from 'shared/types'
-import { DeleteModal, Button } from 'shared/ui'
+import { User } from 'shared/types/user'
+import { Button } from 'shared/ui'
+import { UnBanModal } from 'shared/ui/UnBanModal'
 
-import { DELETE_USER } from 'features/deleteUser/api/deleteUser'
+import { GetAllUsersDocument } from 'entities/users/api/getAllUsers.types'
 
-export const DeleteUser = (data: User) => {
+import { UPDATE_USER_STATUS } from 'features/banOrUnbanUser/api/updateUserStatus'
+
+export const UnBanUser = (data: User) => {
   const [open, setOpen] = useState(false)
-  const [deleteUser] = useMutation(DELETE_USER)
+  const [updateUserStatus] = useMutation(UPDATE_USER_STATUS)
 
   const onConfirm = async () => {
     try {
-      await deleteUser({
+      await updateUserStatus({
         variables: {
           userId: data.userId,
+          isBanned: false,
         },
+        refetchQueries: [GetAllUsersDocument],
       })
-      console.log('User has been deleted')
     } catch (error) {
-      console.log(error)
+      console.log('Error', error)
     } finally {
       setOpen(false)
     }
@@ -28,11 +32,11 @@ export const DeleteUser = (data: User) => {
 
   return (
     <>
-      <DeleteModal
+      <UnBanModal
         isOpen={open}
         onClose={() => setOpen(false)}
-        onConfirm={onConfirm}
         userName={data.userName}
+        onConfirm={onConfirm}
       />
       <Button
         variant={'ghost'}
@@ -41,8 +45,8 @@ export const DeleteUser = (data: User) => {
         }
         onClick={() => setOpen(true)}
       >
-        <UserMinus className={'mr-2 h-4 w-4'} />
-        Delete User
+        <Ban className={'mr-2 h-4 w-4'} />
+        Unban in the system
       </Button>
     </>
   )
