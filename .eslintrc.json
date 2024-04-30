@@ -5,7 +5,7 @@
     "es2021": true,
     "node": true
   },
-  "ignorePatterns": ["**/*.test.*", "**/*.d.ts"],
+  "ignorePatterns": ["**/*.test.*", "**/*.d.ts", "**/*.svg"],
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",

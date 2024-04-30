@@ -7,5 +7,6 @@ coverage
 .stylelintignore
 .eslintignore
 .gitkeep
+**/*.svg
 .yml
 .yaml
