@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 
 import {
@@ -35,10 +36,12 @@ export const PostPhotos = ({ photos }: PostType) => {
         {photos.map((_, index) => (
           <CarouselItem key={index}>
             <div>
-              <img
+              <Image
                 alt={`photo ${index + 1}`}
                 className={'w-60 h-60 object-cover'}
                 src={photos[index]}
+                width={500}
+                height={100}
               />
             </div>
           </CarouselItem>
