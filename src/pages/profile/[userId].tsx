@@ -1,8 +1,9 @@
 import Head from 'next/head'
+import React from 'react'
 
-import { Home } from 'templates'
+import { UserProfilePage } from 'templates/profile/ui/userProfilePage/UserProfilePage'
 
-export default function Page() {
+export default function Profile() {
   return (
     <>
       <Head>
@@ -12,8 +13,8 @@ export default function Page() {
 
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
-      <main className={'w-full'}>
-        <Home />
+      <main className={'w-[100vw] h-[100vh] flex pt-10 justify-center'}>
+        <UserProfilePage />
       </main>
     </>
   )

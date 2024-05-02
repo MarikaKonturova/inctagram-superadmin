@@ -25,9 +25,7 @@ export const Home = () => {
   const usersData = loading && previousData ? previousData : data
 
   return (
-    <div
-      className={'h-[1000px] flex items-center justify-center bg-black text-white flex-col gap-8'}
-    >
+    <div className={'h-[1000px] flex items-center justify-center flex-col gap-8'}>
       <UsersList columns={columns} items={usersData?.users.items || []} />
       <TablePagination
         pageIndex={pageIndex}
