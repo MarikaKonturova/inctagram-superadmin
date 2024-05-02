@@ -1,3 +1,17 @@
+export { AppLink } from './AppLink'
+export { Container } from './Container'
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+} from './Dialog'
 export { DataTable } from './DataTable'
 export { Info } from './Info'
 export { TablePagination } from './TablePagination'
@@ -22,20 +36,12 @@ export {
 } from './Dropdown-menu'
 export { DeleteModal } from './DeleteModal'
 export { Button } from './Button'
-export {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogOverlay,
-  DialogPortal,
-  DialogTitle,
-  DialogTrigger,
-} from './Dialog'
+
 export { Input } from './Input'
 export { Label } from './Label'
+export { LangSelect } from './LangSelect'
+export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from './Popover'
+export { ThemeSwitcher } from './ThemeSwitcher'
 export {
   Select,
   SelectContent,
@@ -60,3 +66,4 @@ export {
 } from './Table'
 export { FormInput } from './formComponent/FormInput'
 export { FormWrapper } from './formComponent/FormWrapper'
+export * from './Tabs'
