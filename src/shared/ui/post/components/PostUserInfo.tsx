@@ -7,9 +7,10 @@ type PostUserInfoType = {
   avatar: string
   banned: boolean
   userName: string
+  darkTheme: boolean
 }
 
-export const PostUserInfo = ({ avatar, banned, userName }: PostUserInfoType) => {
+export const PostUserInfo = ({ avatar, banned, userName, darkTheme }: PostUserInfoType) => {
   return (
     <div className={'flex flex-row justify-between items-center mb-3'}>
       <div className={'flex flex-row items-center'}>
@@ -20,13 +21,23 @@ export const PostUserInfo = ({ avatar, banned, userName }: PostUserInfoType) => 
           width={500}
           height={100}
         />
-        <p className={'font-inter text-base font-semibold leading-6 tracking-normal'}>{userName}</p>
+        <p
+          className={`font-inter text-base font-semibold leading-6 tracking-normal ${darkTheme ? 'text-light-900' : 'text-dark-900'}`}
+        >
+          {userName}
+        </p>
       </div>
       <Button className={'w-4 p-0'} variant={'clear'}>
         {banned ? (
-          <UserPlus className={'mr-2 h-4 w-4'} onClick={() => alert('Unban')} />
+          <UserPlus
+            className={`mr-2 h-4 w-4 ${darkTheme ? 'text-light-900' : 'text-dark-900'}`}
+            onClick={() => alert('Unban')}
+          />
         ) : (
-          <Ban className={'mr-2 h-4 w-4'} onClick={() => alert('Ban')} />
+          <Ban
+            className={`mr-2 h-4 w-4 ${darkTheme ? 'text-light-900' : 'text-dark-900'}`}
+            onClick={() => alert('Ban')}
+          />
         )}
       </Button>
     </div>
