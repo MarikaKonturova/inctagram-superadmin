@@ -1,3 +1,5 @@
+import { UserTypeFromServer } from 'shared/types/user'
+
 export function convertDateFormat(inputDate: string) {
   // Create a new Date object
   const date = new Date(inputDate)
@@ -9,3 +11,11 @@ export function convertDateFormat(inputDate: string) {
     year: 'numeric',
   })
 }
+
+export const formatUser = (user: UserTypeFromServer) => ({
+  ban: user.status === 'BANNED' ? 'Active' : '',
+  dataAdded: convertDateFormat(user.createdAt),
+  profileLink: user.fullName,
+  userId: Number(user.userId),
+  userName: user.userName,
+})
