@@ -59,3 +59,4 @@ export {
   TableRow,
 } from './Table'
 export { FormInput, FormWrapper } from './formComponent'
+export { Switch } from './Switch'
