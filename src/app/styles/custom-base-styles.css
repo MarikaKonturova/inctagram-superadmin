@@ -1,5 +1,5 @@
 @layer base {
-  :root {
+  html {
     /* snadcnui */
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
@@ -141,7 +141,7 @@
 
     --radius: 0.5rem;
   }
-  :root[data-theme='dark'] {
+  html.dark {
     /* custom color */
     --secondary-color: rgb(78 135 255 / 48%);
 
@@ -193,7 +193,7 @@
     --danger-900-color: #660a1d;
   }
 
-  :root[data-theme='light'] {
+  html.light {
     /*  custom color */
     --secondary-color: #0449e0;
 
@@ -246,7 +246,7 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    :root {
+    html.dark {
       /* custom color */
       --secondary-color: rgb(78 135 255 / 48%);
 
@@ -299,6 +299,7 @@
     }
   }
 }
+
 @layer base {
   * {
     @apply border-border;
