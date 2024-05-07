@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, createHttpLink, split } from '@apollo/client'
+import { ApolloClient, createHttpLink, InMemoryCache, split } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions'
 import { getMainDefinition } from '@apollo/client/utilities'
@@ -18,7 +18,7 @@ const wsLink = new GraphQLWsLink(
         },
       }
     },
-    url: 'https://twin.cygan.lol/subscriptions',
+    url: 'wss://twin.cygan.lol/subscriptions',
   })
 )
 
