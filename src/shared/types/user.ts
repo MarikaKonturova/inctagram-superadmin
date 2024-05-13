@@ -20,3 +20,10 @@ export enum BanReasonInputType {
   AnotherReason = 'Another_reason',
   BadBehavior = 'Bad_behavior',
 }
+
+export enum UserStatusInputType {
+  Active = 'active',
+  All = 'all',
+  Banned = 'banned',
+  Pending = 'pending',
+}
