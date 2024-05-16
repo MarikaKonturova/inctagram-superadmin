@@ -6,11 +6,9 @@ import { useEffect, useState } from 'react'
 
 import Rus from 'shared/assets/icons/flags/russia-flag-icon.svg'
 import Eng from 'shared/assets/icons/flags/united-states-flag-icon.svg'
-import { cn } from 'shared/utils'
 
 import { Button } from './Button'
 import { Popover, PopoverContent, PopoverTrigger } from './Popover'
-import { Command, CommandGroup, CommandItem, CommandList } from './Сommand'
 
 type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>
 
@@ -47,30 +45,23 @@ export function LangSelect() {
               </>
             )}
           </div>
-
           <ChevronsUpDown className={'ml-2 h-4 w-4 shrink-0 opacity-50'} />
         </Button>
       </PopoverTrigger>
       <PopoverContent className={'w-[200px] p-0 text-regular-400'}>
-        <Command>
-          <CommandList>
-            <CommandGroup>
-              {languages.map(language => (
-                <CommandItem
-                  key={language.value}
-                  onSelect={() => {
-                    setSelectedLang(language === selectedLang ? selectedLang : language)
-                    setOpen(false)
-                  }}
-                  value={language.value}
-                >
-                  <language.icon className={cn('mr-2 h-4 w-4')} />
-                  <span>{language.label}</span>
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
+        {languages.map(language => (
+          <div
+            key={language.value}
+            className={'flex items-center py-2 px-4 cursor-pointer hover:bg-dark-100'}
+            onClick={() => {
+              setSelectedLang(language === selectedLang ? selectedLang : language)
+              setOpen(false)
+            }}
+          >
+            <language.icon className={'mr-2 h-4 w-4'} />
+            <span>{language.label}</span>
+          </div>
+        ))}
       </PopoverContent>
     </Popover>
   )
