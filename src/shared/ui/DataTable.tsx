@@ -47,12 +47,10 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   return (
     <div>
       <div
-        className={
-          'rounded-md border max-h-[700px] overflow-scroll lg:w-[1200px] md:w-[800px] sm:w-[500px]'
-        }
+        className={'border max-h-[700px] overflow-scroll lg:w-[1200px] md:w-[800px] sm:w-[500px]'}
       >
         <Table>
-          <TableHeader>
+          <TableHeader className={'bg-dark-500'}>
             {table.getHeaderGroups().map(headerGroup => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map(header => {

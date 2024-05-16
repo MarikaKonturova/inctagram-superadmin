@@ -4,12 +4,12 @@ import { UseDebounce } from 'shared/hooks/UseDebounce'
 import { UserStatusInputType } from 'shared/types/user'
 import { TablePagination } from 'shared/ui'
 
-import { useGetAllUsersQuery, UsersList } from 'entities/users'
+import { useGetAllUsersQuery, UsersListDataTable } from 'entities/users'
 import UserToolbar from 'entities/users/ui/UserToolbar'
 
 import { columns } from './ui/UsersColumnsTable'
 
-export const Home = () => {
+export function UsersList() {
   const [pageIndex, setPageIndex] = useState(0)
   const [pageSize, setPageSize] = useState('10')
   const [status, setStatus] = useState<UserStatusInputType>(UserStatusInputType.All)
@@ -40,7 +40,7 @@ export const Home = () => {
         search={searchInput}
         setSearch={setSearchInput}
       />
-      <UsersList columns={columns} items={usersData?.users.items || []} />
+      <UsersListDataTable columns={columns} items={usersData?.users.items || []} />
       <TablePagination
         pageIndex={pageIndex}
         pageSize={pageSize}

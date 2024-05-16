@@ -10,7 +10,7 @@ type UsersListProps = {
   items: UserTypeFromServer[]
 }
 
-export const UsersList = ({ columns, items }: UsersListProps) => {
+export const UsersListDataTable = ({ columns, items }: UsersListProps) => {
   const formattedData = items.map(formatUser)
 
   return <DataTable columns={columns} data={formattedData} />
