@@ -1,3 +1,5 @@
+export { LineChart } from './LineChart'
+
 export { AppLink } from './AppLink'
 export { Container } from './Container'
 export {
@@ -12,6 +14,8 @@ export {
   DialogTitle,
   DialogTrigger,
 } from './Dialog'
+export { Calendar } from './Calendar'
+export { DatePickerWithRange } from './DateRangePicker'
 export { DataTable } from './DataTable'
 export { Info } from './Info'
 export { TablePagination } from './TablePagination'
