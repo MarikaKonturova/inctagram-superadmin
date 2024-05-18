@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 
+import { columns } from 'templates/usersList/ui/UsersColumnsTable'
+
 import { UseDebounce } from 'shared/hooks/UseDebounce'
 import { UserStatusInputType } from 'shared/types/user'
 import { TablePagination } from 'shared/ui'
 
 import { useGetAllUsersQuery, UsersListDataTable } from 'entities/users'
 import UserToolbar from 'entities/users/ui/UserToolbar'
-
-import { columns } from 'templates/usersList/ui/UsersColumnsTable'
 
 export function UsersList() {
   const [pageIndex, setPageIndex] = useState(0)
