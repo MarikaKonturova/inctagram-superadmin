@@ -7,7 +7,7 @@ import { TablePagination } from 'shared/ui'
 import { useGetAllUsersQuery, UsersListDataTable } from 'entities/users'
 import UserToolbar from 'entities/users/ui/UserToolbar'
 
-import { columns } from './ui/UsersColumnsTable'
+import { columns } from 'templates/usersList/ui/UsersColumnsTable'
 
 export function UsersList() {
   const [pageIndex, setPageIndex] = useState(0)

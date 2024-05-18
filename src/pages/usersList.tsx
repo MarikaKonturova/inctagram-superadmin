@@ -1,9 +1,9 @@
 import Head from 'next/head'
 
-import { getLayoutWithSidebar } from 'layouts/layoutWithSidebar/LayoutWithSidebar'
-import { UsersList } from 'templates/home/UsersList'
+import { getLayoutWithSidebar } from "layouts";
+import { UsersList } from "templates";
 
-export default function Index() {
+export default function UsersListPage() {
   return (
     <>
       <Head>
@@ -20,4 +20,4 @@ export default function Index() {
   )
 }
 
-Index.getLayout = getLayoutWithSidebar
+UsersListPage.getLayout = getLayoutWithSidebar
