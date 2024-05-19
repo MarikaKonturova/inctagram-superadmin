@@ -82,7 +82,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       errorMessage: cn('text-red-500 text-sm'),
       field: cn(
         `
-       flex h-10 w-full  border-none bg-dark-500 border border-solid border-dark-300 text-light-100 shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600
+       flex h-10 w-full border-none bg-dark-500 border border-solid border-dark-300 text-light-100 shadow-input px-3 py-2 text-sm  file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600
             focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600
             disabled:cursor-not-allowed disabled:opacity-50
           \tdark:shadow-[0px_0px_1px_1px_var(--neutral-700)]

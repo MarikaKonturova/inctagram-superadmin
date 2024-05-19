@@ -20,7 +20,7 @@ const menuItems: MenuItemsType[] = [
   {
     icon: <Person className={'fill-light-100 transition-colors duration-200 ease-out'} />,
     label: 'Users list',
-    route: '/',
+    route: '/usersList',
   },
   {
     icon: <TrendingUp className={'fill-light-100 transition-colors duration-200 ease-out'} />,

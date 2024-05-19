@@ -6,11 +6,11 @@ import { Modal } from './Modal'
 interface DeleteModalProps {
   isOpen: boolean
   onClose: () => void
-  onConfirm: () => void
   userName: string
+  onConfirm: () => void
 }
 
-export const DeleteModal = ({ isOpen, onClose, onConfirm, userName }: DeleteModalProps) => {
+export const UnBanModal = ({ isOpen, onClose, userName, onConfirm }: DeleteModalProps) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -23,10 +23,10 @@ export const DeleteModal = ({ isOpen, onClose, onConfirm, userName }: DeleteModa
 
   return (
     <Modal
-      description={`Are you sure to delete user ${userName} ?`}
+      description={`Are you sure to unban user ${userName} ?`}
       isOpen={isOpen}
       onClose={onClose}
-      title={'Delete User'}
+      title={'Unban User'}
     >
       <div className={'pt-6 space-x-2 flex items-center justify-end w-full'}>
         <Button onClick={onClose} variant={'ghost'}>

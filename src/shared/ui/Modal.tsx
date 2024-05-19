@@ -8,9 +8,10 @@ interface ModalProps {
   isOpen: boolean
   onClose: () => void
   title: string
+  className?: string
 }
 
-export const Modal = ({ children, description, isOpen, onClose, title }: ModalProps) => {
+export const Modal = ({ children, description, isOpen, onClose, title, className }: ModalProps) => {
   const onChange = (open: boolean) => {
     if (!open) {
       onClose()
@@ -19,7 +20,7 @@ export const Modal = ({ children, description, isOpen, onClose, title }: ModalPr
 
   return (
     <Dialog onOpenChange={onChange} open={isOpen}>
-      <DialogContent>
+      <DialogContent className={className}>
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>
