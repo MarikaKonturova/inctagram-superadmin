@@ -1,2 +1,2 @@
-export * from './formInput/FormInput'
-export * from './formWrapper/FormWrapper'
+export * from './FormInput'
+export * from './FormWrapper'

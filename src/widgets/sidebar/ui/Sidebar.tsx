@@ -38,7 +38,7 @@ const menuItems: MenuItemsType[] = [
       <Image className={'fill-light-100 transition-colors duration-200 ease-out'} />
     ),
     label: 'Posts list',
-    route: '/',
+    route: '/postsList',
   },
 ]
 

@@ -6,6 +6,7 @@ const nextConfig = {
     locales: ['en', 'ru'],
   },
   images: {
+    domains: ['img.freepik.com'], // Добавляем разрешенные хосты для изображений
     remotePatterns: [
       {
         hostname: 'twin-bee.s3.eu-central-1.amazonaws.com',

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 
+import { getLayoutWithSidebar } from 'layouts'
 import { UserProfilePage } from 'templates/profile/ui/userProfilePage/UserProfilePage'
 
 export default function Profile() {
@@ -19,3 +20,4 @@ export default function Profile() {
     </>
   )
 }
+Profile.getLayout = getLayoutWithSidebar
