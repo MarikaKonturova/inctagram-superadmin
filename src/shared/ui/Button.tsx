@@ -45,7 +45,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
       'hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50',
     outline: `text-primary-500 bg-transparent border border-primary-500 hover:bg-primary-100 hover:border-primary-100 focus:outline-none focus:ring-2 focus:ring-primary-700 ${disabled ? 'text-primary-900 border-primary-900' : ''}`,
     primary: `text-white bg-primary-500 hover:bg-primary-100 focus:bg-primary-700 ${disabled ? 'text-light-900 bg-primary-900' : ''}`,
-    secondary: `text-dark bg-light hover:bg-light-900 ${disabled ? 'text-dark-100 bg-light-900' : ''}`,
+    secondary: 'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
     textButton: `text-primary-500 bg-transparent border-none hover:text-primary-100 focus:outline-none focus:ring-2 focus:ring-primary-700 ${disabled ? 'cursor-not-allowed text-primary-900' : ''}`,
   }
 

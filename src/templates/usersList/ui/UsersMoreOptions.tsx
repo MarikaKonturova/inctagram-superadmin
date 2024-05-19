@@ -1,9 +1,8 @@
-import { MoreHorizontal, UserMinus } from 'lucide-react'
-import { useState } from 'react'
+import { MoreHorizontal } from 'lucide-react'
+import { useRouter } from 'next/router'
 
 import { User } from 'shared/types'
 import {
-  DeleteModal,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -11,20 +10,19 @@ import {
   DropdownMenuTrigger,
 } from 'shared/ui'
 
-import { BanUser } from 'features/banUser'
+import { BanUser } from 'features/banOrUnbanUser'
+import { UnBanUser } from 'features/banOrUnbanUser/ui/UnBanUser'
+import { DeleteUser } from 'features/deleteUser'
 
 interface CellActionProps {
   data: User
 }
 
-// Fix Delete Modal
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const MoreOptions = ({ data }: CellActionProps) => {
-  const [open, setOpen] = useState(false)
+  const router = useRouter()
 
   return (
     <>
-      <DeleteModal isOpen={open} onClose={() => setOpen(false)} onConfirm={() => {}} />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <span
@@ -36,14 +34,11 @@ const MoreOptions = ({ data }: CellActionProps) => {
           </span>
         </DropdownMenuTrigger>
         <DropdownMenuContent align={'end'}>
-          <DropdownMenuItem onClick={() => setOpen(true)}>
-            <UserMinus className={'mr-2 h-4 w-4'} />
-            Delete User
-          </DropdownMenuItem>
+          <DeleteUser {...data} />
           <DropdownMenuSeparator />
-          <BanUser />
+          {data.ban === 'Active' ? <UnBanUser {...data} /> : <BanUser {...data} />}
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={() => router.push(`/profile/${data.userId}`)}>
             <MoreHorizontal className={'mr-2 h-4 w-4'} />
             More information
           </DropdownMenuItem>

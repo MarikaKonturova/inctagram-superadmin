@@ -1,3 +1,3 @@
 export { useGetAllUsersQuery } from './api/getAllUsers.types'
 
-export { UsersList } from './ui/UsersList'
+export { UsersListDataTable } from './ui/UsersList'
