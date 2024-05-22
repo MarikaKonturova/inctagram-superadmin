@@ -5,18 +5,22 @@ import { PostPhotos } from 'shared/ui/post/components/PostPhotos'
 import { mockData } from 'shared/ui/post/mockData'
 
 type PostPropsType = {
-  image?: string[]
-  avatar?: string
-  description?: string
-  userName?: string
+  post: {
+    urlsPostsImages?: string[] | null
+    urlAvatar?: string | null
+    description?: string | null
+    userName?: string | null
+  }
 }
 
-export const Post = ({ image, avatar, description, userName }: PostPropsType) => {
+export const Post = ({ post }: PostPropsType) => {
+  const { urlsPostsImages, urlAvatar, description, userName } = post
+
   return (
     <div className={'w-60 h-[391px]'}>
-      <PostPhotos photos={image ?? mockData.mockImage} />
+      <PostPhotos photos={urlsPostsImages ?? mockData.mockImage} />
       <PostDescription
-        avatar={avatar ?? mockData.mockImageProfile}
+        avatar={urlAvatar ?? mockData.mockImageProfile}
         banned={false}
         createdAt={'22 min ago'}
         description={description ?? mockData.mockDescription}
