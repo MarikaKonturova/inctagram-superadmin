@@ -49,8 +49,8 @@ export const PostPhotos = ({ photos }: PostType) => {
       </CarouselContent>
       {photos.length > 1 && (
         <div className={'absolute inset-0 flex flex-row items-center justify-between p-2'}>
-          <CarouselPrevious className={'bg-[rgba(0,0,0,0.2)]'} />{' '}
-          <CarouselNext className={'bg-[rgba(0,0,0,0.2)]'} />
+          <CarouselPrevious className={'bg-[rgba(0,0,0,0.2)]'} />
+          {currentIndex < photos.length - 1 && <CarouselNext className={'bg-[rgba(0,0,0,0.2)]'} />}
         </div>
       )}
       {photos.length > 1 && (
