@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 
+import user from 'shared/assets/images/user.png'
 import { UserStatusType } from 'shared/lib/apollo/schema.types'
 import { PostUserInfo } from 'shared/ui/post/components/PostUserInfo'
 
 type PostDescriptionType = {
-  avatar: string
+  avatar?: string | null
   banned: UserStatusType
   createdAt: string
-  description: string
-  userName: string
+  description?: string | null
+  userName?: string | null
 }
 
 export const PostDescription = ({
@@ -26,28 +27,23 @@ export const PostDescription = ({
     setButtonText(showMore ? 'Show more' : 'Hide')
   }
 
-  const darkTheme = true
-
   return (
-    <div
-      className={`pt-3 ${showMore ? 'relative -top-24' : ''} ${darkTheme ? 'bg-dark-700' : 'bg-light-100'}`}
-    >
+    <div className={`pt-3 ${showMore ? 'relative -top-24' : ''} 'bg-dark-700'`}>
       <PostUserInfo
-        avatar={avatar}
+        avatar={avatar || user}
         banned={banned === UserStatusType.Banned}
-        userName={userName}
-        darkTheme={darkTheme}
+        userName={userName || 'userName'}
       />
       <span
-        className={`font-inter text-xs font-normal leading-4 tracking-normal ${darkTheme ? 'text-light-900' : 'text-dark-100'} mt-3`}
+        className={`font-inter text-xs font-normal leading-4 tracking-normal text-light-900 mt-3`}
       >
         {createdAt}
       </span>
       <p
-        className={`mt-1 font-inter text-sm font-normal leading-6 tracking-normal text-left ${darkTheme ? 'text-light-100' : 'text-dark-900'}`}
+        className={`mt-1 font-inter text-sm font-normal leading-6 tracking-normal text-left text-light-100`}
       >
-        {showMore ? description.slice(0, 240) + '...' : description.slice(0, 83) + '...'}
-        {description.length > 83 && (
+        {showMore ? description?.slice(0, 240) + '...' : description?.slice(0, 83) + '...'}
+        {description && description?.length > 83 && (
           <span className={'underline text-primary-300 cursor-pointer'} onClick={handleToggle}>
             {buttonText}
           </span>

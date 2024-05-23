@@ -4,7 +4,6 @@ import React from 'react'
 import { UserStatusType } from 'shared/lib/apollo/schema.types'
 import { PostDescription } from 'shared/ui/post/components/PostDescription'
 import { PostPhotos } from 'shared/ui/post/components/PostPhotos'
-import { mockData } from 'shared/ui/post/mockData'
 
 type PostPropsType = {
   post: {
@@ -24,13 +23,13 @@ export const Post = ({ post }: PostPropsType) => {
 
   return (
     <div className={'w-60 h-[391px] mb-4'}>
-      <PostPhotos photos={urlsPostsImages ?? mockData.mockImage} />
+      <PostPhotos photos={urlsPostsImages} />
       <PostDescription
-        avatar={urlAvatar ?? mockData.mockImageProfile}
+        avatar={urlAvatar}
         banned={status}
         createdAt={formattedDate}
-        description={description ?? mockData.mockDescription}
-        userName={userName ?? mockData.mockUserName}
+        description={description}
+        userName={userName}
       />
     </div>
   )
