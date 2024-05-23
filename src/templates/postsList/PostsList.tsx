@@ -7,7 +7,7 @@ import { useGetPostsQuery } from 'entities/postsList/api/getPosts.types'
 export const PostsList = () => {
   const { data, loading, error } = useGetPostsQuery({
     variables: {
-      pageSize: 10,
+      pageSize: 12,
     },
   })
 
@@ -22,11 +22,15 @@ export const PostsList = () => {
 
   if (posts && posts.length) {
     return (
-      <div className={'flex flex-row gap-3 flex-wrap mt-9'}>
-        {posts.map((post, index) => (
-          <Post key={index} post={post} />
-        ))}
-      </div>
+      <>
+        <div className={'mt-4'}>Search input</div>
+        <div className={'flex flex-row gap-3 flex-wrap mt-9'}>
+          {posts.map((post, index) => (
+            <Post key={index} post={post} />
+          ))}
+        </div>
+        <div className={'mb-12'}>Pagination</div>
+      </>
     )
   }
 

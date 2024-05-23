@@ -1,24 +1,24 @@
+import moment from 'moment/moment'
 import React, { useState } from 'react'
 
-import user from 'shared/assets/images/user.png'
+import userImg from 'shared/assets/images/user.png'
 import { UserStatusType } from 'shared/lib/apollo/schema.types'
 import { PostUserInfo } from 'shared/ui/post/components/PostUserInfo'
 
 type PostDescriptionType = {
-  avatar?: string | null
-  banned: UserStatusType
-  createdAt: string
-  description?: string | null
-  userName?: string | null
+  post: {
+    urlAvatar?: string | null
+    status: UserStatusType
+    createdAt: string | null
+    description?: string | null
+    userName?: string | null
+  }
 }
 
-export const PostDescription = ({
-  avatar,
-  banned,
-  createdAt,
-  description,
-  userName,
-}: PostDescriptionType) => {
+export const PostDescription = ({ post }: PostDescriptionType) => {
+  const { urlAvatar, status, createdAt, description, userName } = post
+  const formattedDate = moment(createdAt).fromNow()
+
   const [showMore, setShowMore] = useState(false)
   const [buttonText, setButtonText] = useState('Show more')
 
@@ -28,22 +28,22 @@ export const PostDescription = ({
   }
 
   return (
-    <div className={`pt-3 ${showMore ? 'relative -top-24' : ''} 'bg-dark-700'`}>
+    <div className={`pt-3 ${showMore ? 'relative -top-36' : ''} bg-dark-700`}>
       <PostUserInfo
-        avatar={avatar || user}
-        banned={banned === UserStatusType.Banned}
+        avatar={urlAvatar || userImg}
+        isBanned={status === UserStatusType.Banned}
         userName={userName || 'userName'}
       />
       <span
-        className={`font-inter text-xs font-normal leading-4 tracking-normal text-light-900 mt-3`}
+        className={`font-inter text-xs font-normal leading-4 tracking-normal size-4 text-light-900 mt-0`}
       >
-        {createdAt}
+        {formattedDate}
       </span>
       <p
-        className={`mt-1 font-inter text-sm font-normal leading-6 tracking-normal text-left text-light-100`}
+        className={`font-inter text-sm font-normal leading-6 tracking-normal text-left text-light-100`}
       >
-        {showMore ? description?.slice(0, 240) + '...' : description?.slice(0, 83) + '...'}
-        {description && description?.length > 83 && (
+        {showMore ? description?.slice(0, 240) + '...' : description?.slice(0, 60) + '...'}
+        {description && description?.length > 60 && (
           <span className={'underline text-primary-300 cursor-pointer'} onClick={handleToggle}>
             {buttonText}
           </span>

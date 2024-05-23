@@ -5,13 +5,13 @@ import { Button } from 'shared/ui'
 
 type PostUserInfoType = {
   avatar: string | StaticImageData
-  banned: boolean
+  isBanned: boolean
   userName: string
 }
 
-export const PostUserInfo = ({ avatar, banned, userName }: PostUserInfoType) => {
+export const PostUserInfo = ({ avatar, isBanned, userName }: PostUserInfoType) => {
   return (
-    <div className={'flex flex-row justify-between items-center mb-3'}>
+    <div className={'flex flex-row justify-between items-center mb-2'}>
       <div className={'flex flex-row items-center'}>
         <Image
           alt={'sd'}
@@ -27,7 +27,7 @@ export const PostUserInfo = ({ avatar, banned, userName }: PostUserInfoType) => 
         </p>
       </div>
       <Button className={'w-4 p-0'} variant={'clear'}>
-        {banned ? (
+        {isBanned ? (
           <UserPlus className={`mr-2 h-4 w-4 text-light-100`} onClick={() => alert('Unban')} />
         ) : (
           <Ban className={`mr-2 h-4 w-4 text-light-100`} onClick={() => alert('Ban')} />

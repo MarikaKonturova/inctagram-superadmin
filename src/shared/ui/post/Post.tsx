@@ -1,4 +1,3 @@
-import moment from 'moment'
 import React from 'react'
 
 import { UserStatusType } from 'shared/lib/apollo/schema.types'
@@ -17,20 +16,12 @@ type PostPropsType = {
 }
 
 export const Post = ({ post }: PostPropsType) => {
-  const { urlsPostsImages, urlAvatar, description, userName, createdAt, status } = post
-
-  const formattedDate = moment(createdAt).fromNow()
+  const { urlsPostsImages, ...postArgs } = post
 
   return (
     <div className={'w-60 h-[391px] mb-4'}>
       <PostPhotos photos={urlsPostsImages} />
-      <PostDescription
-        avatar={urlAvatar}
-        banned={status}
-        createdAt={formattedDate}
-        description={description}
-        userName={userName}
-      />
+      <PostDescription post={postArgs} />
     </div>
   )
 }
