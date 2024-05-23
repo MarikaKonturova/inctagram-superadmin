@@ -1,5 +1,7 @@
+import moment from 'moment'
 import React from 'react'
 
+import { UserStatusType } from 'shared/lib/apollo/schema.types'
 import { PostDescription } from 'shared/ui/post/components/PostDescription'
 import { PostPhotos } from 'shared/ui/post/components/PostPhotos'
 import { mockData } from 'shared/ui/post/mockData'
@@ -10,19 +12,23 @@ type PostPropsType = {
     urlAvatar?: string | null
     description?: string | null
     userName?: string | null
+    createdAt: string | null
+    status: UserStatusType
   }
 }
 
 export const Post = ({ post }: PostPropsType) => {
-  const { urlsPostsImages, urlAvatar, description, userName } = post
+  const { urlsPostsImages, urlAvatar, description, userName, createdAt, status } = post
+
+  const formattedDate = moment(createdAt).fromNow()
 
   return (
-    <div className={'w-60 h-[391px]'}>
+    <div className={'w-60 h-[391px] mb-4'}>
       <PostPhotos photos={urlsPostsImages ?? mockData.mockImage} />
       <PostDescription
         avatar={urlAvatar ?? mockData.mockImageProfile}
-        banned={false}
-        createdAt={'22 min ago'}
+        banned={status}
+        createdAt={formattedDate}
         description={description ?? mockData.mockDescription}
         userName={userName ?? mockData.mockUserName}
       />

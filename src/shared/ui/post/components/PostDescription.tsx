@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 
+import { UserStatusType } from 'shared/lib/apollo/schema.types'
 import { PostUserInfo } from 'shared/ui/post/components/PostUserInfo'
 
 type PostDescriptionType = {
   avatar: string
-  banned: boolean
+  banned: UserStatusType
   createdAt: string
   description: string
   userName: string
@@ -31,18 +32,23 @@ export const PostDescription = ({
     <div
       className={`pt-3 ${showMore ? 'relative -top-24' : ''} ${darkTheme ? 'bg-dark-700' : 'bg-light-100'}`}
     >
-      <PostUserInfo avatar={avatar} banned={banned} userName={userName} darkTheme={darkTheme} />
+      <PostUserInfo
+        avatar={avatar}
+        banned={banned === UserStatusType.Banned}
+        userName={userName}
+        darkTheme={darkTheme}
+      />
       <span
-        className={`font-inter text-xs font-normal leading-4 tracking-normal ${darkTheme ? 'text-light-900' : 'text-dark-100'}`}
+        className={`font-inter text-xs font-normal leading-4 tracking-normal ${darkTheme ? 'text-light-900' : 'text-dark-100'} mt-3`}
       >
         {createdAt}
       </span>
       <p
-        className={`mt-1 font-inter text-sm font-normal leading-6 tracking-normal text-left ${darkTheme ? 'text-light-900' : 'text-dark-900'}`}
+        className={`mt-1 font-inter text-sm font-normal leading-6 tracking-normal text-left ${darkTheme ? 'text-light-100' : 'text-dark-900'}`}
       >
         {showMore ? description.slice(0, 240) + '...' : description.slice(0, 83) + '...'}
         {description.length > 83 && (
-          <span className={'underline text-primary-900 cursor-pointer'} onClick={handleToggle}>
+          <span className={'underline text-primary-300 cursor-pointer'} onClick={handleToggle}>
             {buttonText}
           </span>
         )}
