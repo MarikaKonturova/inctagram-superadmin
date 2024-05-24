@@ -19,7 +19,7 @@ export const Post = ({ post }: PostPropsType) => {
   const { urlsPostsImages, ...postArgs } = post
 
   return (
-    <div className={'w-60 h-[391px] mb-4'}>
+    <div className={'w-[234px] h-[391px] mb-4'}>
       <PostPhotos photos={urlsPostsImages} />
       <PostDescription post={postArgs} />
     </div>
