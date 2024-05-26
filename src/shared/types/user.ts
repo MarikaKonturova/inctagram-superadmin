@@ -15,6 +15,15 @@ export type UserTypeFromServer = {
   lastSeen?: string
 }
 
+export type UserFollowType = {
+  userId: number
+  fullName: string
+  userName: string
+  createdAt: string
+  profileLink?: string | null
+  followersUser?: never
+}
+
 export enum BanReasonInputType {
   AdvertisingPlacement = 'Advertising_placement',
   AnotherReason = 'Another_reason',

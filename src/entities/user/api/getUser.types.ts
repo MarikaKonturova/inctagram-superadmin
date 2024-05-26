@@ -18,6 +18,39 @@ export type GetUserQuery = {
     userName: string
     fullName: string
     profileLink?: string | null
+
+    followersUser: {
+      __typename?: 'UserFollowsWithPaginationViewModel'
+      totalCount: number
+      pagesCount: number
+      page: number
+      pageSize: number
+      items: Array<{
+        followersUser: any
+        profileLink: any
+        __typename?: 'UserFollowsForSuperAdminViewModel'
+        userId: number
+        fullName: string
+        userName: string
+        createdAt: any
+      }>
+    }
+    followingUser: {
+      __typename?: 'UserFollowsWithPaginationViewModel'
+      totalCount: number
+      pagesCount: number
+      page: number
+      pageSize: number
+      items: Array<{
+        followersUser: any
+        profileLink: any
+        __typename?: 'UserFollowsForSuperAdminViewModel'
+        userId: number
+        fullName: string
+        userName: string
+        createdAt: any
+      }>
+    }
   }
 }
 
@@ -31,6 +64,31 @@ export const GetUserDocument = gql`
       userName
       fullName
       profileLink
+
+      followersUser {
+        totalCount
+        pagesCount
+        page
+        pageSize
+        items {
+          userId
+          fullName
+          userName
+          createdAt
+        }
+      }
+      followingUser {
+        totalCount
+        pagesCount
+        page
+        pageSize
+        items {
+          userId
+          fullName
+          userName
+          createdAt
+        }
+      }
     }
   }
 `
