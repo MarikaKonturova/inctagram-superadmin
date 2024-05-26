@@ -21,9 +21,10 @@ import { useGetUserQuery } from 'entities/user'
 
 interface DataTableProps<TData> {
   columns: ColumnDef<TData>[]
+  selector: 'Followers' | 'Following'
 }
 
-export function UserDataTable<TData>({ columns }: DataTableProps<TData>) {
+export function UserDataTable<TData>({ columns, selector }: DataTableProps<TData>) {
   const router = useRouter()
   const { userId } = router.query
   const { data } = useGetUserQuery({ variables: { userId: Number(userId) } })
@@ -33,7 +34,10 @@ export function UserDataTable<TData>({ columns }: DataTableProps<TData>) {
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = useState({})
 
-  const userData = data?.user.followersUser.items || []
+  const userData =
+    selector === 'Followers'
+      ? data?.user.followersUser.items || []
+      : data?.user.followingUser.items || []
 
   const formattedData = userData.map(formatFollowUser)
 

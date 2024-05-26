@@ -17,11 +17,11 @@ const USER_TABS = [
     label: TABS_NAMES.PAYMENTS,
   },
   {
-    content: <UserDataTable columns={columns} />,
+    content: <UserDataTable columns={columns} selector={'Followers'} />,
     label: TABS_NAMES.FOLLOWERS,
   },
   {
-    content: <UserDataTable columns={columns} />,
+    content: <UserDataTable columns={columns} selector={'Following'} />,
     label: TABS_NAMES.FOLLOWING,
   },
 ]

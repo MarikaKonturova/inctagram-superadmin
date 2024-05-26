@@ -21,7 +21,8 @@ export const formatUser = (user: UserTypeFromServer) => ({
 })
 
 export const formatFollowUser = (user: UserFollowType) => ({
-  dataAdded: convertDateFormat(user.createdAt),
   userId: Number(user.userId),
-  userName: user.userName,
+  profileLink: user.userName,
+  userName: user.fullName,
+  createdAt: convertDateFormat(user.createdAt),
 })
