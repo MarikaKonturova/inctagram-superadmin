@@ -5,6 +5,10 @@ import * as Apollo from '@apollo/client'
 const defaultOptions = {} as const
 export type GetUserQueryVariables = Types.Exact<{
   userId: Types.Scalars['Int']['input']
+  pageSize: Types.Scalars['Int']['input']
+  pageNumber: Types.Scalars['Int']['input']
+  sortBy?: Types.InputMaybe<Types.SortByForUsers>
+  sortDirection?: Types.InputMaybe<Types.SortDirectionType>
 }>
 
 export type GetUserQuery = {
@@ -53,10 +57,22 @@ export type GetUserQuery = {
     }
   }
 }
-
+//TODO разеделить запросы и продолжить пагинацию!!!
 export const GetUserDocument = gql`
-  query GetUser($userId: Int!) {
-    user(userId: $userId) {
+  query GetUser(
+    $userId: Int!
+    $pageSize: Int!
+    $pageNumber: Int!
+    $sortDirection: SortDirectionType
+    $sortBy: SortByForUser
+  ) {
+    user(
+      userId: $userId
+      pageSize: $pageSize
+      pageNumber: $pageNumber
+      sortDirection: $sortDirection
+      sortBy: $sortBy
+    ) {
       userId
       createdAt
       followerCount

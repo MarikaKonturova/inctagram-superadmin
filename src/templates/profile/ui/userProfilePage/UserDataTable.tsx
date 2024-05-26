@@ -14,7 +14,15 @@ import {
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'shared/ui'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TablePagination,
+  TableRow,
+} from 'shared/ui'
 import { formatFollowUser } from 'shared/utils/convertedFormat'
 
 import { useGetUserQuery } from 'entities/user'
@@ -25,9 +33,13 @@ interface DataTableProps<TData> {
 }
 
 export function UserDataTable<TData>({ columns, selector }: DataTableProps<TData>) {
+  const [pageIndex, setPageIndex] = useState(0)
+  const [pageSize, setPageSize] = useState('10')
   const router = useRouter()
   const { userId } = router.query
-  const { data } = useGetUserQuery({ variables: { userId: Number(userId) } })
+  const { data } = useGetUserQuery({
+    variables: { userId: Number(userId), pageNumber: pageIndex + 1, pageSize: +pageSize },
+  })
 
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
@@ -99,6 +111,13 @@ export function UserDataTable<TData>({ columns, selector }: DataTableProps<TData
           </TableBody>
         </Table>
       </div>
+      <TablePagination
+        pageIndex={pageIndex}
+        pageSize={pageSize}
+        pagesCount={data?.user.followersUser.pagesCount || data?.user.followingUser.pagesCount || 1}
+        setPageIndex={setPageIndex}
+        setPageSize={setPageSize}
+      />
     </div>
   )
 }
