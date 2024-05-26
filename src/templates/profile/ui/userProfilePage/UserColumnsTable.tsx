@@ -11,7 +11,7 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: 'userName',
-    cell: ({ row }) => <div className={'lowercase'}>{row.getValue('userName')}</div>,
+    cell: ({ row }) => <div>{row.getValue('userName')}</div>,
     header: ({ column }) => {
       return (
         <div
