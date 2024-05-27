@@ -14,15 +14,6 @@ export type GetUserFollowQueryVariables = Types.Exact<{
 export type GetUserFollowQuery = {
   __typename?: 'Query'
   user: {
-    __typename?: 'UserForSuperAdminViewModel'
-    userId: number
-    createdAt: any
-    followerCount?: number | null
-    followingCount?: number | null
-    userName: string
-    fullName: string
-    profileLink?: string | null
-
     followersUser: {
       __typename?: 'UserFollowsWithPaginationViewModel'
       totalCount: number
@@ -72,14 +63,6 @@ export const GetUserFollowDocument = gql`
       sortDirection: $sortDirection
       sortBy: $sortBy
     ) {
-      userId
-      createdAt
-      followerCount
-      followingCount
-      userName
-      fullName
-      profileLink
-
       followersUser {
         totalCount
         pagesCount

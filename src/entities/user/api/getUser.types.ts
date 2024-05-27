@@ -21,7 +21,7 @@ export type GetUserQuery = {
     profileLink?: string | null
   }
 }
-//TODO разеделить запросы и продолжить пагинацию!!!
+
 export const GetUserDocument = gql`
   query GetUser($userId: Int!) {
     user(userId: $userId) {

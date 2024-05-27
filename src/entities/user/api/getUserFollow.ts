@@ -15,14 +15,6 @@ export const GET_USER_FOLLOW = gql`
       sortDirection: $sortDirection
       sortBy: $sortBy
     ) {
-      userId
-      createdAt
-      followerCount
-      followingCount
-      userName
-      fullName
-      profileLink
-
       followersUser {
         totalCount
         pagesCount
