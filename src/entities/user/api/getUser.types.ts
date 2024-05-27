@@ -2,13 +2,10 @@ import * as Types from '../../../shared/lib/apollo/schema.types'
 
 import { gql } from '@apollo/client'
 import * as Apollo from '@apollo/client'
+
 const defaultOptions = {} as const
 export type GetUserQueryVariables = Types.Exact<{
   userId: Types.Scalars['Int']['input']
-  pageSize: Types.Scalars['Int']['input']
-  pageNumber: Types.Scalars['Int']['input']
-  sortBy?: Types.InputMaybe<Types.SortByForUsers>
-  sortDirection?: Types.InputMaybe<Types.SortDirectionType>
 }>
 
 export type GetUserQuery = {
@@ -22,57 +19,12 @@ export type GetUserQuery = {
     userName: string
     fullName: string
     profileLink?: string | null
-
-    followersUser: {
-      __typename?: 'UserFollowsWithPaginationViewModel'
-      totalCount: number
-      pagesCount: number
-      page: number
-      pageSize: number
-      items: Array<{
-        followersUser: any
-        profileLink: any
-        __typename?: 'UserFollowsForSuperAdminViewModel'
-        userId: number
-        fullName: string
-        userName: string
-        createdAt: any
-      }>
-    }
-    followingUser: {
-      __typename?: 'UserFollowsWithPaginationViewModel'
-      totalCount: number
-      pagesCount: number
-      page: number
-      pageSize: number
-      items: Array<{
-        followersUser: any
-        profileLink: any
-        __typename?: 'UserFollowsForSuperAdminViewModel'
-        userId: number
-        fullName: string
-        userName: string
-        createdAt: any
-      }>
-    }
   }
 }
 //TODO разеделить запросы и продолжить пагинацию!!!
 export const GetUserDocument = gql`
-  query GetUser(
-    $userId: Int!
-    $pageSize: Int!
-    $pageNumber: Int!
-    $sortDirection: SortDirectionType
-    $sortBy: SortByForUser
-  ) {
-    user(
-      userId: $userId
-      pageSize: $pageSize
-      pageNumber: $pageNumber
-      sortDirection: $sortDirection
-      sortBy: $sortBy
-    ) {
+  query GetUser($userId: Int!) {
+    user(userId: $userId) {
       userId
       createdAt
       followerCount
@@ -80,31 +32,6 @@ export const GetUserDocument = gql`
       userName
       fullName
       profileLink
-
-      followersUser {
-        totalCount
-        pagesCount
-        page
-        pageSize
-        items {
-          userId
-          fullName
-          userName
-          createdAt
-        }
-      }
-      followingUser {
-        totalCount
-        pagesCount
-        page
-        pageSize
-        items {
-          userId
-          fullName
-          userName
-          createdAt
-        }
-      }
     }
   }
 `
@@ -132,18 +59,21 @@ export function useGetUserQuery(
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options)
 }
+
 export function useGetUserLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<GetUserQuery, GetUserQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useLazyQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options)
 }
+
 export function useGetUserSuspenseQuery(
   baseOptions?: Apollo.SuspenseQueryHookOptions<GetUserQuery, GetUserQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useSuspenseQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options)
 }
+
 export type GetUserQueryHookResult = ReturnType<typeof useGetUserQuery>
 export type GetUserLazyQueryHookResult = ReturnType<typeof useGetUserLazyQuery>
 export type GetUserSuspenseQueryHookResult = ReturnType<typeof useGetUserSuspenseQuery>

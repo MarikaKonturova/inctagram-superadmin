@@ -25,7 +25,7 @@ import {
 } from 'shared/ui'
 import { formatFollowUser } from 'shared/utils/convertedFormat'
 
-import { useGetUserQuery } from 'entities/user'
+import { useGetUserFollowQuery } from 'entities/user/api/getUserFollow.types'
 
 interface DataTableProps<TData> {
   columns: ColumnDef<TData>[]
@@ -37,7 +37,7 @@ export function UserDataTable<TData>({ columns, selector }: DataTableProps<TData
   const [pageSize, setPageSize] = useState('10')
   const router = useRouter()
   const { userId } = router.query
-  const { data } = useGetUserQuery({
+  const { data } = useGetUserFollowQuery({
     variables: { userId: Number(userId), pageNumber: pageIndex + 1, pageSize: +pageSize },
   })
 
