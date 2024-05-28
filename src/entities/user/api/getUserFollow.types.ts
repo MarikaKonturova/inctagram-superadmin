@@ -2,6 +2,7 @@ import * as Types from '../../../shared/lib/apollo/schema.types'
 
 import { gql } from '@apollo/client'
 import * as Apollo from '@apollo/client'
+
 const defaultOptions = {} as const
 export type GetUserFollowQueryVariables = Types.Exact<{
   userId: Types.Scalars['Int']['input']
@@ -21,8 +22,6 @@ export type GetUserFollowQuery = {
       page: number
       pageSize: number
       items: Array<{
-        followersUser: any
-        profileLink: any
         __typename?: 'UserFollowsForSuperAdminViewModel'
         userId: number
         fullName: string
@@ -37,8 +36,6 @@ export type GetUserFollowQuery = {
       page: number
       pageSize: number
       items: Array<{
-        followersUser: any
-        profileLink: any
         __typename?: 'UserFollowsForSuperAdminViewModel'
         userId: number
         fullName: string
@@ -117,6 +114,7 @@ export function useGetUserFollowQuery(
     options
   )
 }
+
 export function useGetUserFollowLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<GetUserFollowQuery, GetUserFollowQueryVariables>
 ) {
@@ -126,6 +124,7 @@ export function useGetUserFollowLazyQuery(
     options
   )
 }
+
 export function useGetUserFollowSuspenseQuery(
   baseOptions?: Apollo.SuspenseQueryHookOptions<GetUserFollowQuery, GetUserFollowQueryVariables>
 ) {
@@ -135,6 +134,7 @@ export function useGetUserFollowSuspenseQuery(
     options
   )
 }
+
 export type GetUserFollowQueryHookResult = ReturnType<typeof useGetUserFollowQuery>
 export type GetUserFollowLazyQueryHookResult = ReturnType<typeof useGetUserFollowLazyQuery>
 export type GetUserFollowSuspenseQueryHookResult = ReturnType<typeof useGetUserFollowSuspenseQuery>

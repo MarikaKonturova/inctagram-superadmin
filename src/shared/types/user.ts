@@ -20,8 +20,6 @@ export type UserFollowType = {
   fullName: string
   userName: string
   createdAt: string
-  profileLink?: string | null
-  followersUser?: never
 }
 
 export enum BanReasonInputType {

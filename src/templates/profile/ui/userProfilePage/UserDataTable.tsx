@@ -12,7 +12,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   Table,
@@ -40,6 +40,10 @@ export function UserDataTable<TData>({ columns, selector }: DataTableProps<TData
   const { data } = useGetUserFollowQuery({
     variables: { userId: Number(userId), pageNumber: pageIndex + 1, pageSize: +pageSize },
   })
+
+  useEffect(() => {
+    setPageIndex(0)
+  }, [pageSize])
 
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
