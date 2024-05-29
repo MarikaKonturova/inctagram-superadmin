@@ -12,7 +12,7 @@ export const MainUserInfo = ({ userData }: { userData: GetUserQuery }) => {
   return (
     <>
       <div className={'pt-6 leading-6 font-normal text-sm'}>
-        <Link className={'flex'} href={'/'}>
+        <Link className={'flex'} href={'/usersList'}>
           <ArrowLeft className={'fill-current text-primary dark:text-primary'} />
           <span className={'cursor-pointer outline-none pl-2 font-medium'}>Back to Users List</span>
         </Link>

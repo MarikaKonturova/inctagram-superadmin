@@ -1,10 +1,9 @@
 import Head from 'next/head'
-import React from 'react'
 
 import { getLayoutWithSidebar } from 'layouts'
-import { UserProfilePage } from 'templates/profile/ui/userProfilePage/UserProfilePage'
+import { UsersList } from 'templates'
 
-export default function Profile() {
+export default function UsersListPage() {
   return (
     <>
       <Head>
@@ -14,10 +13,11 @@ export default function Profile() {
 
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
-      <main className={'w-[100vw] h-[100vh] flex pt-10 justify-center'}>
-        <UserProfilePage />
+      <main className={'w-full'}>
+        <UsersList />
       </main>
     </>
   )
 }
-Profile.getLayout = getLayoutWithSidebar
+
+UsersListPage.getLayout = getLayoutWithSidebar
