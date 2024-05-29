@@ -13,17 +13,7 @@ export const PaymentsList = () => {
   const [autoUpdate, setAutoUpdate] = useState(true)
 
   const [pageSize, setPageSize] = useState('10')
-  const [search, setSearch] = useState<string>('')
-
-  useEffect(() => {
-    const value = sessionStorage.getItem('autoUpdatePosts')
-
-    if (value) {
-      const booleanValue = JSON.parse(value)
-
-      setAutoUpdate(booleanValue)
-    }
-  }, [])
+  const [search, setSearch] = useState('')
 
   const { data, loading, previousData, refetch } = useGetAllPaymentsQuery({
     variables: {
@@ -44,6 +34,16 @@ export const PaymentsList = () => {
       console.log('on complete')
     },
   })
+
+  useEffect(() => {
+    const value = sessionStorage.getItem('autoUpdatePosts')
+
+    if (value) {
+      const booleanValue = JSON.parse(value)
+
+      setAutoUpdate(booleanValue)
+    }
+  }, [])
 
   return (
     <div className={'flex flex-col'}>

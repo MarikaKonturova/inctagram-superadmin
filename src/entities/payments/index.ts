@@ -1,7 +1,6 @@
-export { paymentsColumnsTable } from './lib/paymentsColumnsTable'
-export { PaymentsTable } from './ui/PaymentsTable/PaymentsTable'
+export { PaymentsColumnsTable } from './ui/PaymentsColumnsTable'
+export { PaymentsTable } from './ui/PaymentsTable'
 export {
   useGetAllPaymentsQuery,
   useCreatedSubscriptionSubscription,
 } from './api/getAllPayments.types'
-export { PaymentsList } from './ui/PaymentsList'

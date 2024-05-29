@@ -1,6 +1,6 @@
 import { DataTable } from 'shared/ui'
 
-import { paymentsColumnsTable } from 'entities/payments'
+import { PaymentsColumnsTable } from 'entities/payments'
 import type { GetAllPaymentsQuery } from 'entities/payments/api/getAllPayments.types'
 
 interface PaymentsListProps {
@@ -18,5 +18,5 @@ export const PaymentsTable = ({ data }: PaymentsListProps) => {
     paymentTypeText: item.paymentTypeText,
   }))
 
-  return <DataTable columns={paymentsColumnsTable} data={formattedData || []} />
+  return <DataTable columns={PaymentsColumnsTable} data={formattedData || []} />
 }

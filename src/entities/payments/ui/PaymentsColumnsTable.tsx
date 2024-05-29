@@ -14,7 +14,7 @@ interface Payments {
   paymentTypeText: string
 }
 
-export const paymentsColumnsTable: ColumnDef<Payments>[] = [
+export const PaymentsColumnsTable: ColumnDef<Payments>[] = [
   {
     accessorKey: 'userName',
     cell: ({ row }) => (
