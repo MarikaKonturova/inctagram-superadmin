@@ -35,7 +35,7 @@ export const UserFollowersFollowing = (props: UserProps) => {
 
   return (
     <div>
-      <DataTable columns={columnsFollow} data={formattedData} />
+      <DataTable columns={columnsFollow} data={formattedData} className={'lg:w-[972px]'} />
       <TablePagination
         pageIndex={pageIndex}
         pageSize={pageSize}
