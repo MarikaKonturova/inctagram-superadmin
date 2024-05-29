@@ -1,5 +1,4 @@
-import { columns } from 'templates/profile/ui/userProfilePage/UserColumnsTable'
-import { UserDataTable } from 'templates/profile/ui/userProfilePage/UserDataTable'
+import { UserFollowersFollowing } from 'templates/profile/ui/userProfilePage/userFollowPage/UserFollowersFollowing'
 
 import { TabsTrigger, TabsContent, TabsList, Tabs } from 'shared/ui'
 
@@ -17,11 +16,11 @@ const USER_TABS = [
     label: TABS_NAMES.PAYMENTS,
   },
   {
-    content: <UserDataTable columns={columns} selector={'Followers'} />,
+    content: <UserFollowersFollowing selector={'Followers'} />,
     label: TABS_NAMES.FOLLOWERS,
   },
   {
-    content: <UserDataTable columns={columns} selector={'Following'} />,
+    content: <UserFollowersFollowing selector={'Following'} />,
     label: TABS_NAMES.FOLLOWING,
   },
 ]

@@ -2,7 +2,6 @@ import * as Types from '../../../shared/lib/apollo/schema.types'
 
 import { gql } from '@apollo/client'
 import * as Apollo from '@apollo/client'
-
 const defaultOptions = {} as const
 export type GetUserQueryVariables = Types.Exact<{
   userId: Types.Scalars['Int']['input']
@@ -59,21 +58,18 @@ export function useGetUserQuery(
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options)
 }
-
 export function useGetUserLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<GetUserQuery, GetUserQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useLazyQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options)
 }
-
 export function useGetUserSuspenseQuery(
   baseOptions?: Apollo.SuspenseQueryHookOptions<GetUserQuery, GetUserQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useSuspenseQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options)
 }
-
 export type GetUserQueryHookResult = ReturnType<typeof useGetUserQuery>
 export type GetUserLazyQueryHookResult = ReturnType<typeof useGetUserLazyQuery>
 export type GetUserSuspenseQueryHookResult = ReturnType<typeof useGetUserSuspenseQuery>

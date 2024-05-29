@@ -8,13 +8,16 @@ export type GetUserFollowQueryVariables = Types.Exact<{
   userId: Types.Scalars['Int']['input']
   pageSize: Types.Scalars['Int']['input']
   pageNumber: Types.Scalars['Int']['input']
-  sortBy?: Types.InputMaybe<Types.SortByForUsers>
   sortDirection?: Types.InputMaybe<Types.SortDirectionType>
+  sortBy?: Types.InputMaybe<Types.SortByForUser>
 }>
 
 export type GetUserFollowQuery = {
   __typename?: 'Query'
   user: {
+    __typename?: 'UserForSuperAdminViewModel'
+    followerCount?: number | null
+    followingCount?: number | null
     followersUser: {
       __typename?: 'UserFollowsWithPaginationViewModel'
       totalCount: number
@@ -45,6 +48,7 @@ export type GetUserFollowQuery = {
     }
   }
 }
+
 export const GetUserFollowDocument = gql`
   query GetUserFollow(
     $userId: Int!
@@ -60,6 +64,8 @@ export const GetUserFollowDocument = gql`
       sortDirection: $sortDirection
       sortBy: $sortBy
     ) {
+      followerCount
+      followingCount
       followersUser {
         totalCount
         pagesCount
@@ -91,22 +97,32 @@ export const GetUserFollowDocument = gql`
 /**
  * __useGetUserFollowQuery__
  *
- * To run a query within a React component, call `useGetUserQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetUserQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetUserFollowQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserFollowQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetUserQuery({
+ * const { data, loading, error } = useGetUserFollowQuery({
  *   variables: {
  *      userId: // value for 'userId'
+ *      pageSize: // value for 'pageSize'
+ *      pageNumber: // value for 'pageNumber'
+ *      sortDirection: // value for 'sortDirection'
+ *      sortBy: // value for 'sortBy'
  *   },
  * });
  */
 export function useGetUserFollowQuery(
   baseOptions: Apollo.QueryHookOptions<GetUserFollowQuery, GetUserFollowQueryVariables> &
-    ({ variables: GetUserFollowQueryVariables; skip?: boolean } | { skip: boolean })
+    (
+      | {
+          variables: GetUserFollowQueryVariables
+          skip?: boolean
+        }
+      | { skip: boolean }
+    )
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<GetUserFollowQuery, GetUserFollowQueryVariables>(

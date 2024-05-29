@@ -2,9 +2,9 @@ import { CaretSortIcon } from '@radix-ui/react-icons'
 import { ColumnDef } from '@tanstack/table-core'
 import Link from 'next/link'
 
-import { User } from 'shared/types'
+import { UserFollowTableType } from 'shared/types/user'
 
-export const columns: ColumnDef<User>[] = [
+export const columnsFollow: ColumnDef<UserFollowTableType>[] = [
   {
     accessorKey: 'userId',
     header: 'User ID',

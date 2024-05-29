@@ -22,6 +22,13 @@ export type UserFollowType = {
   createdAt: string
 }
 
+export type UserFollowTableType = {
+  userId: number
+  userName: string
+  createdAt: string
+  profileLink: string
+}
+
 export enum BanReasonInputType {
   AdvertisingPlacement = 'Advertising_placement',
   AnotherReason = 'Another_reason',

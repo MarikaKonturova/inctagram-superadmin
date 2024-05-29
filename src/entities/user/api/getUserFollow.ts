@@ -15,6 +15,8 @@ export const GET_USER_FOLLOW = gql`
       sortDirection: $sortDirection
       sortBy: $sortBy
     ) {
+      followerCount
+      followingCount
       followersUser {
         totalCount
         pagesCount
