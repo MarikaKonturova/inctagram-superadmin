@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { PaymentsColumnsTable } from 'templates/paymentsList/ui/PaymentsColumnsTable'
 
+import { useDebounce } from 'shared/hooks/useDebounce'
 import { Input, Switch, TablePagination } from 'shared/ui'
 
 import {
@@ -13,9 +14,9 @@ import {
 export const PaymentsList = () => {
   const [pageIndex, setPageIndex] = useState(0)
   const [autoUpdate, setAutoUpdate] = useState(true)
-
   const [pageSize, setPageSize] = useState('10')
-  const [search, setSearch] = useState('')
+  const [searchValue, setSearchValue] = useState('')
+  const search = useDebounce(searchValue, 500)
 
   const { data, loading, previousData, refetch } = useGetAllPaymentsQuery({
     variables: {
@@ -54,8 +55,8 @@ export const PaymentsList = () => {
         <Input
           type={'search'}
           rootContainerProps={{ className: 'mb-6 w-full' }}
-          value={search}
-          onValueChange={setSearch}
+          value={searchValue}
+          onValueChange={setSearchValue}
         />
       </div>
       <PaymentsTable columns={PaymentsColumnsTable} data={data} />
