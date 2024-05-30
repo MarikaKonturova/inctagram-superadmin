@@ -31,6 +31,7 @@ export function LangSelect() {
     const html = document.documentElement
 
     html.setAttribute('lang', selectedLang?.value as string)
+    window.dispatchEvent(new Event('language-change'))
   }, [selectedLang])
 
   return (

@@ -7,6 +7,7 @@ import Image from 'shared/assets/icons/light/image24.svg'
 import Person from 'shared/assets/icons/light/person.svg'
 import TrendingUp from 'shared/assets/icons/light/trending-up.svg'
 import { Theme } from 'shared/constants/theme'
+import { useTranslation } from 'shared/hooks'
 import { useTheme } from 'shared/hooks/useTheme'
 import { AppLink } from 'shared/ui'
 
@@ -16,33 +17,35 @@ type MenuItemsType = {
   route?: string
 }
 
-const menuItems: MenuItemsType[] = [
-  {
-    icon: <Person className={'fill-light-100 transition-colors duration-200 ease-out'} />,
-    label: 'Users list',
-    route: '/usersList',
-  },
-  {
-    icon: <TrendingUp className={'fill-light-100 transition-colors duration-200 ease-out'} />,
-    label: 'Statistics',
-    route: '/',
-  },
-  {
-    icon: <CreditCard className={'fill-light-100 transition-colors duration-200 ease-out'} />,
-    label: 'Payments list',
-    route: '/paymentsList',
-  },
-  {
-    icon: (
-      // eslint-disable-next-line jsx-a11y/alt-text
-      <Image className={'fill-light-100 transition-colors duration-200 ease-out'} />
-    ),
-    label: 'Posts list',
-    route: '/postsList',
-  },
-]
-
 export const Sidebar = () => {
+  const t = useTranslation()
+
+  const menuItems: MenuItemsType[] = [
+    {
+      icon: <Person className={'fill-light-100 transition-colors duration-200 ease-out'} />,
+      label: t.sidebar.usersList,
+      route: '/usersList',
+    },
+    {
+      icon: <TrendingUp className={'fill-light-100 transition-colors duration-200 ease-out'} />,
+      label: t.sidebar.statistics,
+      route: '/',
+    },
+    {
+      icon: <CreditCard className={'fill-light-100 transition-colors duration-200 ease-out'} />,
+      label: t.sidebar.payments,
+      route: '/paymentsList',
+    },
+    {
+      icon: (
+        // eslint-disable-next-line jsx-a11y/alt-text
+        <Image className={'fill-light-100 transition-colors duration-200 ease-out'} />
+      ),
+      label: t.sidebar.posts,
+      route: '/postsList',
+    },
+  ]
+
   const { asPath } = useRouter()
 
   const { theme } = useTheme()
