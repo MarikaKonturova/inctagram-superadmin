@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+import { PaymentsColumnsTable } from 'templates/paymentsList/ui/PaymentsColumnsTable'
+
 import { Input, Switch, TablePagination } from 'shared/ui'
 
 import {
@@ -56,7 +58,7 @@ export const PaymentsList = () => {
           onValueChange={setSearch}
         />
       </div>
-      <PaymentsTable data={data} />
+      <PaymentsTable columns={PaymentsColumnsTable} data={data} />
       <TablePagination
         pageIndex={pageIndex}
         pageSize={pageSize}

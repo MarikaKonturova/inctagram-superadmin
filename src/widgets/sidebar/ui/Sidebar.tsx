@@ -30,7 +30,7 @@ const menuItems: MenuItemsType[] = [
   {
     icon: <CreditCard className={'fill-light-100 transition-colors duration-200 ease-out'} />,
     label: 'Payments list',
-    route: '/payments',
+    route: '/paymentsList',
   },
   {
     icon: (

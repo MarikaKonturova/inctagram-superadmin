@@ -1,10 +1,9 @@
 import Head from 'next/head'
 
 import { getLayoutWithSidebar } from 'layouts'
+import { PaymentsList } from 'templates'
 
-import { PaymentsList } from 'features/payments'
-
-export default function Payments() {
+export default function PaymentsListPage() {
   return (
     <>
       <Head>
@@ -21,4 +20,4 @@ export default function Payments() {
   )
 }
 
-Payments.getLayout = getLayoutWithSidebar
+PaymentsListPage.getLayout = getLayoutWithSidebar

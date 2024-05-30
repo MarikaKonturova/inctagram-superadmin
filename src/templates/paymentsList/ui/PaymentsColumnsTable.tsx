@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import { convertDateFormat } from 'shared/utils/convertedFormat'
 
-interface Payments {
+export interface Payments {
   urlAvatar?: string | null
   userName: string
   userId: number

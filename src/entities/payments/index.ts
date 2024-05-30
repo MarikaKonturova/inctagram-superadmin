@@ -1,4 +1,3 @@
-export { PaymentsColumnsTable } from './ui/PaymentsColumnsTable'
 export { PaymentsTable } from './ui/PaymentsTable'
 export {
   useGetAllPaymentsQuery,
