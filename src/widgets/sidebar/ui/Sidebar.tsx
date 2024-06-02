@@ -34,7 +34,7 @@ export const Sidebar = () => {
     {
       icon: <CreditCard className={'fill-light-100 transition-colors duration-200 ease-out'} />,
       label: t.sidebar.payments,
-      route: '/',
+      route: '/paymentsList',
     },
     {
       icon: (
