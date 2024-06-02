@@ -1,18 +1,23 @@
 import React from 'react'
 
-import { UserStatusType } from 'shared/lib/apollo/schema.types'
+import { PostStatusForPostsListInputType, UserStatusType } from 'shared/lib/apollo/schema.types'
 import { PostDescription } from 'shared/ui/post/components/PostDescription'
 import { PostPhotos } from 'shared/ui/post/components/PostPhotos'
 
+export type PostType = {
+  createdAt: string
+  userId: number
+  userName: string
+  postId: number
+  status: UserStatusType
+  description?: string | null
+  urlAvatar?: string | null
+  urlsPostsImages?: Array<string> | null
+  postStatus: PostStatusForPostsListInputType
+}
+
 type PostPropsType = {
-  post: {
-    urlsPostsImages?: string[] | null
-    urlAvatar?: string | null
-    description?: string | null
-    userName?: string | null
-    createdAt: string | null
-    status: UserStatusType
-  }
+  post: PostType
 }
 
 export const Post = ({ post }: PostPropsType) => {

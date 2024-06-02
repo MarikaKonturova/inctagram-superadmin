@@ -4,19 +4,14 @@ import React, { useState } from 'react'
 import userImg from 'shared/assets/images/user.png'
 import { UserStatusType } from 'shared/lib/apollo/schema.types'
 import { PostUserInfo } from 'shared/ui/post/components/PostUserInfo'
+import { PostType } from 'shared/ui/post/Post'
 
 type PostDescriptionType = {
-  post: {
-    urlAvatar?: string | null
-    status: UserStatusType
-    createdAt: string | null
-    description?: string | null
-    userName?: string | null
-  }
+  post: PostType
 }
 
 export const PostDescription = ({ post }: PostDescriptionType) => {
-  const { urlAvatar, status, createdAt, description, userName } = post
+  const { createdAt, description } = post
   const formattedDate = moment(createdAt).fromNow()
 
   const [showMore, setShowMore] = useState(false)
@@ -30,9 +25,13 @@ export const PostDescription = ({ post }: PostDescriptionType) => {
   return (
     <div className={`pt-3 ${showMore ? 'relative -top-36' : ''} bg-dark-700`}>
       <PostUserInfo
-        avatar={urlAvatar || userImg}
-        isBanned={status === UserStatusType.Banned}
-        userName={userName || 'userName'}
+        avatar={post.urlAvatar || userImg}
+        ban={UserStatusType.Active}
+        isBanned={post.status === UserStatusType.Banned}
+        userId={post.userId}
+        userName={post.userName || 'userName'}
+        dataAdded={post.createdAt}
+        profileLink={post.userName}
       />
       <span
         className={`font-inter text-xs font-normal leading-4 tracking-normal size-4 text-light-900 mt-0`}
