@@ -1,4 +1,4 @@
-import { UserTypeFromServer } from 'shared/types/user'
+import { ConvertedUserPayments, ItemsUserPaymentsType, UserTypeFromServer } from 'shared/types/user'
 
 export function convertDateFormat(inputDate: string) {
   // Create a new Date object
@@ -18,4 +18,12 @@ export const formatUser = (user: UserTypeFromServer) => ({
   profileLink: user.fullName,
   userId: Number(user.userId),
   userName: user.userName,
+})
+
+export const formatUserPayment = (user: ItemsUserPaymentsType): ConvertedUserPayments => ({
+  dataOfPayment: convertDateFormat(String(user.dataOfPayment)),
+  endDateOfSubscription: convertDateFormat(String(user.endDateOfSubscription)),
+  amount: String(user.price),
+  subscriptionType: user.subscription,
+  paymentType: user.paymentType,
 })

@@ -31,7 +31,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
     ...otherProps
   } = props
 
-  const baseStyles = `cursor-pointer px-6 py-1.5 font-h3 text-white rounded transition duration-500 ease-in-out ${
+  const baseStyles = `cursor-pointer px-6 py-1.5 font-h3 text-black bg:text-white rounded transition duration-500 ease-in-out ${
     disabled ? 'cursor-not-allowed' : ''
   }`
 
@@ -42,7 +42,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
     destructive:
       'bg-red-500 text-neutral-50 shadow-sm hover:bg-red-500/90 dark:bg-red-900 dark:text-neutral-50 dark:hover:bg-red-900/90',
     ghost:
-      'hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50',
+      'text-black dark:text-white hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50',
     outline: `text-primary-500 bg-transparent border border-primary-500 hover:bg-primary-100 hover:border-primary-100 focus:outline-none focus:ring-2 focus:ring-primary-700 ${disabled ? 'text-primary-900 border-primary-900' : ''}`,
     primary: `text-white bg-primary-500 hover:bg-primary-100 focus:bg-primary-700 ${disabled ? 'text-light-900 bg-primary-900' : ''}`,
     secondary: 'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',

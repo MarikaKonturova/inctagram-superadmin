@@ -1,3 +1,6 @@
+import UserPosts from 'templates/profile/ui/UserPosts'
+import UserPayments from 'templates/profile/ui/userTablePayments/UserPayments'
+
 import { TabsTrigger, TabsContent, TabsList, Tabs } from 'shared/ui'
 
 const TABS_NAMES = {
@@ -8,9 +11,9 @@ const TABS_NAMES = {
 }
 
 const USER_TABS = [
-  { content: 'Uploaded Photos', label: TABS_NAMES.UPLOADED_PHOTOS },
+  { content: <UserPosts />, label: TABS_NAMES.UPLOADED_PHOTOS },
   {
-    content: 'Payments',
+    content: <UserPayments />,
     label: TABS_NAMES.PAYMENTS,
   },
   {

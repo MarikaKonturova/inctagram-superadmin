@@ -14,13 +14,19 @@ import {
 import { useState } from 'react'
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'shared/ui'
+import { cn } from 'shared/utils'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  className?: string
 }
 
-export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({
+  columns,
+  data,
+  className,
+}: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
@@ -47,7 +53,10 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
   return (
     <div>
       <div
-        className={'border max-h-[700px] overflow-scroll lg:w-[1200px] md:w-[800px] sm:w-[500px]'}
+        className={cn(
+          'border max-h-[700px] overflow-scroll lg:w-[1200px] md:w-[800px] sm:w-[500px]',
+          className
+        )}
       >
         <Table>
           <TableHeader className={'bg-dark-500'}>
