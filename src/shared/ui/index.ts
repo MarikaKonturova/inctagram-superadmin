@@ -64,6 +64,6 @@ export {
   TableHeader,
   TableRow,
 } from './Table'
-export { FormInput } from './formComponent/FormInput'
-export { FormWrapper } from './formComponent/FormWrapper'
 export * from './Tabs'
+export { FormInput, FormWrapper } from './formComponent'
+export { Switch } from './Switch'
