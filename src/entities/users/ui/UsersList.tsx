@@ -1,7 +1,6 @@
 import { ColumnDef } from '@tanstack/react-table'
 
-import { User } from 'shared/types'
-import { UserTypeFromServer } from 'shared/types/user'
+import { User, UserTypeFromServer } from 'shared/types'
 import { DataTable } from 'shared/ui'
 import { formatUser } from 'shared/utils/convertedFormat'
 

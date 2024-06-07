@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/client'
 import { Ban, UserPlus } from 'lucide-react'
 import { useState } from 'react'
 
-import { User } from 'shared/types/user'
+import { User } from 'shared/types'
 import { Button } from 'shared/ui'
 import { UnBanModal } from 'shared/ui/UnBanModal'
 

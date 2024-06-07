@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/client'
 import { Ban } from 'lucide-react'
 import { useState } from 'react'
 
-import { BanReasonInputType, User } from 'shared/types/user'
+import { BanReasonInputType, User } from 'shared/types'
 import { Button } from 'shared/ui'
 import { BanModal } from 'shared/ui/BanModal'
 

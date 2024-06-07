@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import { UseDebounce } from 'shared/hooks/UseDebounce'
-import { UserStatusType } from 'shared/types/user'
+import { useDebounce } from 'shared/hooks'
+import { UserStatusType } from 'shared/types'
 import { Input } from 'shared/ui'
 import { Post } from 'shared/ui/post'
 
@@ -12,7 +12,7 @@ import { UnBanUser, BanUser } from 'features/banOrUnbanUser'
 export const PostsList = () => {
   const [searchInput, setSearchInput] = useState<string>('')
 
-  const search = UseDebounce(searchInput, 500)
+  const search = useDebounce(searchInput, 500)
 
   const { data, loading, error } = useGetPostsQuery({
     variables: {

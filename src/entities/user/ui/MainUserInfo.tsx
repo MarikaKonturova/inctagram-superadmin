@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import ArrowLeft from 'shared/assets/icons/outline/arrow-back-outline.svg'
+import { useTranslation } from 'shared/hooks'
 import { getFormattedDate } from 'shared/lib/getFormattedDate'
 import { Avatar } from 'shared/ui/Avatar'
 
@@ -8,13 +9,16 @@ import { GetUserQuery } from 'entities/user/api/getUser.types'
 
 export const MainUserInfo = ({ userData }: { userData: GetUserQuery }) => {
   const { createdAt, profileLink, userId, userName, fullName } = userData.user
+  const t = useTranslation()
 
   return (
     <>
       <div className={'pt-6 leading-6 font-normal text-sm'}>
-        <Link className={'flex'} href={'/'}>
+        <Link className={'flex'} href={'/usersList'}>
           <ArrowLeft className={'fill-current text-primary dark:text-primary'} />
-          <span className={'cursor-pointer outline-none pl-2 font-medium'}>Back to Users List</span>
+          <span className={'cursor-pointer outline-none pl-2 font-medium'}>
+            {t.userProfile.backToUsersList}
+          </span>
         </Link>
         <div className={'pt-6 w-[360px]'}>
           <div className={'flex w-full h-14'}>
@@ -27,7 +31,7 @@ export const MainUserInfo = ({ userData }: { userData: GetUserQuery }) => {
                     'transition-colors outline-none text-medium-400 underline hover:text-primary-100'
                   }
                 >
-                  link to profile
+                  {t.userProfile.linkToProfile}
                 </span>
               </Link>
             </div>
@@ -38,7 +42,7 @@ export const MainUserInfo = ({ userData }: { userData: GetUserQuery }) => {
               <span>{userId}</span>
             </div>
             <div className={'flex pl-3 w-3/6 flex-col'}>
-              <span className={'text-light-900'}>Profile Creation Date</span>
+              <span className={'text-light-900'}>{t.userProfile.profileCreationDate}</span>
               <span>{getFormattedDate(createdAt)}</span>
             </div>
           </div>

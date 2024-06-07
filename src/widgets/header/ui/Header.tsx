@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
 import { Theme } from 'shared/constants/theme'
-import { useTheme } from 'shared/hooks/useTheme'
+import { useTheme } from 'shared/hooks'
 import { AppLink, Container, LangSelect, ThemeSwitcher } from 'shared/ui'
 import { SparklesCore } from 'shared/ui/Sparkles'
 
