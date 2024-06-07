@@ -64,6 +64,15 @@ export {
   TableHeader,
   TableRow,
 } from './Table'
+export {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from 'shared/ui/Carousel-lib'
+export type { CarouselApi } from 'shared/ui/Carousel-lib'
+export { FormInput } from './form/FormInput'
+export { FormWrapper } from './form/FormWrapper'
 export * from './Tabs'
-export { FormInput, FormWrapper } from './formComponent'
 export { Switch } from './Switch'

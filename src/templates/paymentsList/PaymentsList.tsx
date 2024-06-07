@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { PaymentsColumnsTable } from 'templates/paymentsList/ui/PaymentsColumnsTable'
 
-import { useDebounce } from 'shared/hooks/useDebounce'
+import { useDebounce } from 'shared/hooks'
 import { Input, Switch, TablePagination } from 'shared/ui'
 
 import {

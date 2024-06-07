@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 
-import { UserStatusInputType } from 'shared/types/user'
+import { UserStatusInputType } from 'shared/types'
 import {
   Input,
   Select,

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { columns } from 'templates/usersList/ui/UsersColumnsTable'
 
-import { useDebounce } from 'shared/hooks/useDebounce'
-import { UserStatusInputType } from 'shared/types/user'
+import { useDebounce } from 'shared/hooks'
+import { UserStatusInputType } from 'shared/types'
 import { TablePagination } from 'shared/ui'
 
 import { useGetAllUsersQuery, UsersListDataTable } from 'entities/users'

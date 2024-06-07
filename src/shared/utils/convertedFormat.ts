@@ -1,4 +1,4 @@
-import { UserFollowType, UserTypeFromServer } from 'shared/types/user'
+import { UserFollowType, UserTypeFromServer } from 'shared/types'
 
 export function convertDateFormat(inputDate: string) {
   // Create a new Date object

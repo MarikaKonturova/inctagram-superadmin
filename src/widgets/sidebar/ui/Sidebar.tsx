@@ -3,12 +3,11 @@ import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
 
 import CreditCard from 'shared/assets/icons/light/credit-card.svg'
-import Image from 'shared/assets/icons/light/image24.svg'
+import ImagePosts from 'shared/assets/icons/light/image24.svg'
 import Person from 'shared/assets/icons/light/person.svg'
 import TrendingUp from 'shared/assets/icons/light/trending-up.svg'
 import { Theme } from 'shared/constants/theme'
-import { useTranslation } from 'shared/hooks'
-import { useTheme } from 'shared/hooks/useTheme'
+import { useTheme, useTranslation } from 'shared/hooks'
 import { AppLink } from 'shared/ui'
 
 type MenuItemsType = {
@@ -29,7 +28,7 @@ export const Sidebar = () => {
     {
       icon: <TrendingUp className={'fill-light-100 transition-colors duration-200 ease-out'} />,
       label: t.sidebar.statistics,
-      route: '/',
+      route: '/statistics',
     },
     {
       icon: <CreditCard className={'fill-light-100 transition-colors duration-200 ease-out'} />,
@@ -37,10 +36,7 @@ export const Sidebar = () => {
       route: '/paymentsList',
     },
     {
-      icon: (
-        // eslint-disable-next-line jsx-a11y/alt-text
-        <Image className={'fill-light-100 transition-colors duration-200 ease-out'} />
-      ),
+      icon: <ImagePosts className={'fill-light-100 transition-colors duration-200 ease-out'} />,
       label: t.sidebar.posts,
       route: '/postsList',
     },

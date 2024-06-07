@@ -36,7 +36,11 @@ const MoreOptions = ({ data }: CellActionProps) => {
         <DropdownMenuContent align={'end'}>
           <DeleteUser {...data} />
           <DropdownMenuSeparator />
-          {data.ban === 'Active' ? <UnBanUser {...data} /> : <BanUser {...data} />}
+          {data.ban === 'Active' ? (
+            <UnBanUser {...data} showText />
+          ) : (
+            <BanUser {...data} showText />
+          )}
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => router.push(`/profile/${data.userId}`)}>
             <MoreHorizontal className={'mr-2 h-4 w-4'} />
