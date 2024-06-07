@@ -1,4 +1,4 @@
-import { UserTypeFromServer } from 'shared/types/user'
+import { UserFollowType, UserTypeFromServer } from 'shared/types/user'
 
 export function convertDateFormat(inputDate: string) {
   // Create a new Date object
@@ -18,4 +18,11 @@ export const formatUser = (user: UserTypeFromServer) => ({
   profileLink: user.fullName,
   userId: Number(user.userId),
   userName: user.userName,
+})
+
+export const formatFollowUser = (user: UserFollowType) => ({
+  userId: Number(user.userId),
+  profileLink: user.userName,
+  userName: user.fullName,
+  createdAt: convertDateFormat(user.createdAt),
 })

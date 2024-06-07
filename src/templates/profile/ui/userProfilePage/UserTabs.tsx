@@ -1,3 +1,5 @@
+import { UserFollowersFollowing } from 'templates/profile/ui/userProfilePage/userFollowPage/UserFollowersFollowing'
+
 import { useTranslation } from 'shared/hooks'
 import { TabsTrigger, TabsContent, TabsList, Tabs } from 'shared/ui'
 
@@ -19,12 +21,12 @@ export const UserTabs = () => {
       value: 'tab2',
     },
     {
-      content: 'Followers',
+      content: <UserFollowersFollowing selector={'Followers'} />,
       label: TABS_NAMES.FOLLOWERS,
       value: 'tab3',
     },
     {
-      content: 'Following',
+      content: <UserFollowersFollowing selector={'Following'} />,
       label: TABS_NAMES.FOLLOWING,
       value: 'tab4',
     },
