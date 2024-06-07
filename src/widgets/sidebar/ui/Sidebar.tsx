@@ -25,7 +25,7 @@ const menuItems: MenuItemsType[] = [
   {
     icon: <TrendingUp className={'fill-light-100 transition-colors duration-200 ease-out'} />,
     label: 'Statistics',
-    route: '/',
+    route: '/statistics',
   },
   {
     icon: <CreditCard className={'fill-light-100 transition-colors duration-200 ease-out'} />,
