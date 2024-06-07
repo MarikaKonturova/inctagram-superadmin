@@ -1,14 +1,13 @@
-import { useQuery } from '@apollo/client'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 import { columnsPayments } from 'templates/profile/ui/userTablePayments/UserPaymentsColumns'
 
-import { PaymentsUser, UserPaymentsType } from 'shared/types/user'
+import { PaymentsUser } from 'shared/types/user'
 import { DataTable, TablePagination } from 'shared/ui'
 import { formatUserPayment } from 'shared/utils/convertedFormat'
 
-import { GET_USER_PAYMENTS } from 'entities/user/api/getUserPayments'
+import { useGetUserPaymentsQuery, GetUserPaymentsQuery } from 'entities/user'
 
 const UserPayments = () => {
   const [pageIndex, setPageIndex] = useState(0)
@@ -16,17 +15,17 @@ const UserPayments = () => {
   const [paymentsData, setPaymentsData] = useState<PaymentsUser>()
   const router = useRouter()
   const { userId } = router.query
-  const { data } = useQuery(GET_USER_PAYMENTS, {
+  const { data } = useGetUserPaymentsQuery({
     variables: {
       userId: Number(userId),
       pageNumber: pageIndex + 1,
       pageSize: +pageSize,
     },
-    onCompleted: (data: UserPaymentsType) => setPaymentsData(data.user.paymentsUser),
+    onCompleted: (data: GetUserPaymentsQuery) => setPaymentsData(data.user.paymentsUser),
     onError: error => console.error('error', error),
   })
 
-  const pageCount: number = data?.user.paymentsUser?.pagesCount
+  const pageCount: number | undefined = data?.user.paymentsUser?.pagesCount
 
   const userPaymentData = paymentsData?.items.map(formatUserPayment)
 
@@ -35,7 +34,7 @@ const UserPayments = () => {
       {userPaymentData && (
         <DataTable className={'max-w-[972px]'} columns={columnsPayments} data={userPaymentData} />
       )}
-      {pageCount > 1 && (
+      {pageCount !== undefined && pageCount > 1 && (
         <TablePagination
           pageIndex={pageIndex}
           pageSize={pageSize}

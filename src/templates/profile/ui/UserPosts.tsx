@@ -1,18 +1,17 @@
-import { useQuery } from '@apollo/client'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
 import { ImagesUserType, UserImagesType } from 'shared/types/user'
 
-import { GET_USER_IMAGES } from 'entities/user/api/getUserImages'
+import { useGetUserImagesQuery } from 'entities/user'
 
 const UserPosts = () => {
   const router = useRouter()
   const [photosData, setPhotosData] = useState<ImagesUserType | undefined>()
   const { userId } = router.query
 
-  const {} = useQuery<UserImagesType>(GET_USER_IMAGES, {
+  const {} = useGetUserImagesQuery({
     variables: {
       userId: Number(userId),
     },

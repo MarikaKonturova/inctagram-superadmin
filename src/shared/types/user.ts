@@ -46,7 +46,7 @@ export interface UserImagesType {
 export type ItemsUserPaymentsType = {
   dataOfPayment: Date
   endDateOfSubscription: Date
-  price: number
+  price: string
   subscription: string
   paymentType: string
 }
