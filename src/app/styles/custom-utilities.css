@@ -41,4 +41,10 @@
   .text-large {
     font: var(--font-large);
   }
+  .grid-postlists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
+    justify-items: center;
+    gap: 2em;
+  }
 }

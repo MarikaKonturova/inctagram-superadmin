@@ -27,3 +27,9 @@ export enum UserStatusInputType {
   Banned = 'banned',
   Pending = 'pending',
 }
+export enum UserStatusType {
+  Active = 'ACTIVE',
+  Banned = 'BANNED',
+  Deleted = 'DELETED',
+  Pending = 'PENDING',
+}

@@ -34,8 +34,7 @@ const menuItems: MenuItemsType[] = [
   },
   {
     icon: (
-      // eslint-disable-next-line jsx-a11y/alt-text
-      <Image className={'fill-light-100 transition-colors duration-200 ease-out'} />
+      <Image className={'fill-light-100 transition-colors duration-200 ease-out'} alt={'posts'} />
     ),
     label: 'Posts list',
     route: '/postsList',

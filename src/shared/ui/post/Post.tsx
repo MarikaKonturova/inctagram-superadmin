@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 import { PostStatusForPostsListInputType, UserStatusType } from 'shared/lib/apollo/schema.types'
-import { PostDescription } from 'shared/ui/post/components/PostDescription'
-import { PostPhotos } from 'shared/ui/post/components/PostPhotos'
+import { PostDescription } from 'shared/ui/post/PostDescription'
+import { PostPhotos } from 'shared/ui/post/PostPhotos'
 
 export type PostType = {
   createdAt: string
@@ -18,15 +18,16 @@ export type PostType = {
 
 type PostPropsType = {
   post: PostType
+  children: ReactNode
 }
 
-export const Post = ({ post }: PostPropsType) => {
+export const Post = ({ post, children }: PostPropsType) => {
   const { urlsPostsImages, ...postArgs } = post
 
   return (
     <div className={'w-[234px] h-[391px] mb-4'}>
       <PostPhotos photos={urlsPostsImages} />
-      <PostDescription post={postArgs} />
+      <PostDescription post={postArgs}>{children}</PostDescription>
     </div>
   )
 }

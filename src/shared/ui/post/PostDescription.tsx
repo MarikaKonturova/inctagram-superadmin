@@ -1,16 +1,16 @@
 import moment from 'moment/moment'
-import React, { useState } from 'react'
+import { ReactNode, useState } from 'react'
 
 import userImg from 'shared/assets/images/user.png'
-import { UserStatusType } from 'shared/lib/apollo/schema.types'
-import { PostUserInfo } from 'shared/ui/post/components/PostUserInfo'
 import { PostType } from 'shared/ui/post/Post'
+import { PostUserInfo } from 'shared/ui/post/PostUserInfo'
 
 type PostDescriptionType = {
   post: PostType
+  children: ReactNode
 }
 
-export const PostDescription = ({ post }: PostDescriptionType) => {
+export const PostDescription = ({ post, children }: PostDescriptionType) => {
   const { createdAt, description } = post
   const formattedDate = moment(createdAt).fromNow()
 
@@ -24,15 +24,9 @@ export const PostDescription = ({ post }: PostDescriptionType) => {
 
   return (
     <div className={`pt-3 ${showMore ? 'relative -top-36' : ''} bg-dark-700`}>
-      <PostUserInfo
-        avatar={post.urlAvatar || userImg}
-        ban={UserStatusType.Active}
-        isBanned={post.status === UserStatusType.Banned}
-        userId={post.userId}
-        userName={post.userName || 'userName'}
-        dataAdded={post.createdAt}
-        profileLink={post.userName}
-      />
+      <PostUserInfo avatar={post.urlAvatar || userImg} userName={post.userName || 'userName'}>
+        {children}
+      </PostUserInfo>
       <span
         className={`font-inter text-xs font-normal leading-4 tracking-normal size-4 text-light-900 mt-0`}
       >

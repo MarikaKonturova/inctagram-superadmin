@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 
 import { UseDebounce } from 'shared/hooks/UseDebounce'
+import { UserStatusType } from 'shared/types/user'
 import { Input } from 'shared/ui'
 import { Post } from 'shared/ui/post'
 
 import { useGetPostsQuery } from 'entities/postsList/api/getPosts.types'
+
+import { UnBanUser, BanUser } from 'features/banOrUnbanUser'
 
 export const PostsList = () => {
   const [searchInput, setSearchInput] = useState<string>('')
@@ -20,8 +23,9 @@ export const PostsList = () => {
 
   const posts = data?.postsList?.items
 
+  /*  */
   return (
-    <div className={'max-w-[972px]  mt-14'}>
+    <div className={'my-16  mt-14'}>
       <Input
         placeholder={'Search'}
         type={'search'}
@@ -33,9 +37,29 @@ export const PostsList = () => {
       {loading && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}
       {!loading && !error && posts && posts.length > 0 && (
-        <div className={'flex flex-row gap-3 flex-wrap mt-9'}>
+        <div className={'grid-postlists mt-9'}>
           {posts.map((post, index) => (
-            <Post key={index} post={post} />
+            <Post key={index} post={post}>
+              {post.status === UserStatusType.Banned ? (
+                <UnBanUser
+                  ban={UserStatusType.Active}
+                  dataAdded={post.createdAt}
+                  profileLink={post.userName}
+                  userId={post.userId}
+                  userName={post.userName || 'userName'}
+                  showText={false}
+                />
+              ) : (
+                <BanUser
+                  ban={UserStatusType.Active}
+                  dataAdded={post.createdAt}
+                  profileLink={post.userName}
+                  userId={post.userId}
+                  userName={post.userName || 'userName'}
+                  showText={false}
+                />
+              )}
+            </Post>
           ))}
         </div>
       )}

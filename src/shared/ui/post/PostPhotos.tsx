@@ -8,7 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from 'shared/ui/carousel'
+} from 'shared/ui'
 
 type PostType = { photos: string[] | null | undefined }
 export const PostPhotos = ({ photos }: PostType) => {
