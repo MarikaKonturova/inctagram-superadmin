@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
-import { ImagesUserType, UserImagesType } from 'shared/types/user'
+import { ImagesUserType, UserImagesType } from 'shared/types'
 
 import { useGetUserImagesQuery } from 'entities/user'
 

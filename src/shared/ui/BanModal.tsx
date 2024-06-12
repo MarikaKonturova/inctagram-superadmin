@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
-import { BanReasonInputType, User } from 'shared/types/user'
+import { BanReasonInputType, User } from 'shared/types'
 import { Input } from 'shared/ui/Input'
 
 import { Button } from './Button'

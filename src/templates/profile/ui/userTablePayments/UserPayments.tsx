@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import { columnsPayments } from 'templates/profile/ui/userTablePayments/UserPaymentsColumns'
 
-import { PaymentsUser } from 'shared/types/user'
+import { PaymentsUser } from 'shared/types'
 import { DataTable, TablePagination } from 'shared/ui'
 import { formatUserPayment } from 'shared/utils/convertedFormat'
 

@@ -8,7 +8,9 @@ import { UserTabs } from './UserTabs'
 export const UserProfilePage = () => {
   const router = useRouter()
   const { userId } = router.query
-  const { data } = useGetUserQuery({ variables: { userId: Number(userId) } })
+  const { data } = useGetUserQuery({
+    variables: { userId: Number(userId) },
+  })
 
   return (
     <div className={'flex flex-col w-full pl-5 pb-10'}>

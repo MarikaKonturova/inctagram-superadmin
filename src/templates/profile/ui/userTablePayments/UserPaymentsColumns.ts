@@ -1,6 +1,6 @@
 import { ColumnDef } from '@tanstack/table-core'
 
-import { ConvertedUserPayments } from 'shared/types/user'
+import { ConvertedUserPayments } from 'shared/types'
 
 type ColumnsType = ConvertedUserPayments | undefined
 

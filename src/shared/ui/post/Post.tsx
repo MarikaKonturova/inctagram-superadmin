@@ -1,27 +1,33 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-import { PostDescription } from 'shared/ui/post/components/PostDescription'
-import { PostPhotos } from 'shared/ui/post/components/PostPhotos'
-import { mockData } from 'shared/ui/post/mockData'
+import { PostStatusForPostsListInputType, UserStatusType } from 'shared/lib/apollo/schema.types'
+import { PostDescription } from 'shared/ui/post/PostDescription'
+import { PostPhotos } from 'shared/ui/post/PostPhotos'
 
-type PostPropsType = {
-  image?: string[]
-  avatar?: string
-  description?: string
-  userName?: string
+export type PostType = {
+  createdAt: string
+  userId: number
+  userName: string
+  postId: number
+  status: UserStatusType
+  description?: string | null
+  urlAvatar?: string | null
+  urlsPostsImages?: Array<string> | null
+  postStatus: PostStatusForPostsListInputType
 }
 
-export const Post = ({ image, avatar, description, userName }: PostPropsType) => {
+type PostPropsType = {
+  post: PostType
+  children: ReactNode
+}
+
+export const Post = ({ post, children }: PostPropsType) => {
+  const { urlsPostsImages, ...postArgs } = post
+
   return (
-    <div className={'w-60 h-[391px]'}>
-      <PostPhotos photos={image ?? mockData.mockImage} />
-      <PostDescription
-        avatar={avatar ?? mockData.mockImageProfile}
-        banned={false}
-        createdAt={'22 min ago'}
-        description={description ?? mockData.mockDescription}
-        userName={userName ?? mockData.mockUserName}
-      />
+    <div className={'w-[234px] h-[391px] mb-4'}>
+      <PostPhotos photos={urlsPostsImages} />
+      <PostDescription post={postArgs}>{children}</PostDescription>
     </div>
   )
 }

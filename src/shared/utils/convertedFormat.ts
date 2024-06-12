@@ -1,11 +1,16 @@
-import { ConvertedUserPayments, ItemsUserPaymentsType, UserTypeFromServer } from 'shared/types/user'
+import {
+  UserFollowType,
+  ConvertedUserPayments,
+  ItemsUserPaymentsType,
+  UserTypeFromServer,
+} from 'shared/types'
 
 export function convertDateFormat(inputDate: string) {
   // Create a new Date object
   const date = new Date(inputDate)
 
   // Convert the date to the desired format
-  return date.toLocaleDateString('en-GB', {
+  return date.toLocaleDateString('de-DE', {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
@@ -18,6 +23,13 @@ export const formatUser = (user: UserTypeFromServer) => ({
   profileLink: user.fullName,
   userId: Number(user.userId),
   userName: user.userName,
+})
+
+export const formatFollowUser = (user: UserFollowType) => ({
+  userId: Number(user.userId),
+  profileLink: user.userName,
+  userName: user.fullName,
+  createdAt: convertDateFormat(user.createdAt),
 })
 
 export const formatUserPayment = (user: ItemsUserPaymentsType): ConvertedUserPayments => ({

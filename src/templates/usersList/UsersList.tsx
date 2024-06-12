@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { columns } from 'templates/usersList/ui/UsersColumnsTable'
 
-import { UseDebounce } from 'shared/hooks/UseDebounce'
-import { UserStatusInputType } from 'shared/types/user'
+import { useDebounce } from 'shared/hooks'
+import { UserStatusInputType } from 'shared/types'
 import { TablePagination } from 'shared/ui'
 
 import { useGetAllUsersQuery, UsersListDataTable } from 'entities/users'
@@ -19,7 +19,7 @@ export function UsersList() {
     setPageIndex(0)
   }, [pageSize])
 
-  const search = UseDebounce(searchInput, 500)
+  const search = useDebounce(searchInput, 500)
 
   const { data, loading, previousData } = useGetAllUsersQuery({
     variables: {
