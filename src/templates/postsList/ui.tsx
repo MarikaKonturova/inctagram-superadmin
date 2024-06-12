@@ -5,7 +5,7 @@ import { UserStatusType } from 'shared/types'
 import { Input } from 'shared/ui'
 import { Post } from 'shared/ui/post'
 
-import { useGetPostsQuery } from 'entities/postsList/api/getPosts.types'
+import { useGetPostsQuery } from 'entities/postsList'
 
 import { UnBanUser, BanUser } from 'features/banOrUnbanUser'
 

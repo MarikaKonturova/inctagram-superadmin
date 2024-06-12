@@ -91,3 +91,12 @@ export type ConvertedUserPayments = {
   subscriptionType: string
   paymentType: string
 }
+export interface Payments {
+  urlAvatar?: string | null
+  userName: string
+  userId: number
+  amount: string
+  typeSubscription: string
+  createdAt: string
+  paymentTypeText: string
+}

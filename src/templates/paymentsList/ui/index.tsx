@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import { PaymentsColumnsTable } from 'templates/paymentsList/ui/PaymentsColumnsTable'
-
 import { useDebounce } from 'shared/hooks'
 import { Input, Switch, TablePagination } from 'shared/ui'
 
@@ -10,6 +8,8 @@ import {
   useCreatedSubscriptionSubscription,
   useGetAllPaymentsQuery,
 } from 'entities/payments'
+
+import { PaymentsColumnsTable } from './PaymentsColumnsTable'
 
 export const PaymentsList = () => {
   const [pageIndex, setPageIndex] = useState(0)

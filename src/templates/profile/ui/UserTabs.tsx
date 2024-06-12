@@ -1,9 +1,9 @@
-import UserPosts from 'templates/profile/ui/UserPosts'
-import { UserFollowersFollowing } from 'templates/profile/ui/userProfilePage/userFollowPage/UserFollowersFollowing'
-import UserPayments from 'templates/profile/ui/userTablePayments/UserPayments'
-
 import { useTranslation } from 'shared/hooks'
 import { TabsTrigger, TabsContent, TabsList, Tabs } from 'shared/ui'
+
+import { UserFollowersFollowing } from './userFollowPage/UserFollowersFollowing'
+import { UserPosts } from './userPosts/UserPosts'
+import { UserPayments } from './userTablePayments/UserPayments'
 
 export const UserTabs = () => {
   const t = useTranslation()

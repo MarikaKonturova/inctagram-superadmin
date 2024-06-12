@@ -1,15 +1,15 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-import { columnsPayments } from 'templates/profile/ui/userTablePayments/UserPaymentsColumns'
-
 import { PaymentsUser } from 'shared/types'
 import { DataTable, TablePagination } from 'shared/ui'
 import { formatUserPayment } from 'shared/utils/convertedFormat'
 
 import { useGetUserPaymentsQuery, GetUserPaymentsQuery } from 'entities/user'
 
-const UserPayments = () => {
+import { columnsPayments } from './UserPaymentsColumns'
+
+export const UserPayments = () => {
   const [pageIndex, setPageIndex] = useState(0)
   const [pageSize, setPageSize] = useState('10')
   const [paymentsData, setPaymentsData] = useState<PaymentsUser>()
@@ -46,5 +46,3 @@ const UserPayments = () => {
     </div>
   )
 }
-
-export default UserPayments

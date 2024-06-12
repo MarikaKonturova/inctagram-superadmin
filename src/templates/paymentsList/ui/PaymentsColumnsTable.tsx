@@ -2,17 +2,8 @@ import { CaretSortIcon } from '@radix-ui/react-icons'
 import { ColumnDef } from '@tanstack/table-core'
 import Image from 'next/image'
 
+import { Payments } from 'shared/types'
 import { convertDateFormat } from 'shared/utils/convertedFormat'
-
-export interface Payments {
-  urlAvatar?: string | null
-  userName: string
-  userId: number
-  amount: string
-  typeSubscription: string
-  createdAt: string
-  paymentTypeText: string
-}
 
 export const PaymentsColumnsTable: ColumnDef<Payments>[] = [
   {

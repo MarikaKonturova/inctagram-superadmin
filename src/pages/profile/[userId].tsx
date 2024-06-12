@@ -2,7 +2,7 @@ import Head from 'next/head'
 import React from 'react'
 
 import { getLayoutWithSidebar } from 'layouts'
-import { UserProfilePage } from 'templates/profile/ui/UserProfilePage'
+import { UserProfilePage } from 'templates/profile'
 
 export default function Profile() {
   return (
