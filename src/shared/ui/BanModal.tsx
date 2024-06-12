@@ -89,11 +89,11 @@ export const BanModal = ({
           />
         </div>
       )}
-      <div className={'pt-6 space-x-2 flex items-center justify-end w-full'}>
-        <Button onClick={onClose} variant={'destructive'}>
+      <div className={'pt-6 space-x-2 flex items-center justify-center w-full'}>
+        <Button onClick={onClose} variant={'ghost'}>
           No
         </Button>
-        <Button onClick={onConfirm} variant={'ghost'}>
+        <Button onClick={onConfirm} variant={'destructive'}>
           Yes
         </Button>
       </div>

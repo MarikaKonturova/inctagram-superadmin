@@ -13,11 +13,13 @@ export const UserProfilePage = () => {
   })
 
   return (
-    <div className={'flex flex-col w-full pl-5 '}>
+    <div className={'flex flex-col w-full pl-5 pb-10'}>
       <div className={'flex flex-col w-full'}>
         {data ? <MainUserInfo userData={data} /> : <div>No user found</div>}
       </div>
-      <div className={'pt-7'}>{data && <UserTabs />}</div>
+      <div className={'pt-7 overflow-scroll'}>
+        <UserTabs />
+      </div>
     </div>
   )
 }

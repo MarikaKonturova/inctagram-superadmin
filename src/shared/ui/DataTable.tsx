@@ -11,10 +11,10 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import clsx from 'clsx'
 import { useState } from 'react'
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from 'shared/ui'
+import { cn } from 'shared/utils'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -53,7 +53,7 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div
-        className={clsx(
+        className={cn(
           'border max-h-[700px] overflow-scroll lg:w-[1200px] md:w-[800px] sm:w-[500px]',
           className
         )}

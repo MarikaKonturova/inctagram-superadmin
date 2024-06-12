@@ -7,7 +7,7 @@ import { PageSizeSelector } from './PageSizeSelector'
 interface Props {
   pageIndex: number
   pageSize: string
-  pagesCount: number
+  pagesCount: number | undefined
   setPageIndex: Dispatch<SetStateAction<number>>
   setPageSize: Dispatch<SetStateAction<string>>
 }
@@ -34,7 +34,7 @@ export const TablePagination: FC<Props> = ({
         nextLinkClassName={'h-6 w-6 flex items-center justify-center text-white'}
         onPageChange={onPageChange}
         pageClassName={'text-white'}
-        pageCount={pagesCount}
+        pageCount={pagesCount || 0}
         pageLinkClassName={
           'flex items-center text-black justify-center h-6 px-1 min-w-[24px] rounded-sm text-sm select-none dark:text-white'
         }

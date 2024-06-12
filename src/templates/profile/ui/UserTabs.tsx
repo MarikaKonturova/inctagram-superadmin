@@ -1,4 +1,6 @@
+import UserPosts from 'templates/profile/ui/UserPosts'
 import { UserFollowersFollowing } from 'templates/profile/ui/userProfilePage/userFollowPage/UserFollowersFollowing'
+import UserPayments from 'templates/profile/ui/userTablePayments/UserPayments'
 
 import { useTranslation } from 'shared/hooks'
 import { TabsTrigger, TabsContent, TabsList, Tabs } from 'shared/ui'
@@ -14,9 +16,9 @@ export const UserTabs = () => {
   }
 
   const USER_TABS = [
-    { content: 'Uploaded Photos', label: TABS_NAMES.UPLOADED_PHOTOS, value: 'tab1' },
+    { content: <UserPosts />, label: TABS_NAMES.UPLOADED_PHOTOS, value: 'tab1' },
     {
-      content: 'Payments',
+      content: <UserPayments />,
       label: TABS_NAMES.PAYMENTS,
       value: 'tab2',
     },
