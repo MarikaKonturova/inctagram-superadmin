@@ -18,21 +18,21 @@ export const Switch = ({ text, checked, setChecked }: SwitchProps) => {
     <div className={'inline-flex items-center'}>
       <label
         className={
-          'text-white text-sm leading-none pr-4 select-none whitespace-nowrap cursor-pointer'
+          'text-black dark:text-white text-sm leading-none pr-4 select-none whitespace-nowrap cursor-pointer'
         }
         htmlFor={id}
       >
         {text}
       </label>
       <Root
-        className={'w-[42px] h-[25px] rounded-full relative bg-white outline-none'}
+        className={'w-[42px] h-[25px] rounded-full relative bg-gray-950 dark:bg-white outline-none'}
         id={id}
         checked={checked}
         onCheckedChange={checked => handlerSwitch(checked)}
       >
         <Thumb
           className={
-            'block w-[21px] h-[21px] bg-gray-950 rounded-full transition-transform duration-100 translate-x-0.5 data-[state=checked]:translate-x-[19px]'
+            'block w-[21px] h-[21px] bg-white dark:bg-gray-950 rounded-full transition-transform duration-100 translate-x-0.5 data-[state=checked]:translate-x-[19px]'
           }
         />
       </Root>
