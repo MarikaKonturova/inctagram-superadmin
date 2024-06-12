@@ -2,6 +2,8 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Dispatch, FC, SetStateAction } from 'react'
 import ReactPaginate from 'react-paginate'
 
+import { cn } from 'shared/utils'
+
 import { PageSizeSelector } from './PageSizeSelector'
 
 interface Props {
@@ -10,6 +12,7 @@ interface Props {
   pagesCount: number | undefined
   setPageIndex: Dispatch<SetStateAction<number>>
   setPageSize: Dispatch<SetStateAction<string>>
+  className?: string
 }
 
 export const TablePagination: FC<Props> = ({
@@ -18,13 +21,14 @@ export const TablePagination: FC<Props> = ({
   pagesCount,
   setPageIndex,
   setPageSize,
+  className,
 }) => {
   const onPageChange = ({ selected }: { selected: number }) => {
     setPageIndex(selected)
   }
 
   return (
-    <div className={'my-9 flex items-center gap-6'}>
+    <div className={cn('my-9 flex items-center gap-6', className)}>
       <ReactPaginate
         activeLinkClassName={'bg-dark-500 text-black dark:text-white'}
         containerClassName={'flex gap-3'}

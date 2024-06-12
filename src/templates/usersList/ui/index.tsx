@@ -33,7 +33,7 @@ export function UsersList() {
   const usersData = loading && previousData ? previousData : data
 
   return (
-    <div className={'h-[1000px] flex items-center justify-center flex-col gap-8'}>
+    <div className={'h-full w-fit py-20 flex items-start justify-center flex-col gap-8'}>
       <UserToolbar
         userStatus={status}
         setUserStatus={setStatus}
@@ -47,6 +47,7 @@ export function UsersList() {
         pagesCount={data?.users.pagesCount || previousData?.users.pagesCount || 1}
         setPageIndex={setPageIndex}
         setPageSize={setPageSize}
+        className={'self-center'}
       />
     </div>
   )

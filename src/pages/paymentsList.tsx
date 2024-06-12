@@ -13,7 +13,7 @@ export default function PaymentsListPage() {
 
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
-      <main className={'w-[100vw] h-[100vh] flex items-center justify-center'}>
+      <main className={'w-full'}>
         <PaymentsList />
       </main>
     </>

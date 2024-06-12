@@ -49,7 +49,7 @@ export const PaymentsList = () => {
   }, [])
 
   return (
-    <div className={'flex flex-col'}>
+    <div className={'h-full w-fit py-10 flex flex-col'}>
       <div className={'flex flex-col gap-[18px] items-end'}>
         <Switch text={'Autoupdate'} checked={autoUpdate} setChecked={setAutoUpdate} />
         <Input
@@ -66,6 +66,7 @@ export const PaymentsList = () => {
         pagesCount={data?.paymentsList.pagesCount || paymentsData?.paymentsList.pagesCount || 1}
         setPageIndex={setPageIndex}
         setPageSize={setPageSize}
+        className={'self-center'}
       />
     </div>
   )
