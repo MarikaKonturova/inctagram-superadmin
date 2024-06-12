@@ -1,7 +1,6 @@
 import { ColumnDef } from '@tanstack/table-core'
 
-import type { Payments } from 'templates/paymentsList/ui/PaymentsColumnsTable'
-
+import { Payments } from 'shared/types'
 import { DataTable } from 'shared/ui'
 
 import type { GetAllPaymentsQuery } from 'entities/payments/api/getAllPayments.types'

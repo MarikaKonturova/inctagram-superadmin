@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
-import { columnsFollow } from 'templates/profile/ui/userProfilePage/userFollowPage/UserColumnsTable'
-
 import { DataTable, TablePagination } from 'shared/ui'
 import { formatFollowUser } from 'shared/utils/convertedFormat'
 
 import { useGetUserFollowQuery } from 'entities/user'
+
+import { columnsFollow } from './UserColumnsTable'
 
 type UserProps = {
   selector: 'Followers' | 'Following'

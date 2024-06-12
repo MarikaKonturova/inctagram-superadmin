@@ -6,7 +6,7 @@ import { ImagesUserType, UserImagesType } from 'shared/types'
 
 import { useGetUserImagesQuery } from 'entities/user'
 
-const UserPosts = () => {
+export const UserPosts = () => {
   const router = useRouter()
   const [photosData, setPhotosData] = useState<ImagesUserType | undefined>()
   const { userId } = router.query
@@ -36,5 +36,3 @@ const UserPosts = () => {
     </div>
   )
 }
-
-export default UserPosts

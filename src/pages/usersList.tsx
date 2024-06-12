@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import { getLayoutWithSidebar } from 'layouts'
-import { UsersList } from 'templates'
+import { UsersList } from 'templates/usersList'
 
 export default function UsersListPage() {
   return (
