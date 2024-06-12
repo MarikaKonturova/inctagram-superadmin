@@ -2,5 +2,6 @@
 *.config.*
 *.types.ts
 Dockerfile
+public
 .yml
 .yaml
