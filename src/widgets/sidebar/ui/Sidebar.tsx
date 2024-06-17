@@ -3,11 +3,11 @@ import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
 
 import CreditCard from 'shared/assets/icons/light/credit-card.svg'
-import Image from 'shared/assets/icons/light/image24.svg'
+import ImagePosts from 'shared/assets/icons/light/image24.svg'
 import Person from 'shared/assets/icons/light/person.svg'
 import TrendingUp from 'shared/assets/icons/light/trending-up.svg'
 import { Theme } from 'shared/constants/theme'
-import { useTheme } from 'shared/hooks/useTheme'
+import { useTheme, useTranslation } from 'shared/hooks'
 import { AppLink } from 'shared/ui'
 
 type MenuItemsType = {
@@ -16,33 +16,32 @@ type MenuItemsType = {
   route?: string
 }
 
-const menuItems: MenuItemsType[] = [
-  {
-    icon: <Person className={'fill-light-100 transition-colors duration-200 ease-out'} />,
-    label: 'Users list',
-    route: '/',
-  },
-  {
-    icon: <TrendingUp className={'fill-light-100 transition-colors duration-200 ease-out'} />,
-    label: 'Statistics',
-    route: '/',
-  },
-  {
-    icon: <CreditCard className={'fill-light-100 transition-colors duration-200 ease-out'} />,
-    label: 'Payments list',
-    route: '/',
-  },
-  {
-    icon: (
-      // eslint-disable-next-line jsx-a11y/alt-text
-      <Image className={'fill-light-100 transition-colors duration-200 ease-out'} />
-    ),
-    label: 'Posts list',
-    route: '/',
-  },
-]
-
 export const Sidebar = () => {
+  const { t } = useTranslation()
+
+  const menuItems: MenuItemsType[] = [
+    {
+      icon: <Person className={'fill-light-100 transition-colors duration-200 ease-out'} />,
+      label: t.sidebar.usersList,
+      route: '/usersList',
+    },
+    {
+      icon: <TrendingUp className={'fill-light-100 transition-colors duration-200 ease-out'} />,
+      label: t.sidebar.statistics,
+      route: '/statistics',
+    },
+    {
+      icon: <CreditCard className={'fill-light-100 transition-colors duration-200 ease-out'} />,
+      label: t.sidebar.payments,
+      route: '/paymentsList',
+    },
+    {
+      icon: <ImagePosts className={'fill-light-100 transition-colors duration-200 ease-out'} />,
+      label: t.sidebar.posts,
+      route: '/postsList',
+    },
+  ]
+
   const { asPath } = useRouter()
 
   const { theme } = useTheme()

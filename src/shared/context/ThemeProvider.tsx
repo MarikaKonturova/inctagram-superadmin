@@ -23,7 +23,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
   const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme)
 
   if (typeof window !== 'undefined') {
-    document.body.className = theme
+    document.documentElement.className = theme
   }
   useEffect(() => {
     if (!initialTheme) {

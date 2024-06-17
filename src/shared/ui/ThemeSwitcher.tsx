@@ -17,6 +17,7 @@ export const ThemeSwitcher = memo(({ className, size = 25 }: ThemeSwitcherProps)
   const { toggleTheme: toggleThemeNew } = useTheme()
 
   useEffect(() => {
+    console.log(document.documentElement)
     document.documentElement.setAttribute('class', theme)
   }, [theme])
 

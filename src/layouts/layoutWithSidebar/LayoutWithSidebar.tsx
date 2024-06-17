@@ -10,7 +10,7 @@ export const LayoutWithSidebar: NextPage<PropsWithChildren> = ({ children }) => 
     <div className={'flex w-full'}>
       <Sidebar />
       <Suspense fallback={<div>Loading...</div>}>
-        <div className={'overflow-y-auto flex flex-1 h-calc(100vh - 60px) px-14 py-0'}>
+        <div className={'overflow-y-auto flex-col flex-1 h-[calc(100vh-60px)] px-14 py-0'}>
           {children}
         </div>
       </Suspense>

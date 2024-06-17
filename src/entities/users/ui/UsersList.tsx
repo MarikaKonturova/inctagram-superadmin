@@ -1,17 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ColumnDef } from '@tanstack/react-table'
+
+import { User, UserTypeFromServer } from 'shared/types'
 import { DataTable } from 'shared/ui'
-import { convertDateFormat } from 'shared/utils/convertedFormat'
+import { formatUser } from 'shared/utils/convertedFormat'
 
-// Fix Any
+type UsersListProps = {
+  columns: ColumnDef<User>[]
+  items: UserTypeFromServer[]
+}
 
-export const UsersList = ({ columns, items }: any) => {
-  const formattedData = items.map((user: any) => ({
-    ban: user.status === 'Ban' ? 'Active' : '',
-    dataAdded: convertDateFormat(user.createdAt),
-    profileLink: user.fullName,
-    userId: user.userId,
-    userName: user.userName,
-  }))
+export const UsersListDataTable = ({ columns, items }: UsersListProps) => {
+  const formattedData = items.map(formatUser)
 
   return <DataTable columns={columns} data={formattedData} />
 }

@@ -1,89 +1,45 @@
+import { useQuery } from '@apollo/client'
+import { subDays } from 'date-fns'
 import Head from 'next/head'
-import { CartesianGrid, XAxis, Legend, LineChart, YAxis, Tooltip, Line } from 'recharts'
+import { useState } from 'react'
+import { DateRange } from 'react-day-picker'
+import { Legend, Line, LineChart, XAxis, YAxis } from 'recharts'
+
+import { getLayoutWithSidebar } from 'layouts'
 
 import { DatePickerWithRange } from 'shared/ui'
 
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-  },
-]
-
-const valueFormatter = function (number: number) {
-  return '$ ' + new Intl.NumberFormat('us').format(number).toString()
-}
+import { GET_NEW_USERS } from 'entities/statistics/api/getNewUsers'
 
 export type LineChartByDateProps = {
   colors: {
-    first: string
-    second: string
-  }
-  dataKey: {
-    first: string
-    second: string
+    pv: string
+    uv: string
   }
   data: {
     name: string
-    first: number
-    second: number
-  }
-  onDataChange: () => void
+    pv: number
+    uv: number
+  }[]
+  onDataChange: (data: DateRange) => void
 }
 
-const LineChartByDate = (props: LineChartByDateProps) => {
+const LineChartByDate = ({ data, onDataChange, colors }: LineChartByDateProps) => {
   return (
-    <>
-      <h3
-        className={
-          'text-lg font-medium  text-tremor-content-strong dark:text-dark-tremor-content-strong '
-        }
-      >
-        Newsletter revenue over time (USD)
-      </h3>
-      <DatePickerWithRange />
-      {/* <LineChart
-        className={'mt-4 h-72  text-tremor-content-strong dark:text-dark-tremor-content-strong'}
-        data={chartdata}
-        index={'date'}
-        yAxisWidth={65}
-        categories={['SemiAnalysis', 'The Pragmatic Engineer']}
-        colors={['indigo', 'cyan']}
-        valueFormatter={valueFormatter}
-      /> */}
+    <div className={'flex flex-col'}>
+      <div className={'flex justify-between pl-10 w-full'}>
+        <h3
+          className={
+            'text-lg font-medium  text-tremor-content-strong dark:text-dark-tremor-content-strong '
+          }
+        >
+          Users Yopsel
+        </h3>
+        <DatePickerWithRange onDateChange={onDataChange} />
+      </div>
+
       <LineChart
-        width={730}
+        width={750}
         height={250}
         data={data}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -91,11 +47,54 @@ const LineChartByDate = (props: LineChartByDateProps) => {
         <XAxis dataKey={'name'} />
         <YAxis />
         <Legend verticalAlign={'top'} />
-        <Line type={'monotone'} dataKey={'pv'} stroke={'#FFD073'} dot={false} />
-        <Line type={'monotone'} dataKey={'uv'} stroke={'#664400'} dot={false} />
+        <Line type={'monotone'} dataKey={'pv'} stroke={colors.pv} dot={false} />
+        <Line type={'monotone'} dataKey={'uv'} stroke={colors.uv} dot={false} />
       </LineChart>
-    </>
+    </div>
   )
+}
+
+const newDate = new Date()
+/* {
+      startDate: subDays(newDate, 30),
+      endDate: newDate,
+      comparisonStartDate: subDays(newDate, 60),
+      comparisonEndDate: subDays(newDate, 30),
+    } */
+const useGetUserStatistics = () => {
+  const { data } = useQuery(GET_NEW_USERS, {
+    variables: {
+      startDate: subDays(newDate, 30),
+      endDate: newDate,
+      comparisonStartDate: subDays(newDate, 60),
+      comparisonEndDate: subDays(newDate, 30),
+    },
+  })
+
+  const alLMetrics = data?.statisticsUsers?.data
+  const metrics = alLMetrics?.metrics
+  const metricsComparison = alLMetrics?.metricsComparison
+
+  const countUsersMetrics = metrics?.countUsers
+  const countUsersComparisonMetrics = metricsComparison?.countUsers
+
+  const dataChart = countUsersMetrics?.map((m: unknown, index: number) => ({
+    name: index + 1,
+    pv: countUsersMetrics[index],
+    uv: countUsersComparisonMetrics[index],
+  }))
+
+  return dataChart
+}
+const colors = { pv: '#FFD073', uv: '#664400' }
+
+export const UsersChart = () => {
+  const [date, setDate] = useState<DateRange | undefined>()
+  const data = useGetUserStatistics()
+
+  console.log(date)
+
+  return <LineChartByDate data={data} colors={colors} onDataChange={setDate} />
 }
 
 export default function Statistics() {
@@ -108,9 +107,10 @@ export default function Statistics() {
 
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
-      <main className={'w-[100vw] h-[100vh] flex items-center justify-center'}>
-        <LineChartByDate />
+      <main className={'w-full h-full flex items-center justify-start'}>
+        <UsersChart />
       </main>
     </>
   )
 }
+Statistics.getLayout = getLayoutWithSidebar

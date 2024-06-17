@@ -5,7 +5,17 @@ const nextConfig = {
     defaultLocale: 'en',
     locales: ['en', 'ru'],
   },
-  
+  images: {
+    domains: ['img.freepik.com'], // Добавляем разрешенные хосты для изображений
+    remotePatterns: [
+      {
+        hostname: 'twin-bee.s3.eu-central-1.amazonaws.com',
+        pathname: '/users/**',
+        port: '',
+        protocol: 'https',
+      },
+    ],
+  },
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>

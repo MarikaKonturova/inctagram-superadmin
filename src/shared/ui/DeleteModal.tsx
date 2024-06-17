@@ -7,9 +7,10 @@ interface DeleteModalProps {
   isOpen: boolean
   onClose: () => void
   onConfirm: () => void
+  userName: string
 }
 
-export const DeleteModal = ({ isOpen, onClose, onConfirm }: DeleteModalProps) => {
+export const DeleteModal = ({ isOpen, onClose, onConfirm, userName }: DeleteModalProps) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -22,10 +23,10 @@ export const DeleteModal = ({ isOpen, onClose, onConfirm }: DeleteModalProps) =>
 
   return (
     <Modal
-      description={'This action cannot be undone'}
+      description={`Are you sure to delete user ${userName} ?`}
       isOpen={isOpen}
       onClose={onClose}
-      title={'Are you sure'}
+      title={'Delete User'}
     >
       <div className={'pt-6 space-x-2 flex items-center justify-end w-full'}>
         <Button onClick={onClose} variant={'ghost'}>

@@ -66,15 +66,15 @@ export {
   TableHeader,
   TableRow,
 } from './Table'
-export { FormInput, FormWrapper } from './formComponent'
 export {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-} from './Сommand'
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from 'shared/ui/Carousel-lib'
+export type { CarouselApi } from 'shared/ui/Carousel-lib'
+export { FormInput } from './form/FormInput'
+export { FormWrapper } from './form/FormWrapper'
+export * from './Tabs'
+export { Switch } from './Switch'
