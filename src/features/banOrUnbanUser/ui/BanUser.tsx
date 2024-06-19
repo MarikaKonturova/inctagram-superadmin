@@ -1,6 +1,7 @@
 import { useMutation } from '@apollo/client'
 import { Ban } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 import { BanReasonInputType, User } from 'shared/types'
 import { Button } from 'shared/ui'
@@ -32,10 +33,9 @@ export const BanUser = ({ showText, ...data }: BanUserProps) => {
         },
         refetchQueries: [GetAllUsersDocument, GetPostsDocument],
       })
-
-      console.log('User has been banned')
+      toast.success('User has been banned')
     } catch (error) {
-      console.log(error)
+      toast.error(error?.toString())
     } finally {
       setOpen(false)
     }

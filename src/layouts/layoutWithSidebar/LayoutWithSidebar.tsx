@@ -3,6 +3,8 @@ import { type PropsWithChildren, type ReactElement, Suspense } from 'react'
 
 import { Layout } from 'layouts/layout/Layout'
 
+import { ToasterSonner } from 'shared/ui/Sonner'
+
 import { Sidebar } from 'widgets/sidebar'
 
 export const LayoutWithSidebar: NextPage<PropsWithChildren> = ({ children }) => (
@@ -15,6 +17,7 @@ export const LayoutWithSidebar: NextPage<PropsWithChildren> = ({ children }) => 
         </div>
       </Suspense>
     </div>
+    <ToasterSonner />
   </Layout>
 )
 

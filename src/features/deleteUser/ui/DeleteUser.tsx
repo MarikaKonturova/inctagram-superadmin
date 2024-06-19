@@ -1,6 +1,7 @@
 import { useMutation } from '@apollo/client'
 import { UserMinus } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 import { User } from 'shared/types'
 import { DeleteModal, Button } from 'shared/ui'
@@ -18,9 +19,9 @@ export const DeleteUser = (data: User) => {
           userId: data.userId,
         },
       })
-      console.log('User has been deleted')
+      toast.success('User has been deleted')
     } catch (error) {
-      console.log(error)
+      toast.error(error?.toString())
     } finally {
       setOpen(false)
     }

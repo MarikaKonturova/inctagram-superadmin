@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 
 import { useDebounce } from 'shared/hooks'
 import { Input, Switch, TablePagination } from 'shared/ui'
@@ -34,7 +35,7 @@ export const PaymentsList = () => {
       refetch()
     },
     onComplete: () => {
-      console.log('on complete')
+      toast.success('on complete')
     },
   })
 

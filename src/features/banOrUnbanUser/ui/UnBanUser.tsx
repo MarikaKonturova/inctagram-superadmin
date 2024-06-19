@@ -1,6 +1,7 @@
 import { useMutation } from '@apollo/client'
 import { Ban, UserPlus } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 import { User } from 'shared/types'
 import { Button } from 'shared/ui'
@@ -28,8 +29,9 @@ export const UnBanUser = ({ showText, ...data }: UnBanUserProps) => {
         },
         refetchQueries: [GetAllUsersDocument, GetPostsDocument],
       })
+      toast.success('User has been unbanned')
     } catch (error) {
-      console.log('Error', error)
+      toast.error(error?.toString())
     } finally {
       setOpen(false)
     }
