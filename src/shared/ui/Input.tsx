@@ -1,5 +1,6 @@
 // Input component extends from shadcnui - https://ui.shadcn.com/docs/components/input
 'use client'
+import clsx from 'clsx'
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
 import {
   ChangeEvent,
@@ -125,7 +126,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {isSearch && <Search className={classNames.searchIcon} />}
           <input
             autoFocus
-            className={classNames.field}
+            className={clsx(classNames.field, 'input-autofill')}
             onChange={onChangeHandler}
             placeholder={placeholder}
             ref={ref}
