@@ -7,6 +7,4 @@
 @import 'tailwindcss/utilities';
 @import './custom-utilities.css';
 
-@import 'custom-autofill.css';
-
 /* https://www.npmjs.com/package/tw-colors */
