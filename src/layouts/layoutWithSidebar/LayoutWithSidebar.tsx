@@ -3,7 +3,7 @@ import { type PropsWithChildren, type ReactElement, Suspense } from 'react'
 
 import { Layout } from 'layouts/layout/Layout'
 
-import { ToasterSonner } from 'shared/ui/Sonner'
+import { ToasterSonner } from 'shared/ui'
 
 import { Sidebar } from 'widgets/sidebar'
 
