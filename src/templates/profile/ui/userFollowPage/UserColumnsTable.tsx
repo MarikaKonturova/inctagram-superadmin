@@ -52,7 +52,7 @@ export const columnsFollow: ColumnDef<UserFollowTableType>[] = [
           className={'flex cursor-pointer'}
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
-          Data Added
+          Subscription Date
           <CaretSortIcon className={'ml-2 h-4 w-4'} />
         </div>
       )
