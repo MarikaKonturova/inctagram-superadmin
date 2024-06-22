@@ -1,6 +1,7 @@
 'use client'
 
 import { ChevronsUpDown } from 'lucide-react'
+import { useRouter } from 'next/router'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 
@@ -24,8 +25,11 @@ const languages: Languages[] = [
 ]
 
 export function LangSelect() {
+  const router = useRouter()
+  const { pathname, asPath, query, locale } = router
+  const defaultLocale = languages.find(l => l.value === locale)
   const [open, setOpen] = useState(false)
-  const [selectedLang, setSelectedLang] = useState<Languages | null>(languages[0])
+  const [selectedLang, setSelectedLang] = useState<Languages | null>(defaultLocale || languages[0])
 
   useEffect(() => {
     const html = document.documentElement
@@ -33,6 +37,15 @@ export function LangSelect() {
     html.setAttribute('lang', selectedLang?.value as string)
     window.dispatchEvent(new Event('language-change'))
   }, [selectedLang])
+
+  const onLangChangeClick = (language: Languages) => {
+    if (language !== selectedLang) {
+      router.push({ pathname, query }, asPath, { locale: language.value })
+      setSelectedLang(language)
+    }
+
+    setOpen(false)
+  }
 
   return (
     <Popover onOpenChange={setOpen} open={open}>
@@ -54,10 +67,7 @@ export function LangSelect() {
           <div
             key={language.value}
             className={'flex items-center py-2 px-4 cursor-pointer hover:bg-dark-100'}
-            onClick={() => {
-              setSelectedLang(language === selectedLang ? selectedLang : language)
-              setOpen(false)
-            }}
+            onClick={() => onLangChangeClick(language)}
           >
             <language.icon className={'mr-2 h-4 w-4'} />
             <span>{language.label}</span>
