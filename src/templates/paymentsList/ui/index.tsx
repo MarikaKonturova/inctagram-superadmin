@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { toast } from 'sonner'
 
 import { useDebounce } from 'shared/hooks'
 import { Input, Switch, TablePagination } from 'shared/ui'
@@ -33,9 +32,6 @@ export const PaymentsList = () => {
     skip: !autoUpdate,
     onData: () => {
       refetch()
-    },
-    onComplete: () => {
-      toast.success('on complete')
     },
   })
 
