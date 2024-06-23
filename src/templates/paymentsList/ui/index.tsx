@@ -33,9 +33,6 @@ export const PaymentsList = () => {
     onData: () => {
       refetch()
     },
-    onComplete: () => {
-      console.log('on complete')
-    },
   })
 
   useEffect(() => {

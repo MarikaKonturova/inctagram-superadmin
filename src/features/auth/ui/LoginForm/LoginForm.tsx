@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button, FormInput, FormWrapper } from 'shared/ui'
@@ -37,11 +38,11 @@ export const LoginForm = () => {
 
     refetch()
       .then(() => {
-        console.log('refetched')
+        toast.success('refetched')
         !!data && router.push('/')
       })
       .catch(() => {
-        console.log('there is error')
+        toast.error('there is error')
       })
   }
 
