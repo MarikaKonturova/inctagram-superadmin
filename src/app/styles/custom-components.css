@@ -1,3 +1,12 @@
 @layer components {
   /* for any third-party components, for ex nprogress  */
+  input.input-autofill:-webkit-autofill,
+  input.input-autofill:-webkit-autofill:hover,
+  input.input-autofill:-webkit-autofill:focus,
+  input.input-autofill:-webkit-autofill:active {
+    caret-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s;
+
+    -webkit-text-fill-color: #fff !important;
+  }
 }
