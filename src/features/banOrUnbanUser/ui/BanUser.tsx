@@ -2,6 +2,7 @@ import { useMutation } from '@apollo/client'
 import { Ban } from 'lucide-react'
 import { useState } from 'react'
 
+import { useTranslation } from 'shared/hooks'
 import { BanReasonInputType, User } from 'shared/types'
 import { Button } from 'shared/ui'
 import { BanModal } from 'shared/ui/BanModal'
@@ -17,6 +18,7 @@ type BanUserProps = User & {
 
 export const BanUser = ({ showText, ...data }: BanUserProps) => {
   const [open, setOpen] = useState(false)
+  const t = useTranslation()
   const [updateUserStatus] = useMutation(UPDATE_USER_STATUS)
   const [banReason, setBanReason] = useState<BanReasonInputType>(BanReasonInputType.BadBehavior)
   const [details, setDetails] = useState<string>('')
@@ -62,7 +64,7 @@ export const BanUser = ({ showText, ...data }: BanUserProps) => {
           onClick={() => setOpen(true)}
         >
           <Ban className={'mr-2 h-4 w-4'} />
-          Ban in the system
+          {t.modals.banUser}
         </Button>
       ) : (
         <Button className={'w-4 p-0'} variant={'clear'}>

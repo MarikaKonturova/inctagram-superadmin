@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useDebounce } from 'shared/hooks'
+import { useDebounce, useTranslation } from 'shared/hooks'
 import { UserStatusInputType } from 'shared/types'
 import { TablePagination } from 'shared/ui'
 
@@ -10,6 +10,7 @@ import UserToolbar from 'entities/users/ui/UserToolbar'
 import { columns } from './UsersColumnsTable'
 
 export function UsersList() {
+  const t = useTranslation()
   const [pageIndex, setPageIndex] = useState(0)
   const [pageSize, setPageSize] = useState('10')
   const [status, setStatus] = useState<UserStatusInputType>(UserStatusInputType.All)
@@ -40,7 +41,7 @@ export function UsersList() {
         search={searchInput}
         setSearch={setSearchInput}
       />
-      <UsersListDataTable columns={columns} items={usersData?.users.items || []} />
+      <UsersListDataTable columns={columns(t)} items={usersData?.users.items || []} />
       <TablePagination
         pageIndex={pageIndex}
         pageSize={pageSize}

@@ -2,12 +2,14 @@ import { useMutation } from '@apollo/client'
 import { UserMinus } from 'lucide-react'
 import { useState } from 'react'
 
+import { useTranslation } from 'shared/hooks'
 import { User } from 'shared/types'
-import { DeleteModal, Button } from 'shared/ui'
+import { Button, DeleteModal } from 'shared/ui'
 
 import { DELETE_USER } from 'features/deleteUser/api/deleteUser'
 
 export const DeleteUser = (data: User) => {
+  const t = useTranslation()
   const [open, setOpen] = useState(false)
   const [deleteUser] = useMutation(DELETE_USER)
 
@@ -42,7 +44,7 @@ export const DeleteUser = (data: User) => {
         onClick={() => setOpen(true)}
       >
         <UserMinus className={'mr-2 h-4 w-4'} />
-        Delete User
+        {t.modals.deleteUser}
       </Button>
     </>
   )

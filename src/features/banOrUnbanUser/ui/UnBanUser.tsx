@@ -2,6 +2,7 @@ import { useMutation } from '@apollo/client'
 import { Ban, UserPlus } from 'lucide-react'
 import { useState } from 'react'
 
+import { useTranslation } from 'shared/hooks'
 import { User } from 'shared/types'
 import { Button } from 'shared/ui'
 import { UnBanModal } from 'shared/ui/UnBanModal'
@@ -17,6 +18,8 @@ type UnBanUserProps = User & {
 
 export const UnBanUser = ({ showText, ...data }: UnBanUserProps) => {
   const [open, setOpen] = useState(false)
+  const t = useTranslation()
+
   const [updateUserStatus] = useMutation(UPDATE_USER_STATUS)
 
   const onConfirm = async () => {
@@ -52,7 +55,7 @@ export const UnBanUser = ({ showText, ...data }: UnBanUserProps) => {
           onClick={() => setOpen(true)}
         >
           <Ban className={'mr-2 h-4 w-4'} />
-          Unban in the system
+          {t.modals.unbanUser}
         </Button>
       ) : (
         <Button className={'w-4 p-0'} variant={'clear'}>

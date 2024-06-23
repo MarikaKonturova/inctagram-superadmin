@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 
 import Rus from 'shared/assets/icons/flags/russia-flag-icon.svg'
 import Eng from 'shared/assets/icons/flags/united-states-flag-icon.svg'
+import { useTranslation } from 'shared/hooks'
 
 import { Button } from './Button'
 import { Popover, PopoverContent, PopoverTrigger } from './Popover'
@@ -20,11 +21,14 @@ type Languages = {
 }
 
 const languages: Languages[] = [
-  { icon: Eng, label: 'English', value: 'en' },
-  { icon: Rus, label: 'Russian', value: 'ru' },
+  { icon: Eng, label: 'english', value: 'en' },
+  { icon: Rus, label: 'russian', value: 'ru' },
 ]
 
+type LanguagesType = 'english' | 'russian'
+
 export function LangSelect() {
+  const t = useTranslation()
   const router = useRouter()
   const { pathname, asPath, query, locale } = router
   const defaultLocale = languages.find(l => l.value === locale)
@@ -55,7 +59,7 @@ export function LangSelect() {
             {selectedLang && (
               <>
                 <selectedLang.icon className={'mr-2 h-4 w-4 shrink-0'} />
-                {selectedLang.label}
+                {t.langSwitch[selectedLang.label as LanguagesType]}
               </>
             )}
           </div>
@@ -70,7 +74,7 @@ export function LangSelect() {
             onClick={() => onLangChangeClick(language)}
           >
             <language.icon className={'mr-2 h-4 w-4'} />
-            <span>{language.label}</span>
+            <span>{t.langSwitch[language.label as LanguagesType]}</span>
           </div>
         ))}
       </PopoverContent>

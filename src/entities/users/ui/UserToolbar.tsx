@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 
+import { useTranslation } from 'shared/hooks'
 import { UserStatusInputType } from 'shared/types'
 import {
   Input,
@@ -19,6 +20,8 @@ type UserToolbarType = {
 }
 
 const UserToolbar = ({ userStatus, search, setSearch, setUserStatus }: UserToolbarType) => {
+  const t = useTranslation()
+
   return (
     <div
       className={
@@ -27,7 +30,7 @@ const UserToolbar = ({ userStatus, search, setSearch, setUserStatus }: UserToolb
     >
       <div className={'flex items-center py-4'}>
         <Input
-          placeholder={'Search'}
+          placeholder={t.common.search}
           type={'search'}
           value={search}
           onChange={event => setSearch(event.target.value)}
@@ -42,10 +45,10 @@ const UserToolbar = ({ userStatus, search, setSearch, setUserStatus }: UserToolb
         <SelectContent>
           <SelectGroup>
             <SelectItem hidden value={UserStatusInputType.Active}>
-              Not blocked
+              {t.userList.notBlocked}
             </SelectItem>
-            <SelectItem value={UserStatusInputType.Banned}>Blocked</SelectItem>
-            <SelectItem value={UserStatusInputType.All}>Not Selected</SelectItem>
+            <SelectItem value={UserStatusInputType.Banned}> {t.userList.blocked}</SelectItem>
+            <SelectItem value={UserStatusInputType.All}> {t.userList.notSelected}</SelectItem>
           </SelectGroup>
         </SelectContent>
       </Select>
