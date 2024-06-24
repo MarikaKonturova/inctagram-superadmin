@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
+import { useTranslation } from 'shared/hooks'
 import { BanReasonInputType, User } from 'shared/types'
 import { Input } from 'shared/ui/Input'
 
@@ -40,12 +41,13 @@ export const BanModal = ({
   details,
   setDetails,
 }: BanModalProps) => {
+  const t = useTranslation()
   const [isMounted, setIsMounted] = useState(false)
 
   const reasons: ReasonType[] = [
-    { text: 'Bad behavior', value: BanReasonInputType.BadBehavior },
-    { text: 'Advertising placement', value: BanReasonInputType.AdvertisingPlacement },
-    { text: 'Another reason', value: BanReasonInputType.AnotherReason },
+    { text: t.modals.badBehavior, value: BanReasonInputType.BadBehavior },
+    { text: t.modals.advertisingPlacement, value: BanReasonInputType.AdvertisingPlacement },
+    { text: t.modals.anotherReason, value: BanReasonInputType.AnotherReason },
   ]
 
   useEffect(() => {
@@ -58,7 +60,7 @@ export const BanModal = ({
 
   return (
     <Modal
-      description={`Are you sure to ban user ${userData.userName} ?`}
+      description={`${t.modals.sureToBan} ${userData.userName} ?`}
       isOpen={isOpen}
       onClose={onClose}
       title={'Ban User'}
@@ -83,7 +85,7 @@ export const BanModal = ({
       {banReason === BanReasonInputType.AnotherReason && (
         <div className={'flex items-center justify-center p-2'}>
           <Input
-            placeholder={'Enter details'}
+            placeholder={t.modals.enterDetails}
             value={details}
             onChange={e => setDetails(e.target.value)}
           />
@@ -91,10 +93,10 @@ export const BanModal = ({
       )}
       <div className={'pt-6 space-x-2 flex items-center justify-center w-full'}>
         <Button onClick={onClose} variant={'ghost'}>
-          No
+          {t.modals.no}
         </Button>
         <Button onClick={onConfirm} variant={'destructive'}>
-          Yes
+          {t.modals.yes}
         </Button>
       </div>
     </Modal>

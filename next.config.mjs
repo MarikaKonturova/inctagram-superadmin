@@ -2,9 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ru'],
+    defaultLocale: 'default',
+    locales: ['default', 'en', 'ru'],
   },
+  trailingSlash: true,
   images: {
     domains: ['img.freepik.com'], // Добавляем разрешенные хосты для изображений
     remotePatterns: [

@@ -1,6 +1,7 @@
 import { MoreHorizontal } from 'lucide-react'
 import { useRouter } from 'next/router'
 
+import { useTranslation } from 'shared/hooks'
 import { User } from 'shared/types'
 import {
   DropdownMenu,
@@ -13,13 +14,13 @@ import {
 import { BanUser } from 'features/banOrUnbanUser'
 import { UnBanUser } from 'features/banOrUnbanUser/ui/UnBanUser'
 import { DeleteUser } from 'features/deleteUser'
-
 interface CellActionProps {
   data: User
 }
 
 const MoreOptions = ({ data }: CellActionProps) => {
   const router = useRouter()
+  const t = useTranslation()
 
   return (
     <>
@@ -44,7 +45,7 @@ const MoreOptions = ({ data }: CellActionProps) => {
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => router.push(`/profile/${data.userId}`)}>
             <MoreHorizontal className={'mr-2 h-4 w-4'} />
-            More information
+            {t.modals.moreInformation}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
