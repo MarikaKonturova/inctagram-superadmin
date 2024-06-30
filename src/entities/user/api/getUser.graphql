@@ -1,0 +1,11 @@
+query GetUser($userId: Int!) {
+  user(userId: $userId) {
+    userId
+    createdAt
+    followerCount
+    followingCount
+    userName
+    fullName
+    profileLink
+  }
+}

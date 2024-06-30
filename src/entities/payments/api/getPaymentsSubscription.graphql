@@ -1,0 +1,11 @@
+subscription createdSubscription {
+  createdSubscription {
+    urlAvatar
+    userName
+    userId
+    createdAt
+    amount
+    typeSubscription
+    paymentType
+  }
+}

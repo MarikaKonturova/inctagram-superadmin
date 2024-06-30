@@ -1,4 +1,3 @@
-import { useMutation } from '@apollo/client'
 import { Ban, UserPlus } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
@@ -10,7 +9,7 @@ import { UnBanModal } from 'shared/ui/UnBanModal'
 import { GetPostsDocument } from 'entities/postsList/api/getPosts.types'
 import { GetAllUsersDocument } from 'entities/users/api/getAllUsers.types'
 
-import { UPDATE_USER_STATUS } from 'features/banOrUnbanUser/api/updateUserStatus'
+import { useUpdateUserStatusMutation } from 'features/banOrUnbanUser/api/updateUserStatus.types'
 
 type UnBanUserProps = User & {
   showText: boolean
@@ -18,7 +17,8 @@ type UnBanUserProps = User & {
 
 export const UnBanUser = ({ showText, ...data }: UnBanUserProps) => {
   const [open, setOpen] = useState(false)
-  const [updateUserStatus] = useMutation(UPDATE_USER_STATUS)
+
+  const [updateUserStatus] = useUpdateUserStatusMutation()
 
   const onConfirm = async () => {
     try {
