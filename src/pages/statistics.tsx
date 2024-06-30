@@ -1,103 +1,9 @@
-import { useQuery } from '@apollo/client'
-import { subDays } from 'date-fns'
 import Head from 'next/head'
-import { useState } from 'react'
-import { DateRange } from 'react-day-picker'
-import { Legend, Line, LineChart, XAxis, YAxis } from 'recharts'
 
 import { getLayoutWithSidebar } from 'layouts'
+import { Statistics } from 'templates/statistics'
 
-import { DatePickerWithRange } from 'shared/ui'
-
-import { GET_NEW_USERS } from 'entities/statistics/api/getNewUsers'
-
-export type LineChartByDateProps = {
-  colors: {
-    pv: string
-    uv: string
-  }
-  data: {
-    name: string
-    pv: number
-    uv: number
-  }[]
-  onDataChange: (data: DateRange) => void
-}
-
-const LineChartByDate = ({ data, onDataChange, colors }: LineChartByDateProps) => {
-  return (
-    <div className={'flex flex-col'}>
-      <div className={'flex justify-between pl-10 w-full'}>
-        <h3
-          className={
-            'text-lg font-medium  text-tremor-content-strong dark:text-dark-tremor-content-strong '
-          }
-        >
-          Users Yopsel
-        </h3>
-        <DatePickerWithRange onDateChange={onDataChange} />
-      </div>
-
-      <LineChart
-        width={750}
-        height={250}
-        data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-      >
-        <XAxis dataKey={'name'} />
-        <YAxis />
-        <Legend verticalAlign={'top'} />
-        <Line type={'monotone'} dataKey={'pv'} stroke={colors.pv} dot={false} />
-        <Line type={'monotone'} dataKey={'uv'} stroke={colors.uv} dot={false} />
-      </LineChart>
-    </div>
-  )
-}
-
-const newDate = new Date()
-/* {
-      startDate: subDays(newDate, 30),
-      endDate: newDate,
-      comparisonStartDate: subDays(newDate, 60),
-      comparisonEndDate: subDays(newDate, 30),
-    } */
-const useGetUserStatistics = () => {
-  const { data } = useQuery(GET_NEW_USERS, {
-    variables: {
-      startDate: subDays(newDate, 30),
-      endDate: newDate,
-      comparisonStartDate: subDays(newDate, 60),
-      comparisonEndDate: subDays(newDate, 30),
-    },
-  })
-
-  const alLMetrics = data?.statisticsUsers?.data
-  const metrics = alLMetrics?.metrics
-  const metricsComparison = alLMetrics?.metricsComparison
-
-  const countUsersMetrics = metrics?.countUsers
-  const countUsersComparisonMetrics = metricsComparison?.countUsers
-
-  const dataChart = countUsersMetrics?.map((m: unknown, index: number) => ({
-    name: index + 1,
-    pv: countUsersMetrics[index],
-    uv: countUsersComparisonMetrics[index],
-  }))
-
-  return dataChart
-}
-const colors = { pv: '#FFD073', uv: '#664400' }
-
-export const UsersChart = () => {
-  const [date, setDate] = useState<DateRange | undefined>()
-  const data = useGetUserStatistics()
-
-  console.log(date)
-
-  return <LineChartByDate data={data} colors={colors} onDataChange={setDate} />
-}
-
-export default function Statistics() {
+export default function StatisticsPage() {
   return (
     <>
       <Head>
@@ -108,9 +14,9 @@ export default function Statistics() {
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
       <main className={'w-full h-full flex items-center justify-start'}>
-        <UsersChart />
+        <Statistics />
       </main>
     </>
   )
 }
-Statistics.getLayout = getLayoutWithSidebar
+StatisticsPage.getLayout = getLayoutWithSidebar

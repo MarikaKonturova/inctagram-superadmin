@@ -17,6 +17,10 @@ export const ru: LocaleType = {
             payments: 'Платежи',
             uploadedPhotos: 'Загруженные фотографии',
         }
+    },
+    statistics:{
+        users: 'Пользователи',
+        photos: 'Фотографии'
     }
 }
 

@@ -16,6 +16,10 @@ export const en = {
            payments: 'Payments',
            uploadedPhotos: 'Uploaded Photos',
        }
+    },
+    statistics:{
+        users: 'Users',
+        photos: 'Photos'
     }
 }
 
