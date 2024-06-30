@@ -1,0 +1,8 @@
+mutation updateUserStatus(
+  $userId: Int!
+  $banReason: BanReasonInputType
+  $isBanned: Boolean!
+  $details: String
+) {
+  updateUserStatus(userId: $userId, banReason: $banReason, isBanned: $isBanned, details: $details)
+}

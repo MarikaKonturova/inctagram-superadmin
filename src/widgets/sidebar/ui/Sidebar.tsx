@@ -17,7 +17,7 @@ type MenuItemsType = {
 }
 
 export const Sidebar = () => {
-  const { t } = useTranslation()
+  const t = useTranslation()
 
   const menuItems: MenuItemsType[] = [
     {

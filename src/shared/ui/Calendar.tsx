@@ -1,22 +1,22 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
-import { enUS, ru } from 'date-fns/locale'
+//import { enUS, ru } from 'date-fns/locale'
 import * as React from 'react'
 import { DayPicker } from 'react-day-picker'
 
-import { useTranslation } from 'shared/hooks'
+//import { useTranslation } from 'shared/hooks'
 import { cn } from 'shared/utils'
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
 function Calendar({ className, classNames, showOutsideDays = true, ...props }: CalendarProps) {
-  const { locale } = useTranslation()
+  //  const locale = useTranslation()
 
   return (
     <DayPicker
       initialFocus={false}
       showOutsideDays={showOutsideDays}
       className={cn('p-3', className)}
-      locale={locale === 'en' ? enUS : ru}
+      // locale={locale === 'en' ? enUS : ru}
       classNames={{
         months: 'flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0',
         month: 'space-y-4',

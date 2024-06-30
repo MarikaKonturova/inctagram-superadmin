@@ -1,15 +1,15 @@
-import { useMutation } from '@apollo/client'
 import { UserMinus } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 import { User } from 'shared/types'
 import { DeleteModal, Button } from 'shared/ui'
 
-import { DELETE_USER } from 'features/deleteUser/api/deleteUser'
+import { useDeleteUserMutation } from 'features/deleteUser/api/deleteUser.types'
 
 export const DeleteUser = (data: User) => {
   const [open, setOpen] = useState(false)
-  const [deleteUser] = useMutation(DELETE_USER)
+  const [deleteUser] = useDeleteUserMutation()
 
   const onConfirm = async () => {
     try {
@@ -18,9 +18,9 @@ export const DeleteUser = (data: User) => {
           userId: data.userId,
         },
       })
-      console.log('User has been deleted')
+      toast.success('User has been deleted')
     } catch (error) {
-      console.log(error)
+      toast.error(error?.toString())
     } finally {
       setOpen(false)
     }

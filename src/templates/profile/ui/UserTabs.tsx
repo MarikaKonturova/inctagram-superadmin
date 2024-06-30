@@ -6,7 +6,7 @@ import { UserPosts } from './userPosts/UserPosts'
 import { UserPayments } from './userTablePayments/UserPayments'
 
 export const UserTabs = () => {
-  const { t } = useTranslation()
+  const t = useTranslation()
 
   const TABS_NAMES = {
     FOLLOWERS: t.userProfile.tabs.followers,

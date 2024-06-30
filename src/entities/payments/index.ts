@@ -1,5 +1,3 @@
+export { useCreatedSubscriptionSubscription } from './api/getPaymentsSubscription.types'
 export { PaymentsTable } from './ui/PaymentsTable'
-export {
-  useGetAllPaymentsQuery,
-  useCreatedSubscriptionSubscription,
-} from './api/getAllPayments.types'
+export { useGetAllPaymentsQuery } from './api/getAllPayments.types'

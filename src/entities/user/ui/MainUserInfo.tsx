@@ -9,7 +9,7 @@ import { GetUserQuery } from 'entities/user/api/getUser.types'
 
 export const MainUserInfo = ({ userData }: { userData: GetUserQuery }) => {
   const { createdAt, profileLink, userId, userName, fullName } = userData.user
-  const { t } = useTranslation()
+  const t = useTranslation()
 
   return (
     <>

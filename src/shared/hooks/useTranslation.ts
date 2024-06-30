@@ -24,5 +24,5 @@ export const useTranslation = () => {
     }
   }, [])
 
-  return { locale, t: locale === 'en' ? en : ru }
+  return locale === 'en' ? en : ru
 }
