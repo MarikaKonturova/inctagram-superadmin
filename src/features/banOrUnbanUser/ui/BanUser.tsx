@@ -1,4 +1,3 @@
-import { useMutation } from '@apollo/client'
 import { Ban } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
@@ -10,7 +9,7 @@ import { BanModal } from 'shared/ui/BanModal'
 import { GetPostsDocument } from 'entities/postsList/api/getPosts.types'
 import { GetAllUsersDocument } from 'entities/users/api/getAllUsers.types'
 
-import { UPDATE_USER_STATUS } from 'features/banOrUnbanUser/api/updateUserStatus'
+import { useUpdateUserStatusMutation } from 'features/banOrUnbanUser/api/updateUserStatus.types'
 
 type BanUserProps = User & {
   showText: boolean
@@ -18,7 +17,7 @@ type BanUserProps = User & {
 
 export const BanUser = ({ showText, ...data }: BanUserProps) => {
   const [open, setOpen] = useState(false)
-  const [updateUserStatus] = useMutation(UPDATE_USER_STATUS)
+  const [updateUserStatus] = useUpdateUserStatusMutation()
   const [banReason, setBanReason] = useState<BanReasonInputType>(BanReasonInputType.BadBehavior)
   const [details, setDetails] = useState<string>('')
 
