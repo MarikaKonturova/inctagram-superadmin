@@ -19,7 +19,12 @@ export const en = {
     },
     statistics:{
         users: 'Users',
-        photos: 'Photos'
+        photos: 'Photos',
+        currentMonth: 'Current Month',
+        lastMonth: "Last Month",
+        newUsers: 'New Users',
+        paidAccounts: 'Paid Accounts',
+        updloadedPhotos: 'Uploaded Photos'
     }
 }
 

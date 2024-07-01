@@ -21,7 +21,7 @@ export const StatisticsTabs = () => {
     },
   ]
   const getLabelsTabs = STATISTICS_TABS.map((el, i) => (
-    <TabsTrigger key={i} value={el.value}>
+    <TabsTrigger key={i} value={el.value} className={'w-fit'}>
       {el.label}
     </TabsTrigger>
   ))
@@ -33,8 +33,11 @@ export const StatisticsTabs = () => {
   ))
 
   return (
-    <Tabs defaultValue={STATISTICS_TABS[0].value}>
-      <TabsList>{getLabelsTabs}</TabsList>
+    <Tabs
+      defaultValue={STATISTICS_TABS[0].value}
+      className={'h-full flex flex-col justify-start items-start gap-8'}
+    >
+      <TabsList className={'flex  justify-start'}>{getLabelsTabs}</TabsList>
       {getContentTabs}
     </Tabs>
   )

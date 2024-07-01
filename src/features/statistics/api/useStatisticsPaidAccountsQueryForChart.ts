@@ -3,10 +3,10 @@ import { DateRange } from 'react-day-picker'
 
 import { calculateDaysDifference } from 'features/statistics/model/calculateDaysDifference'
 
-import { useNewUsersStatisticsQuery } from './getNewUsers.types'
+import { useStatisticsPaidAccountsQuery } from './getPaidAccounts.types'
 
-export const useGetUserStatisticsForChart = ({ from, to }: DateRange) => {
-  const { data } = useNewUsersStatisticsQuery({
+export const useStatisticsPaidAccountsQueryForChart = ({ from, to }: DateRange) => {
+  const { data } = useStatisticsPaidAccountsQuery({
     variables: {
       startDate: from,
       endDate: to,
@@ -15,7 +15,7 @@ export const useGetUserStatisticsForChart = ({ from, to }: DateRange) => {
     },
   })
 
-  const alLMetrics = data?.statisticsUsers?.data
+  const alLMetrics = data?.statisticsPaidAccounts?.data
   const metrics = alLMetrics?.metrics
   const metricsComparison = alLMetrics?.metricsComparison
 

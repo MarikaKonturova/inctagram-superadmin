@@ -1,3 +1,5 @@
 export { useGetUserStatisticsForChart } from './api/useGetUserStatisticsForChart'
+export { useStatisticsPaidAccountsQueryForChart } from './api/useStatisticsPaidAccountsQueryForChart'
 export { useStatisticsPaidAccountsQuery } from './api/getPaidAccounts.types'
 export { UsersChart } from './ui/UsersChart'
+export { PaidAccountsChart } from './ui/PaidAccountsChart'

@@ -20,18 +20,10 @@ query statisticsPaidAccounts(
       metrics {
         countUsers
         total_rows
-        time_intervals
-        maxCountUsers
-        maxRoundUsers
-        sumUsers
       }
       metricsComparison {
         countUsers
         total_rows
-        time_intervals
-        maxCountUsers
-        maxRoundUsers
-        sumUsers
       }
     }
   }

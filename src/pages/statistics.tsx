@@ -13,7 +13,7 @@ export default function StatisticsPage() {
 
         <link href={'/favicon.ico'} rel={'icon'} />
       </Head>
-      <main className={'w-full h-full flex items-center justify-start'}>
+      <main className={'w-full h-full py-5 pb-40'}>
         <Statistics />
       </main>
     </>

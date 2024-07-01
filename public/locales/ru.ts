@@ -20,7 +20,12 @@ export const ru: LocaleType = {
     },
     statistics:{
         users: 'Пользователи',
-        photos: 'Фотографии'
+        photos: 'Фотографии',
+        currentMonth: 'Этот месяц',
+        lastMonth: "Прошлый месяц",
+        newUsers: 'Новые пользователи',
+        paidAccounts: 'Платные аккаунты',
+        updloadedPhotos: 'Загруженые фотографии'
     }
 }
 
